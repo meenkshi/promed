@@ -1,9 +1,14 @@
 {% if settings.show_multiple_currencies %}
+{% if template contains 'cart' %}            
+    {{ "//cdn.shopify.com/s/javascripts/currencies.js" | script_tag }}
+    {{ "jquery.currencies.min.js" | asset_url | script_tag }}							        
+{% else %}
+    <script type="lazyload_int" data-src="//cdn.shopify.com/s/javascripts/currencies.js"></script>
+    <script type="lazyload_int" data-src="{{ "jquery.currencies.min.js" | asset_url }}"></script>
+{% endif %}   
 
-{{ "//cdn.shopify.com/s/javascripts/currencies.js" | script_tag }}
-{{ "jquery.currencies.min.js" | asset_url | script_tag }}
 
-<script>
+<script{% unless template contains 'cart' %} type="lazyload_int"{% endunless %}>
 
   Currency.format = '{{ settings.currency_format | default: 'money_with_currency_format' }}';
 

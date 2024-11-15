@@ -62,7 +62,7 @@
           <div class="newletter_email">          
             <form class="newsletter-form-wrap form-inline" action="{{form_action}}" method="post">
               <input type="email" name="EMAIL" class="form-control" placeholder="{{ 'general.newsletter_form.newsletter_emai_2' | t }}" required >
-              <button class="btn submit-newsletter" type="submit"><i class="{{section.settings.icon_button}}"></i></button>
+              <button class="btn submit-newsletter" type="submit" aria-label="Submit"><i class="{{section.settings.icon_button}}"></i></button>
             </form>
           </div>
         </div>
@@ -196,8 +196,3 @@
 }
 {% endschema %}
 
-{% stylesheet %}
-{% endstylesheet %}
-
-{% javascript %}
-{% endjavascript %}

@@ -15,7 +15,11 @@
     
       {% if section.settings.section_title != blank %}
         <div class="rich-text__heading--{{ section.settings.text_size }} text-center">
-          <h2 class="heading-title">{{ section.settings.section_title  }}</h2>
+          {% if canonical_url contains '/about-us' %}
+            <h1 class="heading-title">{{ section.settings.section_title  }}</h1>
+          {% else %}
+            <h2 class="heading-title">{{ section.settings.section_title  }}</h2>
+          {% endif %}
         </div>
       {% endif %}
 

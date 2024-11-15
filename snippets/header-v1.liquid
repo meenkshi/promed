@@ -27,9 +27,9 @@
             {% else %}            
             <a href="{{shop.url}}">
               {% if section.settings.hd_home_logo != blank %}
-              <img src="{{section.settings.hd_home_logo|img_url:'master'}}" width="{{section.settings.hd_home_logo_maxwidth}}" alt="{{shop.name}}">
+              <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-class="LazyLoad" data-src="{{section.settings.hd_home_logo|img_url:'master'}}" width="{{section.settings.hd_home_logo_maxwidth}}" alt="{{shop.name}}">
               {% else %}
-              <img src="//via.placeholder.com/160x46" width="{{section.settings.hd_home_logo_maxwidth}}" alt="{{shop.name}}">
+              <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-class="LazyLoad" data-src="//via.placeholder.com/160x46" width="{{section.settings.hd_home_logo_maxwidth}}" alt="{{shop.name}}">
               {% endif %}
             </a>
             {% endif %}          
@@ -45,7 +45,7 @@
         <div class="cart-login-search align-items-center"> 
           <ul class="list-inline list-unstyled mb-0">
             <li class="list-inline-item mr-0">
-              <a href="javascript:void(0)" class="search js-search-destop">
+              <a href="javascript:void(0)" class="search js-search-destop" aria-label="Click here for more search">
                 {% if section.settings.hd_icon_search_svg != blank %}
                 {{section.settings.hd_icon_search_svg}}
                 {% else %}
@@ -54,7 +54,7 @@
               </a>
             </li>
             <li class="list-inline-item mr-0">
-              <a href="{% if customer %}/account {% else %}javascript:void(0){% endif %}" class="login {% if customer %}{% else %}js-call-popup-login{% endif %}">
+              <a href="{% if customer %}/account {% else %}javascript:void(0){% endif %}" class="login {% if customer %}{% else %}js-call-popup-login{% endif %}" aria-label="Click here for cart more items">
                 {% if section.settings.hd_icon_login_svg != blank %}
                 {{section.settings.hd_icon_login_svg}}
                 {% else %}
@@ -70,13 +70,13 @@
                 <i class="{{section.settings.hd_icon_wishlist}}"></i>
                 {% endif %}
               </a>{% endcomment %}
-              <a href="/pages/swym-wishlist" class="swym-wishlist">
+              <a href="/pages/swym-wishlist" class="swym-wishlist" aria-label="Click here wishlist your item">
                   <!-- <i aria-hidden="true" focusable="false" role="presentation" class="fa fa-heart"></i> -->
                   {{section.settings.hd_icon_wishlist_svg}}
                 </a>
             </li>
             <li class="list-inline-item mr-0">
-              <a href="javascript:void(0)" class="cart js-call-minicart">
+              <a href="javascript:void(0)" class="cart js-call-minicart" aria-label="Click here for add to cart your product">
                 {% if section.settings.hd_icon_cart_svg != blank %}
                 {{section.settings.hd_icon_cart_svg}}
                 {% else %}
@@ -95,7 +95,7 @@
   </div>
 </header>
 
-<script>
+<script type="lazyload_int">
   jQuery(document).ready(function($) {
     
     function hexToRgb(hex) {
@@ -181,9 +181,9 @@
             {% else %}            
             <a href="{{shop.url}}">
               {% if section.settings.hd_other_logo != blank %}
-              <img src="{{section.settings.hd_other_logo|img_url:'master'}}" width="{{section.settings.hd_other_logo_maxwidth}}" alt="{{shop.name}}">
+              <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-class="LazyLoad" data-src="{{section.settings.hd_other_logo|img_url:'master'}}" width="{{section.settings.hd_other_logo_maxwidth}}" alt="{{shop.name}}">
               {% else %}
-              <img src="//via.placeholder.com/160x46" width="{{section.settings.hd_other_logo_maxwidth}}" alt="{{shop.name}}">
+              <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-class="LazyLoad" data-src="//via.placeholder.com/160x46" width="{{section.settings.hd_other_logo_maxwidth}}" alt="{{shop.name}}">
               {% endif %}
             </a>
             {% endif %}          
@@ -199,7 +199,7 @@
         <div class="cart-login-search align-items-center"> 
           <ul class="list-inline list-unstyled mb-0">
             <li class="list-inline-item mr-0">
-              <a href="javascript:void(0)" class="search js-search-destop">
+              <a href="javascript:void(0)" class="search js-search-destop" aria-label="Click here for more search">
                 {% if section.settings.hd_icon_search_svg != blank %}
                 {{section.settings.hd_icon_search_svg}}
                 {% else %}
@@ -208,7 +208,7 @@
               </a>
             </li>
             <li class="list-inline-item mr-0">
-              <a href="{% if customer %}/account {% else %}javascript:void(0){% endif %}" class="login {% if customer %}{% else %}js-call-popup-login{% endif %}">
+              <a href="{% if customer %}/account {% else %}javascript:void(0){% endif %}" class="login {% if customer %}{% else %}js-call-popup-login{% endif %}" aria-label="Click here for create your account">
                 {% if section.settings.hd_icon_login_svg != blank %}
                 {{section.settings.hd_icon_login_svg}}
                 {% else %}
@@ -224,13 +224,13 @@
                 <i class="{{section.settings.hd_icon_wishlist}}"></i>
                 {% endif %}
               </a>{% endcomment %}
-              <a href="/pages/swym-wishlist" class="swym-wishlist">
+              <a href="/pages/swym-wishlist" class="swym-wishlist" aria-label="Click here wishlist your item">
                   <!-- <i aria-hidden="true" focusable="false" role="presentation" class="fa fa-heart"></i> -->
                   {{section.settings.hd_icon_wishlist_svg}}
                 </a>
             </li>
             <li class="list-inline-item mr-0">
-              <a href="javascript:void(0)" class="cart js-call-minicart">
+              <a href="javascript:void(0)" class="cart js-call-minicart" aria-label="Click here for add to cart your product">
                 {% if section.settings.hd_icon_cart_svg != blank %}
                 {{section.settings.hd_icon_cart_svg}}
                 {% else %}
@@ -250,7 +250,7 @@
 </header>
 
 
-<script>
+<script type="lazyload_int">
   jQuery(document).ready(function($) {
     
     function hexToRgb(hex) {

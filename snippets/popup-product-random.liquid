@@ -19,7 +19,7 @@
       <div class="d-flex align-items-md-center align-items-start">
         <div class="img_left">
           <a href="{{ product.url | within: collection }}">
-            <img width="80" height="80" data-src="{{ product.featured_image.src | img_url: 'master' }}" class="lazyload img-responsive" alt="{{ product.featured_image.alt | escape }}">
+            <img width="80" height="80" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-class="LazyLoad" data-src="{{ product.featured_image.src | img_url: 'master' }}" class="lazyloaded img-responsive" alt="{{ product.featured_image.alt | escape }}">
           </a>
         </div>
         <div class="info_right">
@@ -50,7 +50,7 @@
   </div>
 </div>
 
-<script>
+<script type="lazyload_int">
   function random(min,max){
     return Math.floor(Math.random()*(max-min+1)+min);
   }

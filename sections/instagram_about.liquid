@@ -5,7 +5,7 @@
           {% assign instafeed_link = '{{link}}' %}
 
           {% if section.settings.ins_userid != blank and section.settings.ins_access_token != blank %}
-          <script>
+          <script type="lazyload_int">
             jQuery(document).ready(function($) {
               var feed = new Instafeed({
                 get: 'user',
@@ -68,7 +68,7 @@
             });
           </script>
           {% else %}
-          <script>
+          <script type="lazyload_int">
             jQuery(document).ready(function($) {
               function engo_insv2() {
                 $('.js-instagram').slick({
@@ -132,7 +132,7 @@
               {% if shop.permanent_domain == "soapic-store-demo.myshopify.com" %}
               {% for i in (1..section.settings.ins_limit_number) %}
               <div class="content relative hover-images ">
-                <img src="{{ 'instagram' | append: i | append: '.jpg' | file_img_url: 'master' }}" class="img-responsive" alt="instagram" />
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-class="LazyLoad" data-src="{{ 'instagram' | append: i | append: '.jpg' | file_img_url: 'master' }}" class="img-responsive" alt="instagram" />
                 <div class="absolute content_text flex center">
                   <a href="https://www.instagram.com/" class="delay03 inline-block" target="_blank"><i class="{{section.settings.item_icon}}"></i></a>
                 </div>

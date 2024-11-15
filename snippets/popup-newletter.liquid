@@ -18,9 +18,9 @@
         {% if settings.enable_image_poup %}
         <div class="right">
           {% if settings.image_poup != blank %}
-          <img src="{{settings.image_poup|img_url:'master'}}" class="img-fluid" alt="image popup">
+          <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-class="LazyLoad" data-src="{{settings.image_poup|img_url:'master'}}" class="img-fluid" alt="image popup">
           {% else %}
-          <img src="https://via.placeholder.com/318x400" alt="">
+          <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-class="LazyLoad" data-src="https://via.placeholder.com/318x400" alt="">
           {% endif %}
 
         </div>
@@ -122,9 +122,9 @@
          {% if settings.enable_image_poup %}
         <div class="right">
           {% if settings.image_poup != blank %}
-          <img src="{{settings.image_poup|img_url:'master'}}" class="img-fluid" alt="image popup">
+          <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-class="LazyLoad" data-src="{{settings.image_poup|img_url:'master'}}" class="img-fluid" alt="image popup">
           {% else %}
-          <img src="https://via.placeholder.com/318x400" alt="">
+          <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-class="LazyLoad" data-src="https://via.placeholder.com/318x400" alt="">
           {% endif %}
 
         </div>

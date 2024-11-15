@@ -1,7 +1,7 @@
 <div class="wrap-bread-crumb breadcrumb_collection2">
   <div class="text-center bg-breadcrumb" style="background-image : url({% if section.settings.bg_breadcrumb != blank  %}{{section.settings.bg_breadcrumb | img_url : 'master'}} {% else %}//via.placeholder.com/1920x510 {% endif %})">
     <div class="title-page">
-
+      
       <h2 class="">{{page.title}}</h2>
 
     </div>
@@ -55,7 +55,7 @@
                       <div class="">
                         <div class="contact-google-map">
                           <div id="map" class="map-custom"></div>
-                          <script>
+                          <script type="lazyload_int">
                             function initMap() {
                               var myLatLng = {lat: {{settings.gmap_latitude}}, lng: {{settings.gmap_longitude}}};
 
@@ -70,7 +70,7 @@
                               });
                             }
                           </script>
-                          <script src="https://maps.googleapis.com/maps/api/js?key={{settings.gmap_key}}&callback=initMap" async defer></script>
+                          <script type="lazyload_int" data-src="https://maps.googleapis.com/maps/api/js?key={{settings.gmap_key}}&callback=initMap" async defer></script>
                         </div>
                       </div>
                     </div>
@@ -307,8 +307,3 @@
 }
 {% endschema %}
 
-{% stylesheet %}
-{% endstylesheet %}
-
-{% javascript %}
-{% endjavascript %}

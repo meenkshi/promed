@@ -6,7 +6,7 @@ See: https://docs.myshopify.io/themes/customization/products/hide-variants-that-
 {% endcomment %}
 
 {% if product.options.size == 1 %}
-<script>
+<script type="lazyload_int">
   var $addToCartForm = $('form[action="/cart/add"]');
   if (window.MutationObserver && $addToCartForm.length) {
     if (typeof observer === 'object' && typeof observer.disconnect === 'function') {

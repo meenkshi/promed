@@ -41,7 +41,7 @@
 {% endif %}
 
 {% else %}
-<a href="/account/login" class="box-shadow  inline-block maxus-product__wishlist wish text-center" data-toggle="tooltip" data-placement="top" data-original-title="{{settings.pia_wishlist_name}}">
+  <a href="/account/login" class="box-shadow  inline-block maxus-product__wishlist wish text-center" data-toggle="tooltip" data-placement="top" data-original-title="{{settings.pia_wishlist_name}}" aria-label="Add your product in wishlist">
   {% if settings.pia_wishlist_svg != blank %}
   <i class="fsz-unset">{{settings.pia_wishlist_svg}}</i>
   {% else %}

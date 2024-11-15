@@ -28,9 +28,9 @@
             {% else %}            
             <a href="{{shop.url}}">
               {% if section.settings.hd_home_logo != blank %}
-              <img src="{{section.settings.hd_home_logo|img_url:'master'}}" width="{{section.settings.hd_home_logo_maxwidth}}" alt="{{shop.name}}">
+              <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-class="LazyLoad" data-src="{{section.settings.hd_home_logo|img_url:'master'}}" width="{{section.settings.hd_home_logo_maxwidth}}" alt="{{shop.name}}">
               {% else %}
-              <img src="//via.placeholder.com/160x46" width="{{section.settings.hd_home_logo_maxwidth}}" alt="{{shop.name}}">
+              <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-class="LazyLoad" data-src="//via.placeholder.com/160x46" width="{{section.settings.hd_home_logo_maxwidth}}" alt="{{shop.name}}">
               {% endif %}
             </a>
             {% endif %}          
@@ -89,7 +89,7 @@
 </header>
 
 
-<script>
+<script type="lazyload_int">
   jQuery(document).ready(function($) {
     
     function hexToRgb(hex) {
@@ -231,9 +231,9 @@
             {% else %}            
             <a href="{{shop.url}}">
               {% if section.settings.hd_other_logo != blank %}
-              <img src="{{section.settings.hd_other_logo|img_url:'master'}}" width="{{section.settings.hd_other_logo_maxwidth}}" alt="{{shop.name}}">
+              <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-class="LazyLoad" data-src="{{section.settings.hd_other_logo|img_url:'master'}}" width="{{section.settings.hd_other_logo_maxwidth}}" alt="{{shop.name}}">
               {% else %}
-              <img src="//via.placeholder.com/160x46" width="{{section.settings.hd_other_logo_maxwidth}}" alt="{{shop.name}}">
+              <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-class="LazyLoad" data-src="//via.placeholder.com/160x46" width="{{section.settings.hd_other_logo_maxwidth}}" alt="{{shop.name}}">
               {% endif %}
             </a>
             {% endif %}          
@@ -292,7 +292,7 @@
 </header>
 
 
-<script>
+<script type="lazyload_int">
   jQuery(document).ready(function($) {
     
     function hexToRgb(hex) {

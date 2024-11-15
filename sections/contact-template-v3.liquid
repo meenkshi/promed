@@ -56,7 +56,7 @@
                 <div class="">
                   <div class="contact-google-map">
                     <div id="map" class="map-custom"></div>
-                    <script>
+                    <script type="lazyload_int">
                       function initMap() {
                         var myLatLng = {lat: {{settings.gmap_latitude}}, lng: {{settings.gmap_longitude}}};
 
@@ -71,7 +71,7 @@
                         });
                       }
                     </script>
-                    <script src="https://maps.googleapis.com/maps/api/js?key={{settings.gmap_key}}&callback=initMap" async defer></script>
+                    <script type="lazyload_int" data-src="https://maps.googleapis.com/maps/api/js?key={{settings.gmap_key}}&callback=initMap" async defer></script>
                   </div>
                 </div>
               </div>
@@ -304,9 +304,3 @@
   ]
 }
 {% endschema %}
-
-{% stylesheet %}
-{% endstylesheet %}
-
-{% javascript %}
-{% endjavascript %}

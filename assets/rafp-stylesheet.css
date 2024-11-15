@@ -1,0 +1,22 @@
+@font-face{
+            font-family:"Font-1726638749248";
+            src:url("https:\/\/cdn.shopify.com\/s\/files\/1\/0658\/8976\/3480\/files\/FontsFree-Net-Gilroy-ExtraBold_ee1fd698-5d47-4ee3-8d2c-2ea50f8495c0.ttf?v=1727106744");
+            font-display:swap;
+        }
+        h1,h2,h3,h4,h5,h6 {
+            font-family:"Font-1726638749248"!important;
+        }
+        @font-face{
+            font-family:"Font-1726638974935";
+            src:url("https:\/\/cdn.shopify.com\/s\/files\/1\/0658\/8976\/3480\/files\/Gilroy-Medium.ttf?v=1726639010");
+            font-display:swap;
+        }
+        body,p,blockquote,li,a,strong,b,em {
+            font-family:"Font-1726638974935"!important;
+        }
+        @media screen and (max-width: 749px) {
+            h1,h2,h3,h4,h5,h6 {          
+            }
+            body,p,blockquote,li,a,strong,b,em {          
+            }
+        }

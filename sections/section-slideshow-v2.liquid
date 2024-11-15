@@ -3,16 +3,16 @@
 {% for block in section.blocks %}
 {% if block.type == "slideshow" %}
   {% if block.settings.fonts_sub_title !=blank %}
-  <link href="https://fonts.googleapis.com/css2?family={{block.settings.fonts_sub_title}}:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link data-href="https://fonts.googleapis.com/css2?family={{block.settings.fonts_sub_title}}:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
   {% endif %}
   {% if block.settings.fonts_title !=blank %}
-  <link href="https://fonts.googleapis.com/css2?family={{block.settings.fonts_title}}:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link data-href="https://fonts.googleapis.com/css2?family={{block.settings.fonts_title}}:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
   {% endif %}
   {% if block.settings.fonts_sub_title2 !=blank %}
-  <link href="https://fonts.googleapis.com/css2?family={{block.settings.fonts_sub_title2}}:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link data-href="https://fonts.googleapis.com/css2?family={{block.settings.fonts_sub_title2}}:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
   {% endif %}
   {% if block.settings.fonts_button !=blank %}
-  <link href="https://fonts.googleapis.com/css2?family={{block.settings.fonts_button}}:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link data-href="https://fonts.googleapis.com/css2?family={{block.settings.fonts_button}}:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
   {% endif %}
 {% endif %}
 {% endfor %}
@@ -35,11 +35,11 @@
               {% else %}
               {% if block.settings.block_banerimage != blank %}
               <a href="{{block.settings.block_url}}">
-                <img data-src="{{block.settings.block_banerimage | img_url: 'master'}}" class="lazyload img-fluid w-100" alt="_img_slide_">
+                <img src="{{block.settings.block_banerimage | img_url: 'master'}}" class="lazyloaded img-fluid w-100" alt="_img_slide_">
               </a>
               {% else %}
               <a href="{{block.settings.block_url}}">
-                <img data-src="//via.placeholder.com/1920x900" class="lazyload img-fluid w-100" alt="_img_slide_">
+                <img src="//via.placeholder.com/1920x900" class="lazyloaded img-fluid w-100" alt="_img_slide_">
               </a>
               {% endif %}
               {% endif %}
@@ -47,11 +47,11 @@
             <div class="d-block d-md-none">
               {% if block.settings.block_banerimage_mb != blank %}
               <a href="{{block.settings.block_url}}">
-                <img data-src="{{block.settings.block_banerimage_mb | img_url: 'master'}}" class="lazyload img-fluid w-100" alt="_img_slide_">
+                <img src="{{block.settings.block_banerimage_mb | img_url: 'master'}}" class="lazyloaded img-fluid w-100" alt="_img_slide_">
               </a>
               {% else %}
               <a href="{{block.settings.block_url}}">
-                <img data-src="{{block.settings.block_banerimage | img_url: 'master'}}" class="lazyload img-fluid w-100" alt="_img_slide_">
+                <img src="{{block.settings.block_banerimage | img_url: 'master'}}" class="lazyloaded img-fluid w-100" alt="_img_slide_">
               </a>
               {% endif %}
             </div>
@@ -923,8 +923,3 @@
 {% endschema %}
 
 
-{% stylesheet %}
-{% endstylesheet %}
-
-{% javascript %}
-{% endjavascript %}

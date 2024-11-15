@@ -10,7 +10,7 @@
         {% for block in section.blocks %}
         {% if block.type == 'slide_lookbook' %}
         <div class="col-sm-4 slide_lookbook text-center mb-5 ">
-          <img class="" src="{% if block.settings.bg_breadcrumb != blank %} {{block.settings.bg_breadcrumb|img_url : 'master'}} {% else %} //via.placeholder.com/685x940 {% endif %}">
+          <img class="" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-class="LazyLoad" data-src="{% if block.settings.bg_breadcrumb != blank %} {{block.settings.bg_breadcrumb|img_url : 'master'}} {% else %} //via.placeholder.com/685x940 {% endif %}">
       
           {% if block.settings.select_product1 !=blank %}
           <div class="pin_lookbook pin_lookbook1-{{block.id}}" style="top:{{block.settings.top_position1}}%; left: {{block.settings.left_position1}}%">
@@ -58,7 +58,7 @@
                   <div class="engoj_grid_parent">
                     <div class="img-product">
                       <a style="{% if sold_out %} opacity: 0.3 {% endif %}" href="{{ product.url | within: collection }}" class="engoj_find_img">
-                        <img style="width: 100%" src="{{ product.featured_image.src | img_url: 'master' }}" class="img-responsive" alt="{{ product.featured_image.alt | escape }}">
+                        <img style="width: 100%" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-class="LazyLoad" data-src="{{ product.featured_image.src | img_url: 'master' }}" class="img-responsive" alt="{{ product.featured_image.alt | escape }}">
                       </a>
 
                       <!--     ICON PRODUCT -->
@@ -169,7 +169,7 @@
                   <div class="engoj_grid_parent">
                     <div class="img-product">
                       <a style="{% if sold_out %} opacity: 0.3 {% endif %}" href="{{ product.url | within: collection }}" class="engoj_find_img">
-                        <img style="width: 100%" src="{{ product.featured_image.src | img_url: 'master' }}" class="img-responsive" alt="{{ product.featured_image.alt | escape }}">
+                        <img style="width: 100%" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-class="LazyLoad" data-src="{{ product.featured_image.src | img_url: 'master' }}" class="img-responsive" alt="{{ product.featured_image.alt | escape }}">
                       </a>
 
                       <!--     ICON PRODUCT -->
@@ -279,7 +279,7 @@
                   <div class="engoj_grid_parent">
                     <div class="img-product">
                       <a style="{% if sold_out %} opacity: 0.3 {% endif %}" href="{{ product.url | within: collection }}" class="engoj_find_img">
-                        <img style="width: 100%" src="{{ product.featured_image.src | img_url: 'master' }}" class="img-responsive" alt="{{ product.featured_image.alt | escape }}">
+                        <img style="width: 100%" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-class="LazyLoad" data-src="{{ product.featured_image.src | img_url: 'master' }}" class="img-responsive" alt="{{ product.featured_image.alt | escape }}">
                       </a>
 
                       <!--     ICON PRODUCT -->
@@ -389,7 +389,7 @@
                   <div class="engoj_grid_parent">
                     <div class="img-product">
                       <a style="{% if sold_out %} opacity: 0.3 {% endif %}" href="{{ product.url | within: collection }}" class="engoj_find_img">
-                        <img style="width: 100%" src="{{ product.featured_image.src | img_url: 'master' }}" class="img-responsive" alt="{{ product.featured_image.alt | escape }}">
+                        <img style="width: 100%" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-class="LazyLoad" data-src="{{ product.featured_image.src | img_url: 'master' }}" class="img-responsive" alt="{{ product.featured_image.alt | escape }}">
                       </a>
 
                       <!--     ICON PRODUCT -->
@@ -499,7 +499,7 @@
                   <div class="engoj_grid_parent">
                     <div class="img-product">
                       <a style="{% if sold_out %} opacity: 0.3 {% endif %}" href="{{ product.url | within: collection }}" class="engoj_find_img">
-                        <img style="width: 100%" src="{{ product.featured_image.src | img_url: 'master' }}" class="img-responsive" alt="{{ product.featured_image.alt | escape }}">
+                        <img style="width: 100%" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-class="LazyLoad" data-src="{{ product.featured_image.src | img_url: 'master' }}" class="img-responsive" alt="{{ product.featured_image.alt | escape }}">
                       </a>
 
                       <!--     ICON PRODUCT -->
@@ -619,7 +619,7 @@
             <div class="engoj_grid_parent">
               <div class="img-product">
                 <a style="{% if sold_out %} opacity: 0.3 {% endif %}" href="{{ product.url | within: collection }}" class="engoj_find_img">
-                  <img style="width: 100%" src="{{ product.featured_image.src | img_url: 'master' }}" class="img-responsive" alt="{{ product.featured_image.alt | escape }}">
+                  <img style="width: 100%" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-class="LazyLoad" data-src="{{ product.featured_image.src | img_url: 'master' }}" class="img-responsive" alt="{{ product.featured_image.alt | escape }}">
                 </a>
 
                 <!--     ICON PRODUCT -->
@@ -723,7 +723,7 @@
             <div class="engoj_grid_parent">
               <div class="img-product">
                 <a style="{% if sold_out %} opacity: 0.3 {% endif %}" href="{{ product.url | within: collection }}" class="engoj_find_img">
-                  <img style="width: 100%" src="{{ product.featured_image.src | img_url: 'master' }}" class="img-responsive" alt="{{ product.featured_image.alt | escape }}">
+                  <img style="width: 100%" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-class="LazyLoad" data-src="{{ product.featured_image.src | img_url: 'master' }}" class="img-responsive" alt="{{ product.featured_image.alt | escape }}">
                 </a>
 
                 <!--     ICON PRODUCT -->
@@ -826,7 +826,7 @@
             <div class="engoj_grid_parent">
               <div class="img-product">
                 <a style="{% if sold_out %} opacity: 0.3 {% endif %}" href="{{ product.url | within: collection }}" class="engoj_find_img">
-                  <img style="width: 100%" src="{{ product.featured_image.src | img_url: 'master' }}" class="img-responsive" alt="{{ product.featured_image.alt | escape }}">
+                  <img style="width: 100%" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-class="LazyLoad" data-src="{{ product.featured_image.src | img_url: 'master' }}" class="img-responsive" alt="{{ product.featured_image.alt | escape }}">
                 </a>
 
                 <!--     ICON PRODUCT -->
@@ -930,7 +930,7 @@
             <div class="engoj_grid_parent">
               <div class="img-product">
                 <a style="{% if sold_out %} opacity: 0.3 {% endif %}" href="{{ product.url | within: collection }}" class="engoj_find_img">
-                  <img style="width: 100%" src="{{ product.featured_image.src | img_url: 'master' }}" class="img-responsive" alt="{{ product.featured_image.alt | escape }}">
+                  <img style="width: 100%" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-class="LazyLoad" data-src="{{ product.featured_image.src | img_url: 'master' }}" class="img-responsive" alt="{{ product.featured_image.alt | escape }}">
                 </a>
 
                 <!--     ICON PRODUCT -->
@@ -1034,7 +1034,7 @@
             <div class="engoj_grid_parent">
               <div class="img-product">
                 <a style="{% if sold_out %} opacity: 0.3 {% endif %}" href="{{ product.url | within: collection }}" class="engoj_find_img">
-                  <img style="width: 100%" src="{{ product.featured_image.src | img_url: 'master' }}" class="img-responsive" alt="{{ product.featured_image.alt | escape }}">
+                  <img style="width: 100%" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-class="LazyLoad" data-src="{{ product.featured_image.src | img_url: 'master' }}" class="img-responsive" alt="{{ product.featured_image.alt | escape }}">
                 </a>
 
                 <!--     ICON PRODUCT -->
@@ -1105,7 +1105,7 @@
    <div class="bg_overlay_lookbook"></div>
   {% for block in section.blocks %}
   {% if block.type == 'slide_lookbook' %}
-  <script>
+  <script type="lazyload_int">
     $('.pin_lookbook').each(function(){
       $(this).on('click',function(){
         $(this).find('.product_lookbook').addClass('active')

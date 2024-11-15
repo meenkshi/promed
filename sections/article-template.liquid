@@ -105,7 +105,7 @@
                 {% for article in blogs[related_blog_selected].articles limit: related_posts_limit %}
                 <div class="blog_grid col-12">
                   <div class="post-thumb">
-                    <a href="{{ article.url }}" class="article_img"><img src="{{ article.image.src | img_url: 'original' }}" alt=""></a>
+                    <a href="{{ article.url }}" class="article_img"><img src="{{ article.image.src | img_url: 'original' }}" alt="{{ article.image.src | remove : 'files/' |remove: 'articles/' | remove : '.png' | remove : '.jpg' | remove : ".webp" }}"></a>
                     <div class="single-post-date">
                       <span class="date">{{ article.published_at | date: "%d" }}</span>
                       <span class="month">{{ article.published_at | date: "%b" }}</span>

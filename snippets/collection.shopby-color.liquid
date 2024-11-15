@@ -10,7 +10,7 @@
     {% assign tag = t | strip %}
     {% assign tag_value = tag | handleize %}
     <li class="cat-item{% if current_tags contains tag %} current-cat{% endif %}">
-      <input type="checkbox" value="{{ tag_value | split: '|' | first }}" {% if current_tags contains tag %}checked{% endif %}/>
+      <input type="checkbox" aria-label="Check" value="{{ tag_value | split: '|' | first }}" {% if current_tags contains tag %}checked{% endif %}/>
       <a href="javascript:void(0)" title="{{tag}}" style="background: {{tag}}" class=" {% if current_tags contains tag %}active{% endif %}">
         {% if section.settings.filter_layout == 'filter_collapse' %}<span>{{tag}}</span>{% endif %}
       </a>

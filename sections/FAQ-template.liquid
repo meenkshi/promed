@@ -3,8 +3,11 @@
   <div class="wrap-bread-crumb breadcrumb_collection2">
     <div class="text-center bg-breadcrumb" style="background-image : url({% if section.settings.bg_breadcrumb != blank  %}{{section.settings.bg_breadcrumb | img_url : 'master'}} {% else %}//via.placeholder.com/1920x510 {% endif %})">
       <div class="title-page">
-
-        <h2 class="">{{page.title}}</h2>
+        {% if canonical_url contains '/faq' %}
+          <h1 class="">{{page.title}}</h1>
+        {% else %}  
+          <h2 class="">{{page.title}}</h2>
+        {% endif %}
 
       </div>
       {% include 'breadcrumb' %}
@@ -31,7 +34,7 @@
           {% if block.type == "faq_left" %}       
           <div class="box_content_question">
             {% if block.settings.block_title_question != blank %}
-            <a class="title_question jstitleqs engoc-faq-heading" data-toggle="collapse" href="#faq_block_left_{{forloop.index}}" role="button" aria-expanded="true" aria-controls="collapseExample">
+            <a class="title_question jstitleqs engoc-faq-heading" data-toggle="collapse" href="#faq_block_left_{{forloop.index}}" role="button" aria-expanded="true">
              <svg class="engoc-faq-icon-plus" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                    viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
               <g>
@@ -126,7 +129,7 @@
           {% endfor %}
           {% else%}
           <div class="box_content_question">
-            <a class="title_question jstitleqs engoc-faq-heading" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="true" aria-controls="collapseExample">
+            <a class="title_question jstitleqs engoc-faq-heading" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="true">
               <svg class="engoc-faq-icon-plus" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                    viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
               <g>
@@ -266,7 +269,7 @@
 
 </section>
 
-<script>
+<script type="lazyload_int">
   jQuery(document).ready(function($) {
     $('.jstitleqs').on( 'click', function() {
       $(this).toggleClass('engoc-toggle-icon');
@@ -467,8 +470,3 @@
 }
 {% endschema %}
 
-{% stylesheet %}
-{% endstylesheet %}
-
-{% javascript %}
-{% endjavascript %}

@@ -4,7 +4,7 @@
       <div class="info-title text-center col-12 col-md-9 col-lg-7 col-xl-6 mx-auto">
         {% if section.settings.img_title != blank  %}
         <div class="text-center mb-4">
-          <img class="img-fluid" src="{{section.settings.img_title |img_url : 'master'}}" alt="">
+          <img class="img-fluid" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-class="LazyLoad" data-src="{{section.settings.img_title |img_url : 'master'}}" alt="">
         </div>
         {% endif %}
 
@@ -315,9 +315,3 @@
   ]
 }
 {% endschema %}
-
-{% stylesheet %}
-{% endstylesheet %}
-
-{% javascript %}
-{% endjavascript %}

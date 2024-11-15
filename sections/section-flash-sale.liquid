@@ -51,10 +51,10 @@
                   <div class="img-product relative" >
                     <div style="{% if sold_out %} opacity: 0.3 {% endif %}"> 
                       <a  href="{{ product.url | within: collection }}" class="engoj_find_img">
-                        <img  data-src="{{ product.featured_image.src | img_url: 'master' }}" class="lazyload w-100 img-responsive" alt="{{ product.featured_image.alt | escape }}">
+                        <img src="{{ product.featured_image.src | img_url: 'master' }}" class="lazyloaded w-100 img-responsive" alt="{{ product.featured_image.alt | escape }}">
                         {% for image in product.images %}
                         {% if forloop.last %}
-                        <img  data-src="{{ image.src | product_img_url: 'master' }}" class="lazyload w-100 img-responsive absolute img-product-hover" alt="{{ product.featured_image.alt | escape }}">
+                        <img src="{{ image.src | product_img_url: 'master' }}" class="lazyloaded w-100 img-responsive absolute img-product-hover" alt="{{ product.featured_image.alt | escape }}">
                         {% endif %}
                         {% endfor %}
                       </a>
@@ -161,7 +161,7 @@
                       </div>
 
                       <div class="quick-view">
-                        <a href="javascript:void(0)" class="engoj_btn_quickview icon-quickview inline-block box-shadow" data-id="{{ product.handle }}" data-toggle="tooltip" data-placement="top" data-original-title="{{settings.pia_quickview_name}}">
+                        <a href="javascript:void(0)" aria-label="Search view your product from here" class="engoj_btn_quickview icon-quickview inline-block box-shadow" data-id="{{ product.handle }}" data-toggle="tooltip" data-placement="top" data-original-title="{{settings.pia_quickview_name}}">
                           {% if settings.pia_quickview_svg %}
                           <i class="fsz-unset">{{settings.pia_quickview_svg}}</i>
                           {% else %}

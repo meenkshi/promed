@@ -2,8 +2,10 @@
   .get_find {
     margin: 0 !important;
   }
-
-  .box_getin h5 {
+  .box_getin h1{
+        font-family: Futura_Book_font, sans-serif !important;
+  }
+  .box_getin h5,.box_getin h1 {
     color: #fff; 
   }
   
@@ -31,7 +33,7 @@
    }
 
 @media(min-width: 1200px){
-    .page_aboutus_v1.page_contact .get_find .box_getin h5 {
+    .page_aboutus_v1.page_contact .get_find .box_getin h5, .page_aboutus_v1.page_contact .get_find .box_getin h1 {
       font-size: 70px !important;
       font-weight: 500;
       padding-bottom: 15px;
@@ -42,9 +44,18 @@
 }
   
 }
-
+@media(min-width:768px){
+  .box_getin h1{
+    line-height: 60px !important;
+  }
+}
 
  @media(max-width: 768px){
+     .box_getin h1{
+        font-size: 34px;
+        font-weight: 500;
+        padding-bottom: 15px;
+     }
      .container-v1 {
         padding: 0px 50px!important;
     }
@@ -65,7 +76,7 @@
         <div class="">
           <div class="contact-google-map">
             <div id="map" class="map-custom"></div>
-            <script>
+            <script type="lazyload_int">
               function initMap() {
                 var myLatLng = {lat: {{settings.gmap_latitude}}, lng: {{settings.gmap_longitude}}};
 
@@ -80,7 +91,7 @@
                 });
               }
             </script>
-            <script src="https://maps.googleapis.com/maps/api/js?key={{settings.gmap_key}}&callback=initMap" async defer></script>
+            <script type="lazyload_int" data-src="https://maps.googleapis.com/maps/api/js?key={{settings.gmap_key}}&callback=initMap" async defer></script>
           </div>
         </div>
       </div>
@@ -104,7 +115,11 @@
         <div class="col-lg-4 col-md-4">
           <div class="box_getin">
             {% if section.settings.title_get_right != blank %}
-            <h5>{{section.settings.title_get_right}}</h5>
+             {% if canonical_url contains '/contact' %}
+                <h1>{{section.settings.title_get_right}}</h1>
+             {% else %}
+                <h5>{{section.settings.title_get_right}}</h5>
+             {% endif %}
             {% endif %}
             {% if section.settings.description_get_right != blank %}
             <p>{{section.settings.description_get_right}}</p>
@@ -353,9 +368,3 @@
   ]
 }
 {% endschema %}
-
-{% stylesheet %}
-{% endstylesheet %}
-
-{% javascript %}
-{% endjavascript %}

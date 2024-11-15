@@ -27,7 +27,7 @@ div:has(> #embed-video--{{ section.id }}) {
 <div id="embed-video--{{ section.id }}"></div>
 {%- assign journeyId = section.settings.journeyid -%}
 
-<script>
+<script type="lazyload_int">
 ;(async () => {
     const journeyId = `{{ journeyId }}`
     const embedSectionId = 'embed-video--{{ section.id }}'

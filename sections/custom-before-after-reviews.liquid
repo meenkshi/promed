@@ -8,7 +8,7 @@
 {%- endstyle -%}
 
 <!-- Swiper CSS -->
-<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+<link rel="stylesheet" data-href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 
 <section class="before-after-slider-section m-section-{{ section.id }}" >
   
@@ -127,9 +127,9 @@
 </section>
 
 <!-- Swiper JS -->
-<script src="https://unpkg.com/swiper/swiper-bundle.min.js" defer></script>
+<script type="lazyload_int" data-src="https://unpkg.com/swiper/swiper-bundle.min.js" defer></script>
 
-<script>
+<script type="lazyload_int">
   document.addEventListener('DOMContentLoaded', function () {
     // Initialize Swiper
     var swiper = new Swiper('.swiper-container', {

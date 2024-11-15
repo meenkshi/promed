@@ -13,7 +13,7 @@
             </div>
           </div>
           <div class="col-md-6 intro_image order-md-2 order-1">
-            <img class="w-100" src="{% if section.settings.image_intro != blank %} {{section.settings.image_intro | img_url : 'master'}} {% else %}//via.placeholder.com/660x600{% endif %}">
+            <img class="w-100" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-class="LazyLoad" data-src="{% if section.settings.image_intro != blank %} {{section.settings.image_intro | img_url : 'master'}} {% else %}//via.placeholder.com/660x600{% endif %}">
           </div>
         </div>
       </div>
@@ -55,8 +55,4 @@
   }
 {% endschema %}
 
-{% stylesheet %}
-{% endstylesheet %}
 
-{% javascript %}
-{% endjavascript %}

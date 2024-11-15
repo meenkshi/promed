@@ -24,19 +24,19 @@
               
               <div class="les_specices-wrapper">
                 <div class="les_specices-item">
-                  <img src="{{ block.settings.img1 | image_url }}" width="64" height="64" />
+                  <img src="{{ block.settings.img1 | image_url }}" width="64" height="64" alt="{{ block.settings.img1.src | remove : 'files/' | remove : '.png' | remove : '.jpg' | remove : ".webp" }}" />
                 <span> {{ block.settings.imagh1 }}</span>
               </div>
               <div class="les_specices-item">
-                <img src="{{ block.settings.img2 | image_url }}" width="64" height="64" />
+                <img src="{{ block.settings.img2 | image_url }}" width="64" height="64" alt="{{ block.settings.img2.src | remove : 'files/' | remove : '.png' | remove : '.jpg' | remove : ".webp" }}" />
                 <span> {{ block.settings.imagh2 }}</span>
               </div>
               <div class="les_specices-item">
-                <img src="{{ block.settings.img3 | image_url }}" width="64" height="64" />
+                <img src="{{ block.settings.img3 | image_url }}" width="64" height="64" alt="{{ block.settings.img3.src | remove : 'files/' | remove : '.png' | remove : '.jpg' | remove : ".webp" }}" />
                 <span> {{ block.settings.imagh3 }}</span>
               </div>
               <div class="les_specices-item">
-                <img src="{{ block.settings.img4 | image_url }}" width="64" height="64" />
+                <img src="{{ block.settings.img4 | image_url }}" width="64" height="64" alt="{{ block.settings.img4.src | remove : 'files/' | remove : '.png' | remove : '.jpg' | remove : ".webp" }}" />
                 <span> {{ block.settings.imagh4 }}</span>
               </div>
               </div>
@@ -131,7 +131,7 @@
 
 
 
-<script>
+<script type="lazyload_int">
   document.addEventListener('DOMContentLoaded', function () {
     $('.benefit-v2-slider').slick({
       slidesToShow: 2,

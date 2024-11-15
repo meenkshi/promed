@@ -6,9 +6,9 @@
         <div class="col-12 col-md-6 {% if section.settings.select_pos =='left' %} order-md-2  {% else %} order-md-1 order-2{% endif %}">
           <div class="box-img img-right">
             {% if section.settings.img_banner_left != blank %}
-            <img data-src="{{section.settings.img_banner_left | img_url : 'master'}}" class="lazyload img-fluid w-100" alt >
+            <img src="{{section.settings.img_banner_left | img_url : 'master'}}" class="lazyloaded img-fluid w-100" alt >
             {% else %}
-            <img data-src="//via.placeholder.com/960x960" class="lazyload img-fluid w-100" alt>
+            <img src="//via.placeholder.com/960x960" class="lazyloaded img-fluid w-100" alt>
             {% endif %}
           </div>
         </div>
@@ -17,9 +17,9 @@
             <div class="img-left">
               {% if section.settings.enable_bg_img %}
               {% if section.settings.img_banner_right != blank %}
-              <img data-src="{{section.settings.img_banner_right | img_url : 'master'}}" class="lazyload img-fluid w-100" alt >
+              <img src="{{section.settings.img_banner_right | img_url : 'master'}}" class="lazyloaded img-fluid w-100" alt >
               {% else %}
-              <img data-src="//via.placeholder.com/960x960" class="lazyload img-fluid w-100" alt>
+              <img src="//via.placeholder.com/960x960" class="lazyloaded img-fluid w-100" alt>
               {% endif %}
               {% endif %}
               <div class="banner-content text-center text-lg-left">
@@ -241,8 +241,4 @@
 }
 {% endschema %}
 
-{% stylesheet %}
-{% endstylesheet %}
 
-{% javascript %}
-{% endjavascript %}

@@ -24,9 +24,9 @@
             <div class="box-img">
               <a href="{{block.settings.brand_url}}" title="{{block.settings.title_collection}}">
                 {% if block.settings.brand_img != blank %}
-                <img data-src="{{block.settings.brand_img | img_url:'master'}}" class="lazyload img-fluid w-100" alt="_img_collection">
+                <img src="{{block.settings.brand_img | img_url:'master'}}" class="lazyloaded img-fluid w-100" alt="_img_collection">
                 {% else %}
-                <img data-src="//via.placeholder.com/456x456" class="lazyload img-fluid w-100" alt="_img_collection">
+                <img src="//via.placeholder.com/456x456" class="lazyloaded img-fluid w-100" alt="_img_collection">
                 {% endif %}
               </a>
             </div>
@@ -172,10 +172,3 @@
   ]
 }
 {% endschema %}
-
-
-{% stylesheet %}
-{% endstylesheet %}
-
-{% javascript %}
-{% endjavascript %}

@@ -1,5 +1,5 @@
 <div class="menu_moblie d-flex d-xl-none jsmenumobile align-items-center {% unless settings.enable_sticky_mobile %}engoc-disable-sticky{% endunless %}">
-  <a href="javascript:void(0)" title="" class="menuleft">
+  <a href="javascript:void(0)" title="" class="menuleft" aria-label="click on this button for menu in mobile">
     <span class="iconmenu">
       <span></span>
       <span></span>
@@ -15,7 +15,7 @@
     {% else %}          	
     <a href="{{shop.url}}">
       {% if settings.logo_mobile != blank %}
-      <img src="{{settings.logo_mobile|img_url:'master'}}" width="{{settings.mobile_logo_maxwidth}}" alt="logo">
+      <img src="{{settings.logo_mobile|img_url:'200x'}}" width="{{settings.mobile_logo_maxwidth}}" alt="logo">
       {% else %}
       <img src="//via.placeholder.com/150x40" width="{{settings.mobile_logo_maxwidth}}" alt="logo">
       {% endif %}

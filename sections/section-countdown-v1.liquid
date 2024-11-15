@@ -36,9 +36,9 @@
         <div class="col-12 col-md-6">
           <div class="box-info box-info-1">
             <div class="banner-image banner-1">
-              <img data-src="{% if section.settings.banner1_img != blank %} {{section.settings.banner1_img | img_url: 'master'}} 
+              <img src="{% if section.settings.banner1_img != blank %} {{section.settings.banner1_img | img_url: 'master'}} 
                              {% else %} //via.placeholder.com/760x450  
-                             {% endif %}" class="lazyload img-fluid w-100">
+                             {% endif %}" class="lazyloaded img-fluid w-100">
             </div>
             <div class="banner-info">
               {% if section.settings.banner1_title != blank %}
@@ -63,9 +63,9 @@
           </div>
           <div class="box-info box-info-2">
             <div class="banner-image banner-2">
-              <img data-src="{% if section.settings.banner2_img != blank %} {{section.settings.banner2_img | img_url: 'master'}} 
+              <img src="{% if section.settings.banner2_img != blank %} {{section.settings.banner2_img | img_url: 'master'}} 
                              {% else %} //via.placeholder.com/760x450  
-                             {% endif %}" class="lazyload img-fluid w-100">
+                             {% endif %}" class="lazyloaded img-fluid w-100">
             </div>
             <div class="banner-info">
               {% if section.settings.banner2_title != blank %}
@@ -375,9 +375,3 @@
 }
 {% endschema %}
 
-
-{% stylesheet %}
-{% endstylesheet %}
-
-{% javascript %}
-{% endjavascript %}

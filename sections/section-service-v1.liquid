@@ -52,7 +52,7 @@
               <div class="box-service-box">
                 <div class="number">
                   {% if block.settings.img_icon != blank %}
-                  <img src="{{block.settings.img_icon | img_url : 'master'}}">
+                  <img src="{{block.settings.img_icon | img_url : 'master'}}" alt="{{ block.settings.img_icon.src | remove : 'files/' | remove : '.png' | remove : '.jpg' | remove : ".webp" }}">
                   {% else %}
                   {{block.settings.block_number}}
                   {% endif %}
@@ -219,11 +219,7 @@
 }
 {% endschema %}
 
-
-{% stylesheet %}
-{% endstylesheet %}
-
-<script>
+<script type="lazyload_int">
   document.addEventListener('DOMContentLoaded', function () {
     var swiper = new Swiper('.swiper-container', {
       slidesPerView: 1,

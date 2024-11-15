@@ -25,7 +25,7 @@
               <img
                 loading="lazy"
                 alt="{{ block.settings.image_alt }}"
-                src="{{ block.settings.image | img_url: 'master' }}"
+                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-class="LazyLoad" data-src="{{ block.settings.image | img_url: 'master' }}"
               />
             </div>
             <div class="ice_txt-1">{{ block.settings.description }}</div>
@@ -87,7 +87,7 @@
 
 
 
-<script>
+<script type="lazyload_int">
   document.addEventListener('DOMContentLoaded', function () {
     var swiper = new Swiper('.ice_cooling-slider', {
 

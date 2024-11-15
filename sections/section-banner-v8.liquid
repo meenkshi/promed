@@ -5,7 +5,7 @@
         <div class="col-sm-6">
           <div class="banner-item">
             <div class="box-img">
-              <img data-src="{% if section.settings.img_banner1 != blank %} {{section.settings.img_banner1 | img_url:'master'}} {% else %} //via.placeholder.com/960x960 {% endif %}" class="lazyload img-fluid w-100" alt="_img_banner">
+              <img src="{% if section.settings.img_banner1 != blank %} {{section.settings.img_banner1 | img_url:'master'}} {% else %} //via.placeholder.com/960x960 {% endif %}" class="lazyloaded img-fluid w-100" alt="_img_banner">
             </div>
             <div class="banner-content">
               {% if section.settings.sub_title1 != blank %}
@@ -23,7 +23,7 @@
         <div class="col-sm-6">
           <div class="banner-item">
             <div class="box-img">
-              <img data-src="{% if section.settings.img_banner2 != blank %} {{section.settings.img_banner2 | img_url:'master'}} {% else %} //via.placeholder.com/960x960 {% endif %}" class="lazyload img-fluid w-100" alt="_img_banner">
+              <img src="{% if section.settings.img_banner2 != blank %} {{section.settings.img_banner2 | img_url:'master'}} {% else %} //via.placeholder.com/960x960 {% endif %}" class="lazyloaded img-fluid w-100" alt="_img_banner">
             </div>
             <div class="banner-content">
               {% if section.settings.sub_title2 != blank %}
@@ -194,9 +194,3 @@
   ]
 }
 {% endschema %}
-
-{% stylesheet %}
-{% endstylesheet %}
-
-{% javascript %}
-{% endjavascript %}

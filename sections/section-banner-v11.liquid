@@ -18,7 +18,7 @@
               <div class="item-banner">
                 <div class="img-banner">
                   <a href="{{section.settings.url_banner1}}" class="d-block box-img">
-                    <img data-src="{% if section.settings.img_banner1 != blank %} {{section.settings.img_banner1 | img_url: 'master'}} {% else %} //via.placeholder.com/450x450 {% endif %}" class="lazyload img-fluid w-100" alt="_img_banner">
+                    <img src="{% if section.settings.img_banner1 != blank %} {{section.settings.img_banner1 | img_url: 'master'}} {% else %} //via.placeholder.com/450x450 {% endif %}" class="lazyloaded img-fluid w-100" alt="_img_banner">
                   </a>
                 </div>
                 <div class="content-banner">
@@ -32,7 +32,7 @@
               <div class="item-banner">
                 <div class="img-banner">
                   <a href="{{section.settings.url_banner2}}" class="d-block box-img">
-                    <img data-src="{% if section.settings.img_banner2 != blank %} {{section.settings.img_banner2 | img_url: 'master'}} {% else %} //via.placeholder.com/450x450 {% endif %}" class="lazyload img-fluid w-100" alt="_img_banner">
+                    <img src="{% if section.settings.img_banner2 != blank %} {{section.settings.img_banner2 | img_url: 'master'}} {% else %} //via.placeholder.com/450x450 {% endif %}" class="lazyloaded img-fluid w-100" alt="_img_banner">
                   </a>
                 </div>
                 <div class="content-banner">
@@ -46,7 +46,7 @@
           <div class="item-banner">
             <div class="img-banner">
               <a href="{{section.settings.url_banner3}}" class="d-block box-img">
-                <img data-src="{% if section.settings.img_banner3 != blank %} {{section.settings.img_banner3 | img_url: 'master'}} {% else %} //via.placeholder.com/900x410 {% endif %}" class="lazyload img-fluid w-100" alt="_img_banner">
+                <img src="{% if section.settings.img_banner3 != blank %} {{section.settings.img_banner3 | img_url: 'master'}} {% else %} //via.placeholder.com/900x410 {% endif %}" class="lazyloaded img-fluid w-100" alt="_img_banner">
               </a>
             </div>
             <div class="content-banner">
@@ -60,7 +60,7 @@
           <div class="item-banner">
             <div class="img-banner">
               <a href="{{section.settings.url_banner4}}" class="d-block box-img">
-                <img data-src="{% if section.settings.img_banner4 != blank %} {{section.settings.img_banner4 | img_url: 'master'}} {% else %} //via.placeholder.com/900x410 {% endif %}" class="lazyload img-fluid w-100" alt="_img_banner">
+                <img src="{% if section.settings.img_banner4 != blank %} {{section.settings.img_banner4 | img_url: 'master'}} {% else %} //via.placeholder.com/900x410 {% endif %}" class="lazyloaded img-fluid w-100" alt="_img_banner">
               </a>
             </div>
             <div class="content-banner">
@@ -74,7 +74,7 @@
               <div class="item-banner">
                 <div class="img-banner">
                   <a href="{{section.settings.url_banner5}}" class="d-block box-img">
-                    <img data-src="{% if section.settings.img_banner5 != blank %} {{section.settings.img_banner5 | img_url: 'master'}} {% else %} //via.placeholder.com/450x450 {% endif %}" class="lazyload img-fluid w-100" alt="_img_banner">
+                    <img src="{% if section.settings.img_banner5 != blank %} {{section.settings.img_banner5 | img_url: 'master'}} {% else %} //via.placeholder.com/450x450 {% endif %}" class="lazyloaded img-fluid w-100" alt="_img_banner">
                   </a>
                 </div>
                 <div class="content-banner">
@@ -88,7 +88,7 @@
               <div class="item-banner">
                 <div class="img-banner">
                   <a href="{{section.settings.url_banner6}}" class="d-block box-img">
-                    <img data-src="{% if section.settings.img_banner6 != blank %} {{section.settings.img_banner6 | img_url: 'master'}} {% else %} //via.placeholder.com/450x450 {% endif %}" class="lazyload img-fluid w-100" alt="_img_banner">
+                    <img src="{% if section.settings.img_banner6 != blank %} {{section.settings.img_banner6 | img_url: 'master'}} {% else %} //via.placeholder.com/450x450 {% endif %}" class="lazyloaded img-fluid w-100" alt="_img_banner">
                   </a>
                 </div>
                 <div class="content-banner">
@@ -323,8 +323,3 @@
 }
 {% endschema %}
 
-{% stylesheet %}
-{% endstylesheet %}
-
-{% javascript %}
-{% endjavascript %}

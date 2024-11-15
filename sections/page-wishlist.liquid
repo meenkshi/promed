@@ -1,5 +1,13 @@
 <div class="wrap-bread-crumb breadcrumb_collection2">
-  <div class="text-center bg-breadcrumb" style="background-image : url({% if section.settings.bg_breadcrumb != blank  %}{{section.settings.bg_breadcrumb | img_url : 'master'}} {% else %}//via.placeholder.com/1920x510 {% endif %})">
+  <div class="text-center bg-breadcrumb desktop_view" style="background-image : url({% if section.settings.bg_breadcrumb != blank  %}{{section.settings.bg_breadcrumb | img_url : 'master'}} {% else %}//via.placeholder.com/1920x510 {% endif %})">
+    <div class="title-page">
+
+      <h2 class="">{{page.title}}</h2>
+
+    </div>
+    {% include 'breadcrumb' %}
+  </div>
+  <div class="text-center bg-breadcrumb mobile_view" style="background-image : url({% if section.settings.bg_breadcrumb != blank  %}{{section.settings.bg_breadcrumb | img_url : '540x'}} {% else %}//via.placeholder.com/1920x510 {% endif %})">
     <div class="title-page">
 
       <h2 class="">{{page.title}}</h2>
@@ -59,7 +67,7 @@
             <td style="vertical-align: middle;"class="prod_thumb" data-label="Product Name" data-title="Product">
               <div class="maxus-bxwishlist__img">
                 <a href="{{ product.url }}">
-                  <img src="{{ product.featured_image.src | product_img_url: 'small' }}" alt="Wishlist Image">
+                  <img alt="Wishlist Image" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-class="LazyLoad" data-src="{{ product.featured_image.src | product_img_url: 'small' }}">
                 </a>
               </div>
             </td>

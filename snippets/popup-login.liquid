@@ -11,9 +11,9 @@
             {% else %}          	
             <a href="{{shop.url}}">
               {% if settings.pouplogin_logo != blank %}
-              <img src="{{settings.pouplogin_logo|img_url:'master'}}" width="{{settings.pouplogin_logo_maxwidth}}" alt="{{shop.name}}">
+              <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-class="LazyLoad" data-src="{{settings.pouplogin_logo|img_url:'master'}}" width="{{settings.pouplogin_logo_maxwidth}}" alt="{{shop.name}}">
               {% else %}
-              <img src="//via.placeholder.com/160x46" width="{{settings.pouplogin_logo_maxwidth}}" alt="{{shop.name}}">
+              <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-class="LazyLoad" data-src="//via.placeholder.com/160x46" width="{{settings.pouplogin_logo_maxwidth}}" alt="{{shop.name}}">
               {% endif %}
             </a>
             {% endif %}

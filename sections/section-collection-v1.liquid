@@ -40,7 +40,7 @@
         <div class="col-md-6 col-sm-12 order-1 order-md-2 ">
           <div class="col-image">
             <a href="{{block.settings.block_url}}">
-              <img class="w-100" src="{% if block.settings.img_collection != blank %} {{block.settings.img_collection | img_url : 'master'}} {% else %}//via.placeholder.com/685x757{% endif %}">
+              <img class="w-100" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-class="LazyLoad" data-src="{% if block.settings.img_collection != blank %} {{block.settings.img_collection | img_url : 'master'}} {% else %}//via.placeholder.com/685x757{% endif %}" alt="{{ block.settings.img_collection.src | remove : 'files/' | remove : '.png' | remove : '.jpg' | remove : ".webp" }}">
             </a>
           </div>
         </div>
@@ -50,7 +50,7 @@
         <div class="col-md-6 col-sm-12">
           <div class="col-image">
             <a href="{{block.settings.block_url}}">
-              <img class="w-100" src="{% if block.settings.img_collection != blank %} {{block.settings.img_collection | img_url : 'master'}} {% else %}//via.placeholder.com/685x757{% endif %}">
+              <img class="w-100" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-class="LazyLoad" data-src="{% if block.settings.img_collection != blank %} {{block.settings.img_collection | img_url : 'master'}} {% else %}//via.placeholder.com/685x757{% endif %}" alt="{{ block.settings.img_collection.src | remove : 'files/' | remove : '.png' | remove : '.jpg' | remove : ".webp" }}">
             </a>
           </div>
         </div>
@@ -215,8 +215,4 @@
 }
   {% endschema %}
 
-  {% stylesheet %}
-  {% endstylesheet %}
-
-  {% javascript %}
-  {% endjavascript %}
+  

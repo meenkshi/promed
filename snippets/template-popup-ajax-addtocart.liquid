@@ -7,13 +7,13 @@
 <div class="product-popup engo-popup engoc_hide_mobile">
   <div class="overlay-addcart"></div>
   <div class="content">
-    <a href="javascript:void(0)" class="close-window set-16-svg fill-white">
+    <a href="javascript:void(0)" class="close-window set-16-svg fill-white" aria-label="know more about this">
       <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 298.667 298.667" style="enable-background:new 0 0 298.667 298.667;" xml:space="preserve"> <g> <g> <polygon points="298.667,30.187 268.48,0 149.333,119.147 30.187,0 0,30.187 119.147,149.333 0,268.48 30.187,298.667     149.333,179.52 268.48,298.667 298.667,268.48 179.52,149.333   "></polygon> </g> </g> </svg>
     </a>
     <div class="mini-product-item row">
       <div class="col-md-6 col-sm-6 text-center product-image">
         <p class="success-message">{{ 'popup.cart' | t }}</p>
-        <img alt="img" src="{{'favicon.png' | asset_url}}"/>
+        <img alt="img" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-class="LazyLoad" data-src="{{'favicon.png' | asset_url}}"/>
         <div class="product-info">
           <p class="product-name"></p>
           {% if settings.enable_rtl_mode %}
@@ -50,7 +50,7 @@
           <button class="continue-shopping shop-button" onclick="javascript:void(0)">{{ 'popup.continue' | t }}</button>
           <button class="shop-button go_cart " onclick="window.location='/cart'">{{ 'popup.goto_cart' | t }}</button>
           <div class="product-cart__condition d-flex align-items-center mb-3">
-            <input type="checkbox" class="engoj-agree">
+            <input type="checkbox" aria-label="Check" class="engoj-agree">
             <label for="product-cart__agree-product-template" class="mb-0">{{'cart.label.term' | t}}</label>
           </div>
           <button class="checkout-button js-button-checkout alt wc-forward bg-color btn-disabled" onclick="window.location='/checkout'">{{ 'cart.general.checkout' | t }}</button>
@@ -103,10 +103,10 @@
             <div class="product mb-30 engoj_grid_parent relative">
               <div class="img-product relative">
                 <a href="{{ product.url | within: collection }}" class="engoj_find_img">
-                  <img  data-src="{{ product.featured_image.src | img_url: 'master' }}" class="lazyload w-100 img-responsive" alt="{{ product.featured_image.alt | escape }}">
+                  <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-class="LazyLoad" data-src="{{ product.featured_image.src | img_url: 'master' }}" class="lazyloaded w-100 img-responsive" alt="{{ product.featured_image.alt | escape }}">
                   {% for image in product.images %}
                   {% if forloop.last %}
-                  <img  data-src="{{ image.src | product_img_url: 'master' }}" class="lazyload w-100 img-responsive absolute img-product-hover" alt="{{ product.featured_image.alt | escape }}">
+                  <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-class="LazyLoad" data-src="{{ image.src | product_img_url: 'master' }}" class="lazyloaded w-100 img-responsive absolute img-product-hover" alt="{{ product.featured_image.alt | escape }}">
                   {% endif %}
                   {% endfor %}
                 </a>  
@@ -168,9 +168,9 @@
 
               </div>
 
-              <h4 class="des-font capital title-product mb-0">
+              <h2 class="des-font capital title-product mb-0">
                 <a href="{{ product.url | within: collection }}">{{ product.title}}</a>      
-              </h4>
+              </h2>
               <!--     PRICE -->
               {% assign on_sale = false %}
               {% if product.compare_at_price > product.price %}
@@ -260,7 +260,7 @@
     </div>
   </div>  
 </div>
-<script>
+<script type="lazyload_int">
   $(document).on('click','.overlay, .continue-shopping, .close-window', function() {   
     $(".engo-popup").removeClass('active');
   });

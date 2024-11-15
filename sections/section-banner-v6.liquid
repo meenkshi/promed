@@ -7,9 +7,9 @@
             <div class="banner-info">
               {% if section.settings.enable_img_title %}
               {% if section.settings.img_title != blank %}
-              <img data-src="{{section.settings.img_title | img_url:'master'}}" class=" lazyload img-fluid imgtop">
+              <img src="{{section.settings.img_title | img_url:'master'}}" class=" lazyloaded img-fluid imgtop">
               {% else %}
-              <img data-src="//via.placeholder.com/99x99" class="lazyload img-fluid imgtop" alt="banner">
+              <img src="//via.placeholder.com/99x99" class="lazyloaded img-fluid imgtop" alt="banner">
               {% endif %}
               {% endif %}
               {% if section.settings.title_banner != blank %}
@@ -97,8 +97,3 @@
 }
 {% endschema %}
 
-{% stylesheet %}
-{% endstylesheet %}
-
-{% javascript %}
-{% endjavascript %}

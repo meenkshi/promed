@@ -4,7 +4,7 @@
     {% assign instafeed_link = '{{link}}' %}
 
     {% if section.settings.ins_userid != blank and section.settings.ins_access_token != blank %}
-    <script>
+    <script type="lazyload_int">
       jQuery(document).ready(function($) {
         var feed = new Instafeed({
           get: 'user',
@@ -64,7 +64,7 @@
       });
     </script>
     {% else %}
-    <script>
+    <script type="lazyload_int">
       jQuery(document).ready(function($) {
         function engo_insv1() {
           $('.js-instagram-v1').slick({
@@ -222,8 +222,3 @@
 }
 {% endschema %}
 
-{% stylesheet %}
-{% endstylesheet %}
-
-{% javascript %}
-{% endjavascript %}

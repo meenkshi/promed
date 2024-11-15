@@ -6,7 +6,7 @@
           <div class="banner-item">
             <div class="banner-img">
               <a href="{{section.settings.url_banner1}}" class="box-img">
-                <img data-src="{% if section.settings.banner_img1 != blank %} {{section.settings.banner_img1 | img_url : 'master'}} {% else %} //via.placeholder.com/960x600 {% endif %}" class="lazyload img-fluid w-100" alt="_banner_img_">
+                <img src="{% if section.settings.banner_img1 != blank %} {{section.settings.banner_img1 | img_url : 'master'}} {% else %} //via.placeholder.com/960x600 {% endif %}" class="lazyloaded img-fluid w-100" alt="_banner_img_">
               </a>
             </div>
             <div class="banner-info">
@@ -25,7 +25,7 @@
         <div class="col-md-6">
           <div class="banner-item">
             <a href="{{section.settings.url_banner2}}" class="box-img">
-              <img data-src="{% if section.settings.banner_img2 != blank %} {{section.settings.banner_img2 | img_url : 'master'}} {% else %} //via.placeholder.com/960x600 {% endif %}" class="lazyload img-fluid w-100" alt="_banner_img_">
+              <img src="{% if section.settings.banner_img2 != blank %} {{section.settings.banner_img2 | img_url : 'master'}} {% else %} //via.placeholder.com/960x600 {% endif %}" class="lazyloaded img-fluid w-100" alt="_banner_img_">
             </a>
             <div class="banner-info">
               {% if section.settings.title_banner2 != blank %}
@@ -209,8 +209,3 @@
 }
 {% endschema %}
 
-{% stylesheet %}
-{% endstylesheet %}
-
-{% javascript %}
-{% endjavascript %}

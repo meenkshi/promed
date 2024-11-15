@@ -1,0 +1,54 @@
+<script>
+    const images = document.querySelectorAll('video.ecom-media-video img');
+    images.forEach((img, index) => {
+        img.alt = `video_image_ ${index + 1}`;
+    });  
+    document.querySelectorAll('.product .img-product .product-icon-action .quick-view a.engoj_btn_quickview.icon-quickview').forEach(element => {
+        element.setAttribute('aria-label', 'Quick view');
+    });
+</script>
+<script>
+    var site_nav_link_burger = true;        
+    var icon_menu = document.querySelector(".menu_moblie a.menuleft");        
+    document.addEventListener("DOMContentLoaded", function() {        
+        if(icon_menu){
+            icon_menu.addEventListener("click", function() {
+                if(site_nav_link_burger && !document.documentElement.classList.contains('jsload')) {
+                    event.preventDefault();
+                    site_nav_link_burger = false;
+                }
+            });
+        }                      
+    })
+</script>
+<script type="lazyload_int">
+    setTimeout(function(){
+        var lazyPoster = document.querySelectorAll("video[data-poster]");	
+    	lazyPoster.forEach(function(a) {	
+    		if (a.dataset.poster != null && a.dataset.poster != "") {	
+    			a.poster = a.dataset.poster;	
+    			delete a.dataset.poster;	
+    		}	
+    	});	        
+        var hero_media = document.querySelectorAll("video.autoplay_true");
+        hero_media.forEach(function(val) {
+            val.load();           
+            val.play();
+            val.setAttribute("autoplay", true);
+        });       
+    },1000);         
+</script>
+<script type="lazyload_ext">
+    function reloadSwymScript() {    
+        const existingScript = document.querySelector('script[src*="swym-shopify.js"]');
+        if (existingScript) {
+            existingScript.remove();
+        }    
+        const s = document.createElement('script');    
+        s.src = '//freecdn.swymrelay.com/code/swym-shopify.js?shop=' + encodeURIComponent(window.Shopify.shop) + '&v=' + __SWYM__VERSION__;
+        s.async = true;
+        document.head.appendChild(s);
+        console.log("Swym script reloaded");
+    }
+    reloadSwymScript();      
+</script>

@@ -11,7 +11,7 @@
 {% endif %}
 
 
-<script type="text/javascript">
+<script{% unless template contains 'cart' %} type="lazyload_int"{% endunless %}>
   WebFontConfig = {
     google: { families: [ 
       {% if fonts_1 %}
@@ -38,14 +38,24 @@
   })(); 
 </script>
 {% else %}
+{% if template contains 'cart' %}            
+    <link href="https://fonts.googleapis.com/css2?family=Marcellus&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Grand+Hotel&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet'>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans=swap" rel="stylesheet">						        
+{% else %}
+    <link data-href="https://fonts.googleapis.com/css2?family=Marcellus&display=swap" rel="stylesheet">
+    <link data-href="https://fonts.googleapis.com/css2?family=Grand+Hotel&display=swap" rel="stylesheet">
+    <link data-href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link data-href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet'>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link data-href="https://fonts.googleapis.com/css2?family=Oswald=swap" rel="stylesheet">
+    <link data-href="https://fonts.googleapis.com/css2?family=Josefin+Sans=swap" rel="stylesheet">
+{% endif %} 
 
-<link href="https://fonts.googleapis.com/css2?family=Marcellus&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Grand+Hotel&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
-<link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet'>
-<link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Oswald=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans=swap" rel="stylesheet">
 
 
 

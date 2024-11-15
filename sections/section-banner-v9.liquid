@@ -5,7 +5,7 @@
         <div class="item-banner">
           <div class="box-img">
             <a href="{{section.settings.url_banner1}}">
-              <img data-src="{% if section.settings.img_banner1 != blank %} {{section.settings.img_banner1 | img_url : 'master'}} {% else %} //via.placeholder.com/960x800 {% endif %}" class="lazyload img-fluid w-100" alt="_img_banner">
+              <img src="{% if section.settings.img_banner1 != blank %} {{section.settings.img_banner1 | img_url : 'master'}} {% else %} //via.placeholder.com/960x800 {% endif %}" class="lazyloaded img-fluid w-100" alt="_img_banner">
             </a>
           </div>
           <div class="content-banner">
@@ -31,7 +31,7 @@
         <div class="item-banner">
           <div class="box-img">
             <a href="{{section.settings.url_banner2}}">
-              <img data-src="{% if section.settings.img_banner2 != blank %} {{section.settings.img_banner2 | img_url : 'master'}} {% else %} //via.placeholder.com/960x800 {% endif %}" class="lazyload img-fluid w100" alt="_img_banner">
+              <img src="{% if section.settings.img_banner2 != blank %} {{section.settings.img_banner2 | img_url : 'master'}} {% else %} //via.placeholder.com/960x800 {% endif %}" class="lazyloaded img-fluid w100" alt="_img_banner">
             </a>
           </div>
           <div class="content-banner">
@@ -205,9 +205,3 @@
   ]
 }
 {% endschema %}
-
-{% stylesheet %}
-{% endstylesheet %}
-
-{% javascript %}
-{% endjavascript %}

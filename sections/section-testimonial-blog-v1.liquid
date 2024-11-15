@@ -18,7 +18,7 @@
               <div class="testimonial-author d-flex align-items-center">
                 <div class="avatar mr-3">
                   {% if block.settings.block_img != blank %}
-                  <img width="88" height="88" src="{{block.settings.block_img|img_url:'master'}}" class="img-responsive" alt="testimonial">
+                  <img width="88" height="88" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-class="LazyLoad" data-src="{{block.settings.block_img|img_url:'master'}}" class="img-responsive" alt="testimonial">
                   {% else %}
                   {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
                   {% endif %}
@@ -259,8 +259,3 @@
 }
 {% endschema %}
 
-{% stylesheet %}
-{% endstylesheet %}
-
-{% javascript %}
-{% endjavascript %}

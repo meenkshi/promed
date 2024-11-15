@@ -16,6 +16,6 @@ Share button styles are:
 {% endcomment %}
 
 {% assign shareButtonStyle = 'is-clean' %}
-<a href="//twitter.com/share?text={{ shareTitle }}&amp;url={{ permalinkURL }}" target="_blank" class="float-shadow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-<a href="//www.facebook.com/sharer.php?u={{ permalinkURL }}" target="_blank" class="float-shadow"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-<a href="//pinterest.com/pin/create/button/?url={{ permalinkURL }}&amp;media=http:{% if template contains 'product' %}{{ product | img_url: '1024x1024' }}{% else %}{{ article | img_url: '1024x1024' }}{% endif %}&amp;description={{ shareTitle }}" target="_blank" class="float-shadow"><i class="fa fa-pinterest-p" aria-hidden="true"></i></a>
+  <a href="//twitter.com/share?text={{ shareTitle }}&amp;url={{ permalinkURL }}" aria-label="You can follow us on twitter" target="_blank" class="float-shadow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+<a href="//www.facebook.com/sharer.php?u={{ permalinkURL }}" aria-label="You can follow us on facebook" target="_blank" class="float-shadow"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+<a href="//pinterest.com/pin/create/button/?url={{ permalinkURL }}&amp;media=http:{% if template contains 'product' %}{{ product | img_url: '1024x1024' }}{% else %}{{ article | img_url: '1024x1024' }}{% endif %}&amp;description={{ shareTitle }}" aria-label="You can follow us on pinterest" target="_blank" class="float-shadow"><i class="fa fa-pinterest-p" aria-hidden="true"></i></a>

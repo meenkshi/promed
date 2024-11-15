@@ -2,9 +2,9 @@
    <div class="banner-block"> 
     {% if section.settings.banner_img != blank %} 
     <div class="banner-img">
-      <img {% if section.settings.banner_mob_img != blank %}class="banner_img"{% endif %} src="{{ section.settings.banner_img | img_url:'master' }}" height="" width="">
+      <img {% if section.settings.banner_mob_img != blank %}class="banner_img"{% endif %} src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-class="LazyLoad" data-src="{{ section.settings.banner_img | img_url:'master' }}" height="" width="">
       {% if section.settings.banner_mob_img != blank %} 
-        <img class="banner_mob_img" src="{{ section.settings.banner_mob_img | img_url:'master' }}" height="" width="">
+        <img class="banner_mob_img" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-class="LazyLoad" data-src="{{ section.settings.banner_mob_img | img_url:'master' }}" height="" width="">
       {% endif %}  
     </div>
     {% endif %} 

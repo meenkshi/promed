@@ -107,7 +107,7 @@
                     {% assign tag = t | strip %}
                     {% assign tag_value = tag | handleize %}
                     <li class="cat-item{% if current_tags contains tag %} current-cat{% endif %}">
-                      <input type="checkbox" value="{{ tag_value | split: '|' | first }}" {% if current_tags contains tag %}checked{% endif %}/>
+                      <input type="checkbox" aria-label="Check" value="{{ tag_value | split: '|' | first }}" {% if current_tags contains tag %}checked{% endif %}/>
                       <a href="javascript:void(0)" title="{{tag}}" style="background: {{tag}}">
                       </a>
                     </li>
@@ -129,7 +129,7 @@
                       {% assign tag = t | strip %}
                       {% assign tag_value = tag | handleize %}
                       <li class="cat-item{% if current_tags contains tag %} current-cat{% endif %}">
-                        <input type="checkbox" value="{{ tag_value | split: '|' | first }}" {% if current_tags contains tag %}checked{% endif %}/>
+                        <input type="checkbox" aria-label="Check" value="{{ tag_value | split: '|' | first }}" {% if current_tags contains tag %}checked{% endif %}/>
                         <a href="javascript:void(0)" title="{{tag}}">{{tag}}</a>
                       </li>
                       {% endfor %}
@@ -149,7 +149,7 @@
                       {% assign tag = t | strip %}
                       {% assign tag_value = tag | handleize %}
                       <li class="cat-item{% if current_tags contains tag %} current-cat{% endif %}">
-                        <input type="checkbox" value="{{ tag_value | split: '|' | first }}" {% if current_tags contains tag %}checked{% endif %}/>
+                        <input type="checkbox" aria-label="Check" value="{{ tag_value | split: '|' | first }}" {% if current_tags contains tag %}checked{% endif %}/>
                         <a href="javascript:void(0)" title="{{tag}}">{{tag}}</a>
                       </li>
                       {% endfor %}
@@ -283,7 +283,7 @@
                     {% assign tag = t | strip %}
                     {% assign tag_value = tag | handleize %}
                     <li class="cat-item{% if current_tags contains tag %} current-cat{% endif %}">
-                      <input type="checkbox" value="{{ tag_value | split: '|' | first }}" {% if current_tags contains tag %}checked{% endif %}/>
+                      <input type="checkbox" aria-label="Check" value="{{ tag_value | split: '|' | first }}" {% if current_tags contains tag %}checked{% endif %}/>
                       <a href="javascript:void(0)" title="{{tag}}" style="background: {{tag}}">
                       </a>
                     </li>
@@ -305,7 +305,7 @@
                       {% assign tag = t | strip %}
                       {% assign tag_value = tag | handleize %}
                       <li class="cat-item{% if current_tags contains tag %} current-cat{% endif %}">
-                        <input type="checkbox" value="{{ tag_value | split: '|' | first }}" {% if current_tags contains tag %}checked{% endif %}/>
+                        <input type="checkbox" aria-label="Check" value="{{ tag_value | split: '|' | first }}" {% if current_tags contains tag %}checked{% endif %}/>
                         <a href="javascript:void(0)" title="{{tag}}">{{tag}}</a>
                       </li>
                       {% endfor %}
@@ -325,7 +325,7 @@
                       {% assign tag = t | strip %}
                       {% assign tag_value = tag | handleize %}
                       <li class="cat-item{% if current_tags contains tag %} current-cat{% endif %}">
-                        <input type="checkbox" value="{{ tag_value | split: '|' | first }}" {% if current_tags contains tag %}checked{% endif %}/>
+                        <input type="checkbox" aria-label="Check" value="{{ tag_value | split: '|' | first }}" {% if current_tags contains tag %}checked{% endif %}/>
                         <a href="javascript:void(0)" title="{{tag}}">{{tag}}</a>
                       </li>
                       {% endfor %}

@@ -43,7 +43,11 @@
 
 <div class="image-text-section">
   <div class="image-container">
-    <img src="{{ section.settings.image | img_url: '500x700' }}" alt="Sample Image">
+    {% if canonical_url contains '/pages/about-us' %}
+        <img alt="Sample Image" src="{{ section.settings.image | img_url: '500x700' }}">
+    {% else %}
+        <img src="{{ section.settings.image | img_url: '500x700' }}" alt="Sample Image">
+    {% endif %}
   </div>
   <div class="text-container">
    

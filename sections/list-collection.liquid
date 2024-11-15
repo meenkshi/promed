@@ -48,7 +48,7 @@
             <div class="col-12 col_item {% if settings[url_collection] == collection.url %} active {% endif %}">
               <div class="img_banner">
                 <a href="{{settings[url_collection]}}">
-                  <img class="w-100" alt="section.settings.img_banner" src="{% if settings[img_collection] != blank %} {{settings[img_collection] |img_url : 'master'}} {% else %} //via.placeholder.com/110x110 {% endif %}">
+                  <img class="w-100" alt="section.settings.img_banner" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-class="LazyLoad" data-src="{% if settings[img_collection] != blank %} {{settings[img_collection] |img_url : 'master'}} {% else %} //via.placeholder.com/110x110 {% endif %}">
                 </a>
               </div>
               <div class="banner_title text-center">
@@ -155,7 +155,7 @@
             <div class="col-12 col_item {% if settings[url_collection] == collection.url %} active {% endif %}">
               <div class="img_banner">
                 <a href="{{settings[url_collection]}}">
-                  <img class="w-100" alt="section.settings.img_banner" src="{% if settings[img_collection] != blank %} {{settings[img_collection] |img_url : 'master'}} {% else %} //via.placeholder.com/110x110 {% endif %}">
+                  <img class="w-100" alt="section.settings.img_banner" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-class="LazyLoad" data-src="{% if settings[img_collection] != blank %} {{settings[img_collection] |img_url : 'master'}} {% else %} //via.placeholder.com/110x110 {% endif %}">
                 </a>
               </div>
               <div class="banner_title text-center">
@@ -298,8 +298,3 @@
 }
 {% endschema %}
 
-{% stylesheet %}
-{% endstylesheet %}
-
-{% javascript %}
-{% endjavascript %}

@@ -21,9 +21,9 @@
           <div class="img_banner">
             <a href="{{ collections[block.settings.block_collection].url }}">
               {% if collections[block.settings.block_collection].image != blank %}
-              <img class="w-100" src="{{ collections[block.settings.block_collection].image | img_url: 'master' }}" class="img-fluid">
+              <img class="w-100" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-class="LazyLoad" data-src="{{ collections[block.settings.block_collection].image | img_url: 'master' }}" class="img-fluid">
               {% else %}
-              <img class="w-100" src="//via.placeholder.com/558x700" class="img-fluid" alt="collection">
+              <img class="w-100" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-class="LazyLoad" data-src="//via.placeholder.com/558x700" class="img-fluid" alt="collection">
               {% endif %}
             </a>
           </div>
@@ -144,10 +144,3 @@
   ]
 }
 {% endschema %}
-
-
-{% stylesheet %}
-{% endstylesheet %}
-
-{% javascript %}
-{% endjavascript %}
