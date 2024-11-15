@@ -1,0 +1,105 @@
+<div id="countdown-timer" class="countdown-timer">
+ <div class="sales-end">
+   <p>Sales ends in: </p>
+ </div>
+ <div class="times-container"> 
+    <div class="time-box">
+      <span class="days">00</span><span class="label">Days</span>
+    </div>
+    <span>:</span>
+    <div class="time-box">
+      <span class="hours">00</span><span class="label">Hours</span>
+    </div>
+    <span>:</span>
+    <div class="time-box">
+      <span class="minutes">00</span><span class="label">Minutes</span>
+    </div>
+    <span>:</span> 
+    <div class="time-box">
+      <span class="seconds">00</span><span class="label">Seconds</span>
+    </div>
+ </div>  
+</div>
+
+<style>
+.countdown-timer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    background: #000;
+    color: #fff;
+    font-size: 20px;
+    padding: 10px;
+}
+.countdown-timer .sales-end p{
+  margin:0;
+}  
+.times-container{
+  display: flex;
+}  
+.time-box {
+  margin: 0 10px;
+  text-align: center;
+}
+.time-box .label {
+  display: block;
+  font-size: 15px;
+}  
+</style>
+
+<script>
+$(document).ready(function () {
+  // Set the countdown end date: November 3, 2024, 12:00 AM
+  var countdownEnd = new Date('2024-11-02T00:00:00').getTime();
+
+  function updateCountdown() {
+    var now = new Date().getTime(); // Current timestamp
+    var timeLeft = countdownEnd - now; // Time difference in milliseconds
+
+    if (timeLeft > 0) {
+      var days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+      var hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+    
+
+       // Add leading zero if needed
+        days = days < 10 ? "0" + days : days;
+        hours = hours < 10 ? "0" + hours : hours;
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+      
+      // Update the HTML content
+      $('.countdown-timer .days').text(days);
+      $('.countdown-timer .hours').text(hours);
+      $('.countdown-timer .minutes').text(minutes);
+      $('.countdown-timer .seconds').text(seconds);
+      
+    } else {
+      $('.countdown-timer').hide(); // Hide timer when countdown ends
+      clearInterval(countdownInterval); // Stop the interval
+    }
+  }
+
+  // Call the update function every 1 second
+  var countdownInterval = setInterval(updateCountdown, 1000);
+
+  // Initial call to updateCountdown to avoid 1-second delay
+  updateCountdown();
+});
+
+</script>
+
+{% schema %}
+  {
+    "name": "Counter",
+    "settings": [],
+    "presets": [
+      {
+        "name": "Counter"
+      }
+    ]
+  }
+{% endschema %}

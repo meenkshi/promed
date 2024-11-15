@@ -1,0 +1,203 @@
+<style>
+  .section-newsletter-v1.mt-all.pd-small {
+    margin: 0;
+}
+
+ 
+
+  @media(min-width: 768px){
+    .section-newsletter-v1  {
+      background-image: url({% if section.settings.bg_img != blank %}{{section.settings.bg_img | img_url: 'master'}}{% else %}//via.placeholder.com/1920x350{% endif %});
+       background-position: center center; 
+     background-size: cover; 
+    }
+     .section-newsletter-v1 .content-newsletter {
+    width: 40%;
+    margin: initial;
+}
+  }
+
+   @media(max-width: 767px){
+          .section-newsletter-v1 .content-newsletter {
+    width: 100%;
+    margin: initial;
+}
+     .section-newsletter-v1  {
+     background-image: url({{section.settings.mobile_bg_img | image_url}}) !important;
+     background-position: center center; 
+     background-size: cover; 
+       }
+   }
+</style>
+
+
+<div data-section-id="{{ section.id }}" data-section-type="section-newsletter-v2" style="{% if section.settings.margin_top != blank %}margin-top: {{section.settings.margin_top}}px;{%endif%} {% if section.settings.margin_bottom != blank %}margin-bottom: {{section.settings.margin_bottom}}px;{% endif %}">
+  {% if settings.newsletter_form_action != blank %}
+  {% assign form_action = settings.newsletter_form_action %}
+  {% else %}
+  {% assign form_action = '#' %}
+  {% endif %}
+  <div class="{% if section.settings.select_width == 'full' %} {% else %} container container-v1 {% endif %}">
+    <div class="section-newsletter-v1 mt-all {% if section.settings.enable_pd_small %}pd-small{% endif %}">
+      <div class="{% if section.settings.select_width == 'full' %}container container-v1 {% else %}{% endif %}">      
+        <div class="content-newsletter align-items-center">
+          <div class="info-left">
+
+            {% if section.settings.icon1 != blank %}
+            <div class="icon">
+              <i class="{{section.settings.icon1}}"></i>
+            </div>
+            {% endif %}
+
+            {% if section.settings.title_newletter != blank %}
+            <h3 class="title-left">{{section.settings.title_newletter}}</h3>
+            {% endif %}
+            {% if section.settings.new_text != blank %}
+            <p class="new-text">
+              {{section.settings.new_text}}
+            </p>
+            {% endif %}
+
+          </div>
+          <div class="newletter_email">          
+            <form class="newsletter-form-wrap form-inline" action="{{form_action}}" method="post">
+              <input type="email" name="EMAIL" class="form-control" placeholder="{{ 'general.newsletter_form.newsletter_emai_2' | t }}" required >
+              <button class="btn submit-newsletter" type="submit"><i class="{{section.settings.icon_button}}"></i></button>
+            </form>
+          </div>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+{% schema %}
+{
+  "name": "NEWSLETTER V1",
+  "settings": [
+	{
+      "type": "header",
+      "info": "MailChimp form action URL: Setting in Login Store > Customize theme > Theme settings tab > Mailchimp",
+      "content": "Newsletter"
+    },
+	 {
+        "type": "checkbox",
+        "id": "enable_pd_small",
+        "label": "Padding Small",
+        "default": true
+      },
+    {
+      "type": "radio",
+      "id": "style_bg",
+      "label": "Style Background",
+      "options": [
+        {
+          "value": "color",
+          "label": "Color"
+        },
+        {
+          "value": "image",
+          "label": "Image"
+        }
+      ],
+      "default": "image"
+    },
+
+	{
+      "type": "select",
+      "id": "select_width",
+      "label": "Select width",
+	  "options": [
+        {
+          "value": "full",
+          "label": "Width Full"
+        },
+        {
+          "value": "container",
+          "label": "Width Container"
+        }
+      ],
+      "default": "full"
+    },
+	{
+        "type": "color",
+        "id": "bg_color",
+        "label": "Background color section",
+        "default": "#f2f2f2"
+      },
+    {
+      "type": "image_picker",
+      "id": "bg_img",
+      "label": "Desktop ackground image",
+      "info": "1920 x 600px recommended"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_bg_img",
+      "label": "Mobile Background image",
+      "info": "700px 700px recommended"
+    },
+	 {
+      "type": "header",
+      "content": "Info left"
+    },
+	{
+      "type": "text",
+      "id": "icon1",
+      "label": "Icon",
+      "default": "fa fa-envelope-open-o",
+      "info": "[Get icon in here](https:\/\/fontawesome.com\/v4.7.0\/icons)"
+    },
+    {
+      "type": "text",
+      "id": "title_newletter",
+      "label": "Title Newletter",
+      "default": "Newsletter Signup"
+    },
+    {
+      "type": "text",
+      "id": "new_text",
+      "label": "New Text",
+      "default": "Join our list and get 15% off your first purchase!"
+    },
+	{
+      "type": "text",
+      "id": "icon_button",
+      "label": "Icon BUtton ",
+      "default": "fa fa-paper-plane",
+      "info": "[Get icon in here](https:\/\/fontawesome.com\/v4.7.0\/icons)"
+    },
+    {
+      "type": "header",
+      "content": "Section Space"
+    },
+    {
+      "type": "text",
+      "id": "margin_top",
+      "label": "Margin Top",
+      "info": "Defined in pixels. Do not add the 'px' unit."
+    },
+    {
+      "type": "text",
+      "id": "margin_bottom",
+      "label": "Margin Bottom",
+      "info": "Defined in pixels. Do not add the 'px' unit."
+    }
+  ],
+  "presets": [
+    {
+      "name": "NEWSLETTER V1",
+      "category": "HOME"
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

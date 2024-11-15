@@ -1,0 +1,85 @@
+{% schema %}
+{
+  "name": "Photo Slider",
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Slider Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Photo Slider",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}
+
+<style>
+.photo-slider {
+  max-width: 1200px; /* Set a fixed maximum width */
+  margin: 0 auto; /* Center the container horizontally */
+  overflow: hidden;
+  position: relative;
+  padding: 80px 0 0 0;
+}
+
+.slider {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+  min-width: 100%;
+  box-sizing: border-box;
+}
+
+.slide img {
+  width: 100%;
+  height: auto;
+}
+</style>
+
+<div class="photo-slider">
+  <div class="slider">
+    {% for block in section.blocks %}
+      <div class="slide">
+        <img src="{{ block.settings.image | img_url: '1200x' }}" alt="Slider Image">
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var slider = document.querySelector('.slider');
+  var slides = document.querySelectorAll('.slide');
+  var slideCount = slides.length;
+  var slideWidth = slides[0].clientWidth;
+  var currentIndex = 0;
+  var slideInterval = 5000; // Change slide every 3 seconds
+
+  function nextSlide() {
+    slider.style.transform = 'translateX(' + (-slideWidth * currentIndex) + 'px)';
+    currentIndex = (currentIndex + 1) % slideCount;
+  }
+
+  // Initialize the slider
+  nextSlide(); // Show the first slide immediately
+  setInterval(nextSlide, slideInterval); // Change slide at regular intervals
+
+  // Update slider width on window resize
+  window.addEventListener('resize', function() {
+    slideWidth = slides[0].clientWidth;
+    slider.style.transform = 'translateX(' + (-slideWidth * currentIndex) + 'px)';
+  });
+});
+</script>

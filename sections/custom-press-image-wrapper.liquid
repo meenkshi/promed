@@ -1,0 +1,108 @@
+<link rel="stylesheet" href="{{ 'custom-section-press.css' | asset_url }}"> 
+
+<style>
+  .press__content {
+     text-align: {{  section.settings.text_alignment}}; 
+  }
+</style>
+
+<!-- schema.liquid -->
+<div id="shopify-section-template--17183880478901__press_Gd78rt" class="shopify-section c-section c-section__press">
+  <div class="
+      {% if section.settings.section_width == 'container' %}
+        container
+      {% elsif section.settings.section_width == 'full-width' %}
+        full-width
+      {% else %}
+        default
+      {% endif %}
+    ">
+      <div class="press press--bottom-border">
+      <div class="press__content">
+        <p class="press__quote">{{ section.settings.quote_text }}</p>
+        <p class="press__quote-author o-subheading">{{ section.settings.quote_author }}</p>
+         <img src="{{ section.settings.press__quote-icon | image_url }}" width="100" height="100" alt="press__quote-icon" class="press__quote-icon" />
+      </div>
+      <div class="press__image-wrapper">
+       
+          <img src="{{ section.settings.image_mobile | image_url }}" width="100" height="100"  alt="Press Image Mobile" class="Press Image Mobile">
+          
+          <img src="{{ section.settings.image_desktop | image_url }}"  width="100" height="100" alt="Press Image Desktop" class="press__image press__image--desktop">
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Press Section",
+  "settings": [
+       {
+      "type": "select",
+      "id": "text_alignment",
+      "label": "Content alignment",
+      "default": "center",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "Section Width",
+      "options": [
+        { "value": "container", "label": "Container (1200px)" },
+        { "value": "full-width", "label": "Full Width (100%)" },
+        { "value": "default", "label": "Default (1400px)" }
+      ],
+      "default": "default"
+    },
+    {
+      "type": "text",
+      "id": "quote_text",
+      "label": "Quote Text",
+      "default": "“I've tried so many RoseSkinCo products and my skin has never been softer & clearer!”"
+    },
+    {
+      "type": "text",
+      "id": "quote_author",
+      "label": "Quote Author",
+      "default": "Rebecca B., Los Angeles"
+    },
+       {
+      "type": "image_picker",
+      "id": "press__quote-icon",
+      "label": "press__quote-icon",
+    },
+    
+    {
+      "type": "image_picker",
+      "id": "image_mobile",
+      "label": "Mobile Image",
+    },
+    {
+      "type": "image_picker",
+      "id": "image_desktop",
+      "label": "Desktop Image",
+    }
+  ],
+  "presets": [
+    {
+      "name": "Press Section",
+      "category": "Custom Sections"
+    }
+  ]
+}
+{% endschema %}

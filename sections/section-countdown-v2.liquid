@@ -1,0 +1,184 @@
+<div data-section-id="{{ section.id }}" data-section-type="section-countdown-v2" style="{% if section.settings.margin_top != blank %}margin-top: {{section.settings.margin_top}}px;{%endif%} {% if section.settings.margin_bottom != blank %}margin-bottom: {{section.settings.margin_bottom}}px;{% endif %}">
+  <section class="section-countdown-v2 mt-all">
+    <div class="container container-v2">
+      <div class="text-center relative">        	
+
+        {% if section.settings.title_info != blank %}
+        <div class="title-info text-center">
+          <h2 class="title_heading mb-0" style="color: {{section.settings.color_title_info}}">{{section.settings.title_info}}</h2>
+        </div>
+        {% endif %}
+
+      </div>
+      <div class="row mt-5">
+        {% if section.blocks.size == 1 %}
+        <div class="col-12 col-md-3"></div>
+        {% endif %}
+        {% for block in section.blocks %}
+        <div class="col-12 col-lg-6 countdown-item product product-grid product-item mb-5 mb-lg-0">
+          {% if block.settings.select_pd != blank %}
+          {% assign product = all_products[block.settings.select_pd] %}
+          <div class="row">
+            <div class="col-12 col-sm-6 pd-image">
+              <a href="{{ product.url | within: collection }}" title="">
+                <img src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
+                {% for image in product.images %}     
+                {% if forloop.last == true %}
+                <img src="{{ image.src | product_img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">   
+                {%endif%}
+                {% endfor %}
+              </a>
+            </div>
+            <div class="col-12 col-sm-6 cd-info">
+              {% if block.settings.enable_label_pd %}
+              {% if product.compare_at_price != blank %}
+              {% assign sale = product.compare_at_price | minus: product.price | times: 100 | divided_by: product.compare_at_price %}
+              <label>-{{sale}}%</label>
+              {% endif %}
+              {% endif %}
+              <h4 class="pd-name"><a href="{{product.url}}">{{product.title}}</a></h4>
+              <div class="product-price">
+                <span class="amout">
+                  <del class="sale-price">{{ product.compare_at_price | money }}</del>
+                  {% capture price %}{{ product.price | money }}{% endcapture %}
+                  <span >{{ price }}</span>
+                </span>
+
+              </div>
+              {% if block.settings.timer != blank %}
+              <ul class="timer" data-countdown="section-countdown-v2" data-date="{{block.settings.timer}}"></ul>
+              {% endif %}
+              {% if block.settings.btn_name != blank %}
+              <div class="">
+                <a class="button-main3" href="{{product.url}}">{{block.settings.btn_name}}</a>
+              </div>
+              {%  endif %}
+            </div>
+          </div>
+          {% else %}
+          <div class="row">
+            <div class="col-12 col-sm-6 pd-image">
+              <a href="/admin/products"> 
+                {% capture current_1 %}{% cycle 1, 2, 3 %}{% endcapture %}
+                {{ 'product-' | append: current_1 | placeholder_svg_tag: 'placeholder-svg' }}
+              </a>
+              
+            </div>
+            <div class="col-12 col-sm-6 cd-info">
+              <h4 class="pd-name"><a href="/admin/products">Example Product</a></h4>
+              <div class="product-price">
+                <span class="amout">
+                  <span >$40.00</span>
+                </span>
+
+              </div>
+              {% if block.settings.timer != blank %}
+              <ul class="timer" data-countdown="section-countdown-v2" data-date="{{block.settings.timer}}"></ul>
+              {% endif %}
+              {% if block.settings.btn_name != blank %}
+              <div class="">
+                <a class="button-main3" href="{{product.url}}">{{block.settings.btn_name}}</a>
+              </div>
+              {%  endif %}
+            </div>
+          </div>
+          {% endif %}
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+</div>
+
+{% schema %}
+{
+  "name": "COUNTDOWN V2",
+  "class": "index-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title_info",
+      "label": "Title info",
+      "default": "Deal Off The Day"
+    },
+	{
+      "type": "color",
+      "id": "color_title_info",
+      "label": "Color Title info"
+    },
+    {
+      "type": "header",
+      "content": "Section Space"
+    },
+    {
+      "type": "text",
+      "id": "margin_top",
+      "label": "Margin Top",
+      "info": "Defined in pixels. Do not add the 'px' unit."
+    },
+    {
+      "type": "text",
+      "id": "margin_bottom",
+      "label": "Margin Bottom",
+      "info": "Defined in pixels. Do not add the 'px' unit."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "countdown",
+	  "limit": 2,
+      "name": "Countdown",
+      "settings": [
+        {
+          "type": "header",
+          "content": "Countdown Item"
+        },
+        {
+          "type": "product",
+          "id": "select_pd",
+          "label": "Select Product"
+        },
+        {
+          "type": "checkbox",
+          "id": "enable_label_pd",
+          "label": "Enable Label",
+          "default": true
+        },
+        {
+          "type": "text",
+          "id": "timer",
+          "label": "End date",
+          "default": "2023-12-12-12-12-12",
+          "info": "format datetime YYYY-MM-DD-hh-mm-ss"
+        },
+        {
+          "type": "text",
+          "id": "btn_name",
+          "label": "Button Name",
+          "default": "Buy Now"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "COUNTDOWN V2",
+      "category": "HOME",
+      "blocks": [
+        {
+          "type": "countdown",
+          "settings": {
+            
+          }
+        },
+        {
+          "type": "countdown",
+          "settings": {
+            
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

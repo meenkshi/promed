@@ -1,0 +1,104 @@
+<div data-section-id="{{ section.id }}" data-section-type="section-banner-v6" style="{% if section.settings.margin_top != blank %}margin-top: {{section.settings.margin_top}}px;{%endif%} {% if section.settings.margin_bottom != blank %}margin-bottom: {{section.settings.margin_bottom}}px;{% endif %}">
+  <div class="section-banner-v6" style="background-image: url({% if section.settings.backgroud_image != blank %}{{section.settings.backgroud_image|img_url:'master'}}{% else %}//via.placeholder.com/1920x722{% endif %})">
+    <div class="lazyload">
+      <div class="container container-v1">
+        <div class="row justify-content-center">
+          <div class="col-12 col-md-7 col-lg-6 text-center">
+            <div class="banner-info">
+              {% if section.settings.enable_img_title %}
+              {% if section.settings.img_title != blank %}
+              <img data-src="{{section.settings.img_title | img_url:'master'}}" class=" lazyload img-fluid imgtop">
+              {% else %}
+              <img data-src="//via.placeholder.com/99x99" class="lazyload img-fluid imgtop" alt="banner">
+              {% endif %}
+              {% endif %}
+              {% if section.settings.title_banner != blank %}
+              <h3 class="title" style="color : {{section.settings.color_title_banner}}">{{section.settings.title_banner}}</h3>
+              {% endif %}
+              {% if section.settings.sub_title_banner != blank %}
+              <p class="mb-0 sub_title text-center" style="color : {{section.settings.color_sub_title_banner}}">{{section.settings.sub_title_banner}}</p>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "BANNER V6",
+  "settings": [
+	{
+        "type": "checkbox",
+        "id": "enable_img_title",
+        "label": "Enable img title",
+        "default": true
+    },
+	{
+      "type": "image_picker",
+      "id": "img_title",
+      "label": "Image title",
+      "info": "99 x 99px png recommended"
+    },
+	{
+      "type": "image_picker",
+      "id": "backgroud_image",
+      "label": "Backgroud Image",
+      "info": "1920 x 670px recommended"
+    },
+	{
+      "type": "text",
+      "id": "title_banner",
+      "label": "Title banner",
+      "default": "Instagram Shop"
+    },
+	{
+      "type": "color",
+      "id": "color_title_banner",
+      "label": "Color Title banner",
+      "default": "#FF9900"
+    },
+	{
+      "type": "text",
+      "id": "sub_title_banner",
+      "label": "Sub Title banner",
+      "default": "Create Shoppable Instagram Galleries by tagging products on Instagram images & embed it anywhere. Create multiple Instagram galleries."
+    },
+	{
+      "type": "color",
+      "id": "color_sub_title_banner",
+      "label": "Color Sub Title banner",
+      "default": "#7d7b7b"
+    },
+    {
+      "type": "header",
+      "content": "Section Space"
+    },
+    {
+      "type": "text",
+      "id": "margin_top",
+      "label": "Margin Top",
+      "info": "Defined in pixels. Do not add the 'px' unit."
+    },
+    {
+      "type": "text",
+      "id": "margin_bottom",
+      "label": "Margin Bottom",
+      "info": "Defined in pixels. Do not add the 'px' unit."
+    }
+  ],
+  "presets": [
+    {
+      "name": "BANNER V6",
+      "category": "HOME"
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

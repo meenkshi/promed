@@ -1,0 +1,108 @@
+<section class="page_aboutus_v1 page_FQA faq-with-image-section">
+  <div class="asked">
+    <div class="container container-v2">
+      <div class="row">
+        <div class="col-lg-12 top_asked text-center">
+          {% if section.settings.faq_heading !=blank %}
+            <h3>{{section.settings.faq_heading}}</h3>
+          {% endif %}
+          {% if section.settings.faq_description != blank %}
+            <div class="faq_description">{{section.settings.faq_description}}</div>
+          {% endif %}
+        </div>
+      </div>
+      <div class="row content_askeds">  
+
+        {% if section.settings.faq_image != blank %}  
+         <div class="col-lg-6 col-md-12">   
+           <div class="faq_image"><img src="{{ section.settings.faq_image | img_url:'master' }}" height="" width="" alt="{{ section.settings.faq_image.alt }}"></div>
+         </div>  
+        {% endif %}
+        
+        <div class="col-lg-{% if section.settings.faq_image != blank %}6{% else %}12{% endif %} col-md-12">   
+          {% if section.blocks.size > 0 %}
+            {% for block in section.blocks %}
+              {% if block.type == "faq" %}       
+                <div class="box_content_question">
+                  {% if block.settings.qus != blank %}
+                  <a class="title_question jstitleqs engoc-faq-heading" data-toggle="collapse" href="#faq_block_left_{{forloop.index}}-{{ section.id }}" role="button" aria-expanded="true" aria-controls="collapseExample">
+                    <i class="fa fa-plus mr-2 engoc-faq-icon-plus"></i>
+                    <i class="fa fa-minus mr-2 engoc-faq-icon-minus"></i>
+                    {{block.settings.qus}}
+                  </a>
+                  {% endif %}
+                  <div class="collapse" id="faq_block_left_{{forloop.index}}-{{ section.id }}">
+                    {% if block.settings.ans != blank %}
+                    <div class="card-body">
+                      {{block.settings.ans}}
+                    </div>
+                    {% endif %}              
+                  </div>
+                </div>          
+              {% endif %}
+            {% endfor %}
+          {% endif %}          
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  jQuery(document).ready(function($) {
+    $('.jstitleqs').on( 'click', function() {
+      $(this).toggleClass('engoc-toggle-icon');
+    });
+  })
+</script>
+
+{% schema %}
+{
+  "name": "FAQs with Image",
+  "settings": [
+    {
+      "type": "text",
+      "id": "faq_heading",
+      "label": "Heading",
+      "default": "#Frequently asked questions"
+    },
+    {
+      "type": "textarea",
+      "id": "faq_description",
+      "label": "Description Asked",
+      "default": "I am text block. Click edit button to change this text. Lorem ipsum dolor sit amet,consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo."
+    },
+    {
+      "type": "image_picker",
+      "id": "faq_image",
+      "label": "Image"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "faq",
+      "name": "FAQ",
+      "settings": [
+        {
+          "type": "text",
+          "id": "qus",
+          "label": "Question",
+          "default": "How long does it take for home delivery?"
+        },
+        {
+          "type": "textarea",
+          "id": "ans",
+          "label": "Answer",
+          "default": "We use Royal mail and DHL to send most of our UK orders.Euro Car Parts reserves the right to use discretion in any circumstance where it makes more sense to use an alternative delivery method."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "FAQ with Image"
+    }
+  ]
+}
+{% endschema %}

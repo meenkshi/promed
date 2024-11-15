@@ -1,0 +1,248 @@
+<div data-section-id="{{ section.id }}" data-section-type="section-banner-v4" style="{% if section.settings.margin_top != blank %}margin-top: {{section.settings.margin_top}}px;{%endif%} {% if section.settings.margin_bottom != blank %}margin-bottom: {{section.settings.margin_bottom}}px;{% endif %}">
+  <div class="section-banner-v4">
+    <div class="lazyload">
+      <div class="row no-gutters align-items-center" style="{% if section.settings.enable_bg_img %}{% else %}background: {{section.settings.bg_banner}}{% endif %}"> 
+
+        <div class="col-12 col-md-6 {% if section.settings.select_pos =='left' %} order-md-2  {% else %} order-md-1 order-2{% endif %}">
+          <div class="box-img img-right">
+            {% if section.settings.img_banner_left != blank %}
+            <img data-src="{{section.settings.img_banner_left | img_url : 'master'}}" class="lazyload img-fluid w-100" alt >
+            {% else %}
+            <img data-src="//via.placeholder.com/960x960" class="lazyload img-fluid w-100" alt>
+            {% endif %}
+          </div>
+        </div>
+        <div class="col-12 col-md-6 {% if section.settings.select_pos =='left' %} order-md-1 {% else%} order-md-2 order-1{% endif %}">
+          <div class="box-img1" style="{% if section.settings.enable_bg_img == 'false'%}background: {{section.settings.bg_banner}}{% endif %}">
+            <div class="img-left">
+              {% if section.settings.enable_bg_img %}
+              {% if section.settings.img_banner_right != blank %}
+              <img data-src="{{section.settings.img_banner_right | img_url : 'master'}}" class="lazyload img-fluid w-100" alt >
+              {% else %}
+              <img data-src="//via.placeholder.com/960x960" class="lazyload img-fluid w-100" alt>
+              {% endif %}
+              {% endif %}
+              <div class="banner-content text-center text-lg-left">
+                {% if section.settings.title_banner != blank %}
+                <h3 class="title-banner" style="color: {{section.settings.color_title}}">{{section.settings.title_banner}}</h3>
+                {% endif %}
+                {% if section.settings.sub_title_banner != blank %}
+                <p class="sub-title" style="color: {{section.settings.color_sub_title}}">{{section.settings.sub_title_banner}}</p>
+                {% endif %}
+
+                <div class="btn_top">
+                  {% if section.settings.button_banner != blank %}
+                  <a href="{{section.settings.url_banner}}" class="button-shop button-shop-{{ section.id }}" title="">{{section.settings.button_banner}}</a>
+                  {% endif %}
+                </div>
+                <div class="btn_bottom">
+                  {% if section.settings.button_banner2 != blank %}
+                  <a href="{{section.settings.url_banner2}}" class="button-shop button-shop2-{{ section.id }}" title="">{{section.settings.button_banner2}}</a>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .section-banner-v4 .img-left .banner-content .button-shop-{{ section.id }} {
+    color: {{section.settings.color_btn}};
+    border: 1px solid  {{section.settings.color_btn}};
+    background: transparent;
+  }
+  .section-banner-v4 .img-left .banner-content .button-shop-{{ section.id }}:hover {
+    color: {{section.settings.color_btn_hover}};
+    background: {{section.settings.bg_btn_hover}};
+    border: 1px solid  {{section.settings.bg_btn_hover}};
+  }
+  .section-banner-v4 .img-left .banner-content .button-shop2-{{ section.id }} {
+    color: {{section.settings.color_btn2}};
+    border: 1px solid  {{section.settings.color_btn2}};
+    background: transparent;
+  }
+  .section-banner-v4 .img-left .banner-content .button-shop2-{{ section.id }}:hover {
+    color: {{section.settings.color_btn_hover2}};
+    background: {{section.settings.bg_btn_hover2}};
+    border: 1px solid  {{section.settings.bg_btn_hover2}};
+  }
+</style>
+{% schema %}
+{
+"name": "BANNER V4",
+"settings": [
+    {
+      "type": "header",
+      "content": "Section Space"
+    },
+    {
+      "type": "text",
+      "id": "margin_top",
+      "label": "Margin Top",
+      "info": "Defined in pixels. Do not add the 'px' unit."
+    },
+    {
+      "type": "text",
+      "id": "margin_bottom",
+      "label": "Margin Bottom",
+      "info": "Defined in pixels. Do not add the 'px' unit."
+    },
+    {
+      "type": "select",
+      "id": "select_pos",
+      "label": "Select Position Content",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "right"
+    },
+    {
+      "type": "header",
+      "content": "Settings Banner Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_banner_left",
+      "label": "Image Banner Left",
+      "info": "960 x 960px recommended"
+    },
+    {
+      "type": "header",
+      "content": "Settings Banner Content"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_bg_img",
+      "label": "Enable Image Right",
+      "default": true
+    },
+    {
+      "type": "image_picker",
+      "id": "img_banner_right",
+      "label": "Image Right",
+      "info": "960 x 960px recommended"
+    },
+    {
+      "type": "color",
+      "id": "bg_banner",
+      "label": "Background Color",
+      "default": "#f8f7f3"
+    },
+    {
+      "type": "text",
+      "id": "title_banner",
+      "label": "Title Banner",
+      "default": "Natural Soap"
+    },
+    {
+      "type": "color",
+      "id": "color_title",
+      "label": "Color Title banner",
+      "default": "#000"
+    },
+    {
+      "type": "textarea",
+      "id": "sub_title_banner",
+      "label": "Sub Title Banner",
+      "default": "We are beyond excited to announce the upcoming classes at our retail shop & studio! Bring your friends and your family to spend the coolest two hours crafting your own soap or organic cosmetics at our master class. Feel free to give us a free call!"
+    },
+    {
+      "type": "color",
+      "id": "color_sub_title",
+      "label": "Color Sub Title banner",
+      "default": "#666"
+    },
+    {
+      "type": "header",
+      "content": "Button 1"
+    },
+    {
+      "type": "text",
+      "id": "button_banner",
+      "label": "Button Banner 1",
+      "default": "Shop Pet Toy"
+    },
+    {
+      "type": "color",
+      "id": "color_btn",
+      "label": "Color button banner 1",
+      "default": "#000"
+    },
+    {
+      "type": "color",
+      "id": "color_btn_hover",
+      "label": "Color button banner Hover 1",
+      "default": "#fff"
+    },
+    {
+      "type": "color",
+      "id": "bg_btn_hover",
+      "label": "Background Color button banner 1",
+      "default": "#000"
+    },
+    {
+      "type": "url",
+      "id": "url_banner",
+      "label": "URL Button ",
+      "default": "/collections/all"
+    },
+    {
+      "type": "header",
+      "content": "Button 2"
+    },
+    {
+      "type": "text",
+      "id": "button_banner2",
+      "label": "Button Banner 2",
+      "default": "Shop Pet Food"
+    },
+    {
+      "type": "color",
+      "id": "color_btn2",
+      "label": "Color button banner 2",
+      "default": "#000"
+    },
+    {
+      "type": "color",
+      "id": "color_btn_hover2",
+      "label": "Color button banner Hover 2",
+      "default": "#fff"
+    },
+    {
+      "type": "color",
+      "id": "bg_btn_hover2",
+      "label": "Background Color button banner 2",
+      "default": "#000"
+    },
+    {
+      "type": "url",
+      "id": "url_banner2",
+      "label": "URL Button 2",
+      "default": "/collections/all"
+    }
+  ],
+  "presets": [
+    {
+      "name": "BANNER V4",
+      "category": "HOME"
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

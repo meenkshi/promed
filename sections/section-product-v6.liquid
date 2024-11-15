@@ -1,0 +1,230 @@
+<div data-section-id="{{ section.id }}" data-section-type="section-product-v6" style="{% if section.settings.margin_top != blank %}margin-top: {{section.settings.margin_top}}px;{%endif%} {% if section.settings.margin_bottom != blank %}margin-bottom: {{section.settings.margin_bottom}}px;{% endif %}">
+  <div class="section-product-v6">
+    <div class="container container-v2">
+
+      <div class="row">
+        <div class="col-xl-3 col-lg-4 col-md-5 col-sm-6 col-12 {% if section.settings.select_pos =='left' %} order-sm-1 {% elsif section.settings.select_pos == 'right'%} order-sm-2{% endif %}">
+          <div class="banner-inner">
+            <figure class="banner-thumb">
+              {% if section.settings.banner_img != blank %}
+              <img src="{{section.settings.banner_img|img_url:'master'}}" class="img-responsive" alt="banner">
+              {% else %}
+              <img src="//via.placeholder.com/330x550" class="w-100 img-fluid" alt="">
+              {% endif %}
+            </figure>
+            <div class="banner-info">
+              <div class="banner-content">
+                {% if section.settings.banner_title11 != blank %}
+                <h3 class="title">{{section.settings.banner_title11}}</h3>
+                {% endif %}
+
+                {% if section.settings.banner_title12 != blank %}
+                <h4 class="title-hightlight">{{section.settings.banner_title12}}</h4>
+                {% endif %}
+
+                {% if section.settings.banner_desc != blank %}
+                <div class="desc">{{section.settings.banner_desc}}</div>
+                {% endif %}
+
+                {% if section.settings.banner_btn_name != blank %}
+                <a class="button-main1" target="_blank" href="{{section.settings.banner_url}}">
+                  {{section.settings.banner_btn_name}}
+                </a>
+                {% endif %}
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-xl-9 col-lg-8 col-md-7 col-sm-6 col-12 {% if section.settings.select_pos =='left' %} order-lg-2  {% elsif section.settings.select_pos == 'right'%} order-lg-1 {% endif %}">
+          <div class="tab-head">
+            <ul class="nav nav-tabs title-tab">
+              {% if section.blocks.size > 0 %}
+              {% for block in section.blocks %}
+              {% if block.type == "collection" %}
+              <li>
+                <a href="#a{{i}}" data-toggle="tab" class="{% if forloop.first %}active{% endif %}">
+                  <span>{{block.settings.block_title}}</span>
+                </a>
+              </li>
+              {% endif %}
+              {% endfor %}
+              {% endif %}
+            </ul>
+          </div>
+
+          <div class="tab-content">
+            {% if section.blocks.size > 0 %}
+            {% for block in section.blocks %}
+            {% if block.type == "collection" %}
+
+            {% assign products_limit = block.settings.products_limit %}
+            {% assign col = block.settings.select_collection %}
+
+            <div id="a{{i}}" class="tab-pane fade {% if forloop.first %}show active{% endif %}">
+              <div class="row js-product-v6">
+                {% for product in collections[col].products limit: products_limit %}
+                <div class="col-12">
+                  {% include 'product-item-v1' %}
+                </div>
+                {% else %}
+                {% for i in (1..6) %}
+                <div class="col-12">
+                  {% include 'empty-product-item' %}
+                </div>
+                {% endfor %}
+                {% endfor %}
+              </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+            {% endif %}
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "PRODUCT V6",
+  "class": "index-section",
+  "settings": [
+    {
+      "type": "select",
+      "id": "select_pos",
+      "label": "Select Position Banner",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "header",
+      "content": "Banner"
+    },
+    {
+      "type": "image_picker",
+      "id": "banner_img",
+      "label": "Banner image",
+      "info": "330 x 600px recommended"
+    },
+    {
+      "type": "text",
+      "id": "banner_title11",
+      "label": "Title 1.1",
+      "default": "Natural"
+    },
+    {
+      "type": "text",
+      "id": "banner_title12",
+      "label": "Title 1.2",
+      "default": "Handmade Soap"
+    },
+    {
+      "type": "text",
+      "id": "banner_desc",
+      "label": "Content",
+      "default": "Handmade soap is exactly<br>that made by hand"
+    },
+    {
+      "type": "text",
+      "id": "banner_btn_name",
+      "label": "Button name",
+      "default": "SHOP NOW"
+    },
+    {
+      "type": "url",
+      "id": "banner_url",
+      "label": "Banner URL",
+      "default": "/collections/all"
+    },
+    {
+      "type": "header",
+      "content": "Section Space"
+    },
+    {
+      "type": "text",
+      "id": "margin_top",
+      "label": "Margin Top",
+      "info": "Defined in pixels. Do not add the 'px' unit."
+    },
+    {
+      "type": "text",
+      "id": "margin_bottom",
+      "label": "Margin Bottom",
+      "info": "Defined in pixels. Do not add the 'px' unit."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "collection",
+      "name": "Collection",
+      "settings": [
+        {
+          "type": "text",
+          "id": "block_title",
+          "label": "Title",
+          "default": "Interior"
+        },
+        {
+          "type": "collection",
+          "id": "select_collection",
+          "label": "Select Collection"
+        },
+        {
+          "type": "range",
+          "id": "products_limit",
+          "label": "Limit products",
+          "min": 1,
+          "max": 50,
+          "step": 1,
+          "default": 6
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "PRODUCT V6",
+      "category": "HOME",
+      "blocks": [
+        {
+          "type": "collection",
+          "settings": {
+            "block_title": "New Arrival"
+          }
+        },
+        {
+          "type": "collection",
+          "settings": {
+            "block_title": "Best Seller"
+          }
+        },
+        {
+          "type": "collection",
+          "settings": {
+            "block_title": "Top Sale"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

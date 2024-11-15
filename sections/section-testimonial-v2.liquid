@@ -1,0 +1,195 @@
+<div data-section-id="{{ section.id }}" data-section-type="section-testimonial-v2" style="{% if section.settings.margin_top != blank %}margin-top: {{section.settings.margin_top}}px;{%endif%} {% if section.settings.margin_bottom != blank %}margin-bottom: {{section.settings.margin_bottom}}px;{% endif %} {% if section.settings.sections_layout == "dark" %}background: {{section.settings.sections_bg_color}};{% endif %}">
+  <div class="container container-v2">
+    <div class="section-testimonial-v2 mt-all" style="background-color:{{section.settings.bgcolor_section}}">
+      <div class="row title-testimonials align-items-center">
+        <div class="col-lg-8 col-md-7">
+          <div class="row content-testimonials justify-content-between">
+            {% if section.blocks.size > 0 %}
+            {% for block in section.blocks %}
+            {% if block.type == "image" %}
+            <div class="col-lg-6 col-md-6 mt-top">
+              <div class="box-content text-center">
+                {% if block.settings.block_title_item != blank %}
+                <h4 style=color:{{block.settings.color_block_title_item}}>{{block.settings.block_title_item}}</h4>
+                {% endif %}
+                {% if block.settings.block_description != blank %}
+                <p class="guide" style=color:{{block.settings.color_block_description}}>{{block.settings.block_description}}</p>
+                {% endif %}
+                {% if block.settings.block_author_item != blank %}
+                <p class="model" style=color:{{block.settings.color_block_author_item}}>{{block.settings.block_author_item}} <span style=color:{{block.settings.color_block_model}}>{{block.settings.block_model}}</span></p>
+                {% endif %}
+              </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+            {% endif %}
+          </div>
+
+        </div>
+        <div class="col-lg-4 col-md-5">
+          <div class="box-img text-center">
+            {% if section.settings.img_banner1 != blank %}
+            <img src="{{section.settings.img_banner1 | img_url:'master'}}" class="img-fluid">
+            {% else %}
+            <img src="//via.placeholder.com/450x600" class="img-fluid" alt="">
+            {% endif %}
+          </div> 
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "TESTIMONIAL V2",
+  "class": "index-section",
+  "settings": [
+	{
+      "type": "header",
+      "content": "Background color section"
+    },
+	{
+      "type": "color",
+      "id": "bgcolor_section",
+      "label": "Background Color section",
+	  "default": "#f4f4f4"
+    },
+	{
+      "type": "paragraph",
+      "content": "Please scroll to bottom and click Add content to add content for Testimonials item"
+    },
+
+	{
+      "type": "header",
+      "content": "setting Images"
+    },
+	{
+      "type": "image_picker",
+      "id": "img_banner1",
+      "label": "Image",
+	  "info": "450 x 600px recommended"
+    },
+	{
+      "type": "header",
+      "content": "Section Space"
+    },
+    {
+      "type": "text",
+      "id": "margin_top",
+      "label": "Margin Top",
+      "info": "Defined in pixels. Do not add the 'px' unit."
+    },
+    {
+      "type": "text",
+      "id": "margin_bottom",
+      "label": "Margin Bottom",
+      "info": "Defined in pixels. Do not add the 'px' unit."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Testimonials item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "block_title_item",
+          "label": "Title item",
+          "default": "#01"
+        },
+		{
+          "type": "color",
+          "id": "color_block_title_item",
+          "label": "Color Title Item",
+          "default": "#000"
+        },
+		{
+          "type": "text",
+          "id": "block_description",
+          "label": "Description item",
+          "default": "Quisque condimentum ipsum at velit hendrerit venenatis. Donec luctus metus enim, nunced. Sed sit amet nisl id purus aliquet cursus..."
+        },
+		{
+          "type": "color",
+          "id": "color_block_description",
+          "label": "Color Description"
+        },
+		{
+          "type": "text",
+          "id": "block_author_item",
+          "label": "Author item",
+          "default": "IRYNA PETRUNKO"
+        },
+		{
+          "type": "color",
+          "id": "color_block_author_item",
+          "label": "Color Author"
+        },
+		{
+          "type": "text",
+          "id": "block_model",
+          "label": "Description Author item",
+          "default": "/ Model"
+        },
+		{
+          "type": "color",
+          "id": "color_block_model",
+          "label": "Color Description Author item"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "TESTIMONIAL V2",
+      "category": "HOME",
+	  "blocks": [
+        {
+          "type": "image",
+          "settings": {
+            "block_title_item": "#01",
+            "block_description": "Quisque condimentum ipsum at velit hendrerit venenatis. Donec luctus metus enim, nunced. Sed sit amet nisl id purus aliquet cursus...",
+            "block_author_item": "IRYNA PETRUNKO",
+			"block_model": "/ Model"
+          }
+        },
+		{
+          "type": "image",
+          "settings": {
+            "block_title_item": "#02",
+            "block_description": "Quisque condimentum ipsum at velit hendrerit venenatis. Donec luctus metus enim, nunced. Sed sit amet nisl id purus aliquet cursus...",
+            "block_author_item": "IRYNA PETRUNKO",
+			"block_model": "/ Model"
+          }
+        },
+		{
+          "type": "image",
+          "settings": {
+            "block_title_item": "#03",
+            "block_description": "Quisque condimentum ipsum at velit hendrerit venenatis. Donec luctus metus enim, nunced. Sed sit amet nisl id purus aliquet cursus...",
+            "block_author_item": "IRYNA PETRUNKO",
+			"block_model": "/ Model"
+          }
+        },
+		{
+          "type": "image",
+          "settings": {
+            "block_title_item": "#04",
+            "block_description": "Quisque condimentum ipsum at velit hendrerit venenatis. Donec luctus metus enim, nunced. Sed sit amet nisl id purus aliquet cursus...",
+            "block_author_item": "IRYNA PETRUNKO",
+			"block_model": "/ Model"
+          }
+        }	
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

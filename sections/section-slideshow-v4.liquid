@@ -1,0 +1,193 @@
+<div data-section-id="{{ section.id }}" data-section-type="section-slideshow-v4" style="{% if section.settings.margin_top != blank %}margin-top: {{section.settings.margin_top}}px;{%endif%} {% if section.settings.margin_bottom != blank %}margin-bottom: {{section.settings.margin_bottom}}px;{% endif %} {% if section.settings.sections_layout == "dark" %}background: {{section.settings.sections_bg_color}};{% endif %}">
+  <div class="section-slideshow-v4" style="background: {{section.settings.bg_color}}">
+    <div class="container container-v2">
+      <div class="row">
+        <div class="col-lg-6 col-md-6 col-12">
+          <div class="slider-v4 js-slideshow-v4">
+            {% if section.blocks.size > 0 %}
+            {% for block in section.blocks %}
+            {% if block.type == "slideshow" %}
+            <div class="content-slider">
+
+              <div class="slider-info">
+
+                {% if block.settings.slider_title != blank %}
+                <h2>{{block.settings.slider_title}}</h2>
+                {% endif %}
+
+                {% if block.settings.slider_description != blank %}
+                <p style="color:{{block.settings.color_slider}}">{{block.settings.slider_description}}</p>
+                {% endif %}
+
+              </div>
+              <div class="slider-img banner-item2" >
+                <a href="{{block.settings.slider_url}}" class="d-block">
+                  {% if block.settings.slider_image == blank %}
+                  <img src="//via.placeholder.com/570x340" alt="image">
+                  {% else %}
+                  <img src="{{block.settings.slider_image | img_url:'master'}}" class="img-fluid" alt="Image">
+                  {% endif %}
+                </a>
+              </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+            {% endif %}
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-12">
+          <div class="js-slideshow-thumb">
+            {% if section.blocks.size > 0 %}
+            {% for block in section.blocks %}
+            {% if block.type == "slideshow" %}
+            <div class="banner banner-item style2">
+              <a href="{{block.settings.banner_url}}" class="d-block img-url">
+                {% if block.settings.banner_img == blank %}
+                <img src="//via.placeholder.com/800x980" class="img-fluid w-100" alt="">
+                {% else %}
+                <img src="{{block.settings.banner_img|img_url:'master'}}" class="img-fluid w-100" alt="Banner">
+                {% endif %}
+              </a>
+            </div>
+            {% endif %}
+            {% endfor %}
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+</style>
+
+{% schema %}
+{
+  "name": "SLIDESHOW V4",
+  "class": "index-section",
+  "settings": [
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color section",
+      "default": "#f4f4f4"
+    },
+    {
+      "type": "header",
+      "content": "Section Space"
+    },
+    {
+      "type": "text",
+      "id": "margin_top",
+      "label": "Margin Top",
+      "info": "Defined in pixels. Do not add the 'px' unit."
+    },
+    {
+      "type": "text",
+      "id": "margin_bottom",
+      "label": "Margin Bottom",
+      "info": "Defined in pixels. Do not add the 'px' unit."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "slideshow",
+      "name": "slideshow item",
+      "settings": [
+        {
+          "type": "header",
+          "content": "Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "slider_image",
+          "info": "570 x 340px recommended",
+          "label": "Slider Image Left"
+        },
+        {
+          "type": "url",
+          "id": "slider_url",
+          "label": "URL",
+          "default": "/collections/all"
+        },
+        {
+          "type": "header",
+          "content": "Content"
+        },
+        {
+          "type": "header",
+          "content": "Title"
+        },
+        {
+          "type": "text",
+          "id": "slider_title",
+          "label": "Title",
+          "default": "Soap & Skincare"
+        },
+        {
+          "type": "header",
+          "content": "Description"
+        },
+        {
+          "type": "textarea",
+          "id": "slider_description",
+          "label": "Description",
+          "default": "Handmade soap and skincare products made with nature’s finest ingredients."
+        },
+        {
+          "type": "color",
+          "id": "color_slider",
+          "label": "Color slider",
+          "default": "#222"
+        },
+        {
+          "type": "header",
+          "content": "Banner"
+        },
+        {
+          "type": "image_picker",
+          "id": "banner_img",
+          "info": "800 x 980px recommended",
+          "label": "Slider Image Right"
+        },
+        {
+          "type": "url",
+          "id": "banner_url",
+          "label": "Banner URL",
+          "default": "/collections/all"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "SLIDESHOW V4",
+      "category": "HOME",
+      "blocks": [
+        {
+          "type": "slideshow",
+          "settings": {
+            "slider_title": "Soap & Skincare",
+            "slider_description": "Handmade soap and skincare products made with nature’s finest ingredients."
+          }
+        },
+        {
+          "type": "slideshow",
+          "settings": {
+            "slider_title": "Natural Body Wash",
+            "slider_description": "Handmade soap and skincare products made with nature’s finest ingredients."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

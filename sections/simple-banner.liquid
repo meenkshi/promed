@@ -1,0 +1,51 @@
+<div class="simple-banner-section">
+   <div class="banner-block"> 
+    {% if section.settings.banner_img != blank %} 
+    <div class="banner-img">
+      <img {% if section.settings.banner_mob_img != blank %}class="banner_img"{% endif %} src="{{ section.settings.banner_img | img_url:'master' }}" height="" width="">
+      {% if section.settings.banner_mob_img != blank %} 
+        <img class="banner_mob_img" src="{{ section.settings.banner_mob_img | img_url:'master' }}" height="" width="">
+      {% endif %}  
+    </div>
+    {% endif %} 
+
+    {% if section.settings.btn != blank %}  
+      <div class="btn-block"><a class="button-main1" href="{{ section.settings.btn_link }}">{{ section.settings.btn }} <i><img src="https://cdn.shopify.com/s/files/1/0658/8976/3480/files/right.png?v=1730122028"></i></a></div>
+    {% endif %}   
+       
+   </div>  
+</div>
+
+{% schema %}
+  {
+    "name": "Simple Banner",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "banner_img",
+        "label": "Banner image"
+     },
+      {
+        "type": "image_picker",
+        "id": "banner_mob_img",
+        "label": "Banner Mobile image"
+     },
+    {
+      "type": "text",
+      "id": "btn",
+      "label": "Button name",
+      "default": "SHOP NOW"
+    },
+    {
+      "type": "url",
+      "id": "btn_link",
+      "label": "Button name"
+    },
+    ],
+    "presets": [
+      {
+        "name": "Simple Banner"
+      }
+    ]
+  }
+{% endschema %}

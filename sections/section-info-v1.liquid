@@ -1,0 +1,323 @@
+<div data-section-id="{{ section.id }}" data-section-type="section-info-v1" style="{% if section.settings.margin_top != blank %}margin-top: {{section.settings.margin_top}}px;{%endif%} {% if section.settings.margin_bottom != blank %}margin-bottom: {{section.settings.margin_bottom}}px;{% endif %}">
+  <div class="section-info-v1 lazyload">
+    <div class="container container-v2">
+      <div class="info-title text-center col-12 col-md-9 col-lg-7 col-xl-6 mx-auto">
+        {% if section.settings.img_title != blank  %}
+        <div class="text-center mb-4">
+          <img class="img-fluid" src="{{section.settings.img_title |img_url : 'master'}}" alt="">
+        </div>
+        {% endif %}
+
+        {% if section.settings.section_title != blank %}
+        <h3 class="section-title" style="color: {{section.settings.color_section_title}}">
+          {{section.settings.section_title }}
+        </h3>
+        {% endif %}
+
+        {% if section.settings.section_des != blank %}
+        <p class="des_info" style="color: {{section.settings.color_section_des}}">
+          {{section.settings.section_des }}
+        </p>
+        {% endif %}
+      </div>
+      <div class="row align-items-center">
+        <div class="col-12 col-md-4">
+          <div class="info-left info-item">
+            {% if section.settings.info_left_img != blank %}
+            <img src="{{section.settings.info_left_img | img_url:'master'}}" class="w-100 img-fluid">
+            {% else %}
+            <img src="//via.placeholder.com/360x360" class="w-100 img-fluid" alt="">
+            {% endif %}
+            <div class="info-left-content info-content text-center">
+              {% if section.settings.info_left_subtitle != blank %}
+              <p class="sub-title" style="color: {{section.settings.color_info_left_subtitle}}">
+                {{section.settings.info_left_subtitle }}
+              </p>
+              {% endif %}
+              {% if section.settings.info_left_title != blank %}
+              <h4 class="title" style="color: {{section.settings.color_info_left_title}}">
+                {{section.settings.info_left_title }}
+              </h4>
+              {% endif %}
+              {% if section.settings.info_left_des != blank %}
+              <p class="des" style="color: {{section.settings.color_info_left_des}}">
+                {{section.settings.info_left_des }}
+              </p>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-4">
+          <div class="info-center text-center">
+            {% if section.settings.info_center_title != blank %}
+            <h2 class="info-center-title" style="color: {{section.settings.color_info_center_title}}">
+              {{section.settings.info_center_title }}
+            </h2>
+            {% endif %}
+            {% if section.settings.info_center_button != blank %}
+            <a href="{{section.settings.info_center_button_url}}" class="button-main1 button-{{section.id}}">
+              {{section.settings.info_center_button}}
+            </a>
+            {% endif %}
+            {% if section.settings.info_center_subtitle != blank %}
+            <p class="info-center-subtitle" style="color: {{section.settings.color_info_center_subtitle}}">
+              {{section.settings.info_center_subtitle }}
+            </p>
+            {% endif %}
+          </div>
+
+        </div>
+        <div class="col-12 col-md-4">
+          <div class="info-right info-item">
+            {% if section.settings.info_right_img != blank %}
+            <img src="{{section.settings.info_right_img | img_url:'master'}}" class="w-100 img-fluid">
+            {% else %}
+            <img src="//via.placeholder.com/360x360" class="w-100 img-fluid" alt="">
+            {% endif %}
+            <div class="info-right-content info-content text-center">
+              {% if section.settings.info_right_subtitle != blank %}
+              <p class="sub-title" style="color: {{section.settings.color_info_right_subtitle}}">
+                {{section.settings.info_right_subtitle }}
+              </p>
+              {% endif %}
+              {% if section.settings.info_right_title != blank %}
+              <h4 class="title" style="color: {{section.settings.color_info_right_title}}">
+                {{section.settings.info_right_title }}
+              </h4>
+              {% endif %}
+              {% if section.settings.info_right_des != blank %}
+              <p class="des" style="color: {{section.settings.color_info_right_des}}">
+                {{section.settings.info_right_des }}
+              </p>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .section-info-v1 .button-main1 {
+    background: linear-gradient(to right,{{section.settings.bg_color_button_hover}} 50%,{{section.settings.bg_color_button}} 50%) no-repeat scroll right bottom/210% 100% {{section.settings.bg_color_button}};
+    color: {{section.settings.color_button}}
+  }
+  .section-info-v1 .button-main1:hover {
+    color: {{section.settings.color_button_hover}}
+  }
+</style>
+{% schema %}
+{
+  "name": "INFO V1",
+  "settings": [
+	{
+      "type": "image_picker",
+      "id": "img_title",
+      "label": "Image on title"
+    },
+	
+	{
+      "type": "text",
+      "id": "section_title",
+      "label": "Title section",
+      "default": "Organic soap Vs Ordinary soap"
+    },
+	{
+      "type": "color",
+      "id": "color_section_title",
+      "label": "Color title section"
+    },
+	{
+      "type": "textarea",
+      "id": "section_des",
+      "label": "Description section",
+      "default": "Difference between organic soap and regular soap"
+    },
+	{
+      "type": "color",
+      "id": "color_section_des",
+      "label": "Color description section"
+    },
+    {
+      "type": "header",
+      "content": "Info left"
+    },
+	{
+      "type": "image_picker",
+      "id": "info_left_img",
+      "label": "Image left",
+	  "info": "360 x 360px recommended"
+    },
+	
+	{
+      "type": "text",
+      "id": "info_left_subtitle",
+      "label": "Subtitle info left",
+      "default": "REGULAR SOAPS"
+    },
+	{
+      "type": "color",
+      "id": "color_info_left_subtitle",
+      "label": "Color subtitle info left"
+    },
+	{
+      "type": "text",
+      "id": "info_left_title",
+      "label": "Title info left",
+      "default": "Unbalance the pH levels of the skin"
+    },
+	{
+      "type": "color",
+      "id": "color_info_left_title",
+      "label": "Color title info left"
+    },
+	{
+      "type": "textarea",
+      "id": "info_left_des",
+      "label": "Description info left",
+      "default": "The pH balance of ordinary soaps is above 10 which causes allergies and skin irritation"
+    },
+	{
+      "type": "color",
+      "id": "color_info_left_des",
+      "label": "Color description info left"
+    },
+    {
+      "type": "header",
+      "content": "Info center"
+    },
+	{
+      "type": "text",
+      "id": "info_center_title",
+      "label": "Title info center",
+      "default": "VS."
+    },
+	{
+      "type": "color",
+      "id": "color_info_center_title",
+      "label": "Color title info center"
+    },
+	{
+      "type": "text",
+      "id": "info_center_button",
+      "label": "Button name",
+      "default": "SHOP NOW"
+    },
+	{
+      "type": "url",
+      "id": "info_center_button_url",
+      "label": "Button URL",
+      "default": "/collections/all"
+    },
+	{
+      "type": "color",
+      "id": "bg_color_button",
+      "label": "Background color button",
+      "default": "#000"
+    },
+	{
+      "type": "color",
+      "id": "color_button",
+      "label": "Color button",
+      "default": "#fff"
+    },
+	{
+      "type": "color",
+      "id": "bg_color_button_hover",
+      "label": "Background color button hover",
+      "default": "#f0bfb6"
+    },
+	{
+      "type": "color",
+      "id": "color_button_hover",
+      "label": "Color button hover",
+      "default": "#fff"
+    },
+	{
+      "type": "text",
+      "id": "info_center_subtitle",
+      "label": "Subtitle info center",
+      "default": "WHY HANDMADE SOAP IS BEST"
+    },
+	{
+      "type": "color",
+      "id": "color_info_center_subtitle",
+      "label": "Color subtitle info center"
+    },
+    {
+      "type": "header",
+      "content": "Info right"
+    },
+	{
+      "type": "image_picker",
+      "id": "info_right_img",
+      "label": "Image right",
+	  "info": "360 x 360px recommended"
+    },
+	
+	{
+      "type": "text",
+      "id": "info_right_subtitle",
+      "label": "Subtitle info right",
+      "default": "SOAPIC SOAPS"
+    },
+	{
+      "type": "color",
+      "id": "color_info_right_subtitle",
+      "label": "Color subtitle info right"
+    },
+	{
+      "type": "text",
+      "id": "info_right_title",
+      "label": "Title info right",
+      "default": "Balance the pH levels of the skin"
+    },
+	{
+      "type": "color",
+      "id": "color_info_right_title",
+      "label": "Color title info right"
+    },
+	{
+      "type": "textarea",
+      "id": "info_right_des",
+      "label": "Description info right",
+      "default": "The pH balance of organic soky soaps is between 9-10 which makes them effective and gentle cleanser"
+    },
+	{
+      "type": "color",
+      "id": "color_info_right_des",
+      "label": "Color description info right"
+    },
+	
+    {
+      "type": "header",
+      "content": "Section Space"
+    },
+    {
+      "type": "text",
+      "id": "margin_top",
+      "label": "Margin Top",
+      "info": "Defined in pixels. Do not add the 'px' unit."
+    },
+    {
+      "type": "text",
+      "id": "margin_bottom",
+      "label": "Margin Bottom",
+      "info": "Defined in pixels. Do not add the 'px' unit."
+    }
+  ],
+  "presets": [
+    {
+      "name": "INFO V1",
+      "category": "HOME"
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

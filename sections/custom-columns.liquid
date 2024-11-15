@@ -1,0 +1,360 @@
+{% schema %}
+{
+  "name": "Custom Columns Section",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "row",
+      "name": "Row",
+      "settings": [
+        {
+          "type": "text",
+          "id": "row_width",
+          "label": "Row Width (e.g., 100%, 1200px)",
+          "default": "100%"
+        },
+        {
+          "type": "text",
+          "id": "row_padding",
+          "label": "Row Padding (e.g., 10px 20px)",
+          "default": "20px"
+        },
+        {
+          "type": "text",
+          "id": "row_margin",
+          "label": "Row Margin (e.g., 10px 0)",
+          "default": "0"
+        },
+        {
+          "type": "select",
+          "id": "row_flex_direction",
+          "label": "Row Flex Direction",
+          "options": [
+            { "value": "row", "label": "Row (default)" },
+            { "value": "row-reverse", "label": "Row Reverse" },
+            { "value": "column", "label": "Column" },
+            { "value": "column-reverse", "label": "Column Reverse" }
+          ],
+          "default": "row"
+        },
+        {
+          "type": "select",
+          "id": "row_align_items",
+          "label": "Row Align Items",
+          "options": [
+            { "value": "flex-start", "label": "Start" },
+            { "value": "flex-end", "label": "End" },
+            { "value": "center", "label": "Center" },
+            { "value": "stretch", "label": "Stretch (default)" },
+            { "value": "baseline", "label": "Baseline" }
+          ],
+          "default": "stretch"
+        },
+        {
+          "type": "select",
+          "id": "row_justify_content",
+          "label": "Row Justify Content",
+          "options": [
+            { "value": "flex-start", "label": "Start (default)" },
+            { "value": "flex-end", "label": "End" },
+            { "value": "center", "label": "Center" },
+            { "value": "space-between", "label": "Space Between" },
+            { "value": "space-around", "label": "Space Around" },
+            { "value": "space-evenly", "label": "Space Evenly" }
+          ],
+          "default": "flex-start"
+        }
+      ]
+    },
+    {
+      "type": "column",
+      "name": "Column",
+      "settings": [
+        {
+          "type": "text",
+          "id": "column_width",
+          "label": "Column Width (e.g., 100%, 300px)",
+          "default": "100%"
+        },
+        {
+          "type": "text",
+          "id": "column_padding",
+          "label": "Column Padding (e.g., 10px 20px)",
+          "default": "10px"
+        },
+        {
+          "type": "text",
+          "id": "column_margin",
+          "label": "Column Margin (e.g., 10px 0)",
+          "default": "0"
+        },
+        {
+          "type": "select",
+          "id": "column_flex_direction",
+          "label": "Column Flex Direction",
+          "options": [
+            { "value": "row", "label": "Row (default)" },
+            { "value": "row-reverse", "label": "Row Reverse" },
+            { "value": "column", "label": "Column" },
+            { "value": "column-reverse", "label": "Column Reverse" }
+          ],
+          "default": "column"
+        },
+        {
+          "type": "select",
+          "id": "column_align_items",
+          "label": "Column Align Items",
+          "options": [
+            { "value": "flex-start", "label": "Start" },
+            { "value": "flex-end", "label": "End" },
+            { "value": "center", "label": "Center" },
+            { "value": "stretch", "label": "Stretch (default)" },
+            { "value": "baseline", "label": "Baseline" }
+          ],
+          "default": "stretch"
+        },
+        {
+          "type": "select",
+          "id": "column_justify_content",
+          "label": "Column Justify Content",
+          "options": [
+            { "value": "flex-start", "label": "Start (default)" },
+            { "value": "flex-end", "label": "End" },
+            { "value": "center", "label": "Center" },
+            { "value": "space-between", "label": "Space Between" },
+            { "value": "space-around", "label": "Space Around" },
+            { "value": "space-evenly", "label": "Space Evenly" }
+          ],
+          "default": "flex-start"
+        }
+      ]
+    },
+    {
+      "type": "title",
+      "name": "Title",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Column Title"
+        },
+        {
+          "type": "range",
+          "id": "title_font_size",
+          "label": "Font Size (px)",
+          "min": 12,
+          "max": 48,
+          "default": 24
+        },
+        {
+          "type": "color",
+          "id": "title_color",
+          "label": "Font Color",
+          "default": "#000000"
+        },
+        {
+          "type": "color",
+          "id": "title_background_color",
+          "label": "Background Color",
+          "default": "#ffffff"
+        },
+        {
+          "type": "text",
+          "id": "title_padding",
+          "label": "Padding (e.g., 10px 20px)",
+          "default": "10px"
+        },
+        {
+          "type": "text",
+          "id": "title_margin",
+          "label": "Margin (e.g., 10px 0)",
+          "default": "10px"
+        }
+      ]
+    },
+    {
+      "type": "description",
+      "name": "Description",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Column Description"
+        },
+        {
+          "type": "range",
+          "id": "description_font_size",
+          "label": "Font Size (px)",
+          "min": 12,
+          "max": 48,
+          "default": 16
+        },
+        {
+          "type": "color",
+          "id": "description_color",
+          "label": "Font Color",
+          "default": "#000000"
+        },
+        {
+          "type": "color",
+          "id": "description_background_color",
+          "label": "Background Color",
+          "default": "#ffffff"
+        },
+        {
+          "type": "text",
+          "id": "description_padding",
+          "label": "Padding (e.g., 10px 20px)",
+          "default": "10px"
+        },
+        {
+          "type": "text",
+          "id": "description_margin",
+          "label": "Margin (e.g., 10px 0)",
+          "default": "10px"
+        }
+      ]
+    },
+    {
+      "type": "image",
+      "name": "Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "image_width",
+          "label": "Width (e.g., 100%, 200px)",
+          "default": "100%"
+        },
+        {
+          "type": "text",
+          "id": "image_height",
+          "label": "Height (e.g., auto, 200px)",
+          "default": "auto"
+        },
+        {
+          "type": "text",
+          "id": "image_padding",
+          "label": "Padding (e.g., 10px 20px)",
+          "default": "10px"
+        },
+        {
+          "type": "text",
+          "id": "image_margin",
+          "label": "Margin (e.g., 10px 0)",
+          "default": "10px"
+        }
+      ]
+    },
+    {
+      "type": "button",
+      "name": "Button",
+      "settings": [
+        {
+          "type": "url",
+          "id": "button_url",
+          "label": "Button URL"
+        },
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "Button Text",
+          "default": "Learn More"
+        },
+        {
+          "type": "range",
+          "id": "button_font_size",
+          "label": "Font Size (px)",
+          "min": 12,
+          "max": 48,
+          "default": 16
+        },
+        {
+          "type": "color",
+          "id": "button_color",
+          "label": "Font Color",
+          "default": "#ffffff"
+        },
+        {
+          "type": "color",
+          "id": "button_background_color",
+          "label": "Background Color",
+          "default": "#007bff"
+        },
+        {
+          "type": "color",
+          "id": "button_hover_color",
+          "label": "Hover Font Color",
+          "default": "#ffffff"
+        },
+        {
+          "type": "color",
+          "id": "button_hover_background_color",
+          "label": "Hover Background Color",
+          "default": "#0056b3"
+        },
+        {
+          "type": "text",
+          "id": "button_padding",
+          "label": "Padding (e.g., 10px 20px)",
+          "default": "10px 20px"
+        },
+        {
+          "type": "text",
+          "id": "button_margin",
+          "label": "Margin (e.g., 10px 0)",
+          "default": "10px 0"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Columns",
+      "category": "Custom Sections"
+    }
+  ]
+}
+{% endschema %}
+
+
+
+<div class="custom-section">
+  {% for block in section.blocks %}
+    {% if block.type == 'row' %}
+      <div class="row"
+           style="
+             width: {{ block.settings.row_width }};
+             padding: {{ block.settings.row_padding }};
+             margin: {{ block.settings.row_margin }};
+             flex-direction: {{ block.settings.row_flex_direction }};
+             align-items: {{ block.settings.row_align_items }};
+             justify-content: {{ block.settings.row_justify_content }};
+           ">
+        {% for column in block.blocks %}
+          <div class="column"
+               style="
+                 width: {{ column.settings.column_width }};
+                 padding: {{ column.settings.column_padding }};
+                 margin: {{ column.settings.column_margin }};
+                 flex-direction: {{ column.settings.column_flex_direction }};
+                 align-items: {{ column.settings.column_align_items }};
+                 justify-content: {{ column.settings.column_justify_content }};
+               ">
+            {% render 'block-content', block: column %}
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+  {% endfor %}
+</div>
+
+{% comment %}
+  Include partials or other liquid code to render the content blocks (title, description, image, button, etc.)
+{% endcomment %}

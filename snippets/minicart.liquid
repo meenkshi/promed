@@ -1,0 +1,145 @@
+<div class="js-minicart minicart" >
+  <div class="relative" style="height: 100%;">
+    <div class="mini-content ">    
+      <div class="mini-cart-head">
+        <a href="javascript:void(0)" class="mini-cart-undo close-mini-cart">
+          <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 298.667 298.667" style="enable-background:new 0 0 298.667 298.667;" xml:space="preserve">
+            <g>
+              <g>
+                <polygon points="298.667,30.187 268.48,0 149.333,119.147 30.187,0 0,30.187 119.147,149.333 0,268.48 30.187,298.667     149.333,179.52 268.48,298.667 298.667,268.48 179.52,149.333   "/>
+              </g>
+            </g>
+
+          </svg>
+        </a>        
+        <h3 class="title">{{ 'minicart.general.title' | t }}</h3>
+        <div class="mini-cart-counter"><span class="cart-counter enj-cartcount">{{cart.item_count }}</span></div>
+      </div>       
+
+      <div class="mini-cart-bottom enj-minicart-ajax">
+        {% if cart.item_count > 0 %}
+        <div class="prod">
+          <div class="product-cart ">
+            {% for item in cart.items %}
+            <ol class="minicart_item list-unstyled mb-0 px-0">
+              <li class="d-flex">
+                <div class="thumb_img_cartmini">
+                  <a href="{{item.url}}" title="" class=""><img alt="{{item.title}}" src="{{ item.image | product_img_url: 'small' }}"></a>
+                </div>
+                <div class="product-detail">
+                  <h3 class="product_name_mini">
+                    <a href="{{item.url}}">{{item.title}}</a>
+                  </h3>
+                  <div class="product_info">
+                    <div class="product_quanity">QTY : {{ item.quantity }} </div>
+                    <div class="product_price">
+                      <span class="price_sale">{{ item.price | money }}</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="produc_remove">
+                  <a href="javascript:void(0)" class="remove-product" data-line="{{ forloop.index }}"><i class="fa fa-trash-o"></i></a>
+                </div>
+              </li>
+            </ol>
+            {% endfor %}
+          </div>
+          <!-- <p class="custom-reasons-tle" style="color: #E70145;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Free gifts: Glasses X 1, Razor X 1</font></font></p> -->
+          <div class="custom-cart-reasons" bis_skin_checked="1">
+        <line-item class="line-item">
+          <p class="custom-reasons-tle"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Why choose Promed?</font></font></p>
+          <div class="custom-reasons-box" bis_skin_checked="1">
+            <div class="reasons-list" bis_skin_checked="1">
+              <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <mask id="mask0_2706_592" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="26" height="26">
+                <rect width="26" height="26" fill="#D9D9D9"></rect>
+                </mask>
+                <g mask="url(#mask0_2706_592)">
+                <path d="M18.5648 6.13326C20.0902 4.60794 21.7375 4.72998 22.3705 4.98168C22.6222 5.61471 22.7443 7.26206 21.219 8.78738L18.359 11.6473L19.3373 22.423L17.8206 23.9397L14.7873 14.8398L11.3749 18.2523L10.2374 23.1813L8.34163 19.0106L4.17088 17.1148L9.09995 15.9773L12.5124 12.5649L3.41256 9.53159L4.9292 8.01496L15.7049 8.99323L18.5648 6.13326Z" stroke="#181818" stroke-linecap="round" stroke-linejoin="round"></path>
+                </g>
+              </svg>
+              <div class="reasons-list-txt" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Fast and free delivery</font></font></div>
+            </div>
+            <div class="reasons-list" bis_skin_checked="1">
+              <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3.09521 11.1429H22.9047" stroke="#181818"></path>
+                <path d="M11.1245 19.8095H11.3976H15.7673C16.974 19.8095 17.9522 18.8313 17.9522 17.6246V17.6246C17.9522 16.418 16.974 15.4398 15.7673 15.4398H8.6665" stroke="#181818"></path>
+                <path d="M9.92054 13.5724L8.04785 15.4451L9.92054 17.3178" stroke="#181818"></path>
+                <path d="M18.331 4.83334L23.0237 10.6992V22.4048H2.97607V10.6992L7.66877 4.83334H18.331Z" stroke="#181818"></path>
+                <path d="M13 4.64285V11.1429" stroke="#181818"></path>
+              </svg>
+              <div class="reasons-list-txt" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Full refund within 90 days</font></font></div>
+            </div>
+            
+            <div class="reasons-list" bis_skin_checked="1">
+              <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M4.3335 5.78466L13.314 3.16379L22.2859 5.78466V11.1594C22.2859 16.8087 18.6706 21.824 13.311 23.6098C7.94995 21.824 4.3335 16.8076 4.3335 11.1569V5.78466Z" stroke="#181818" stroke-linejoin="round"></path>
+                <path d="M15.9343 8.77221C17.1703 10.0083 17.1703 12.0156 15.9343 13.2569C15.5539 13.6372 15.1049 13.8961 14.6295 14.044V18.8657H12.1405V14.044C11.6598 13.8961 11.2108 13.632 10.8358 13.2569C9.59445 12.0156 9.59445 10.0136 10.8358 8.77221C11.2161 8.39188 11.6651 8.13304 12.1405 7.98514V10.827H14.6295V7.98514C15.1102 8.13304 15.5592 8.39716 15.9343 8.77221Z" stroke="#181818" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+              <div class="reasons-list-txt" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">1 year warranty</font></font></div>
+            </div>
+          </div>
+        </line-item>
+      </div>
+        </div>
+        <div class="sub-total">
+          {% if settings.enable_rtl_mode %}
+          <span class="total-title float-right">{{ 'minicart.general.total_price' | t }}</span>
+          <span class="total-price float-left">{{cart.total_price | money}}</span>
+          {% else %}
+          <span class="total-title float-left">{{ 'minicart.general.total_price' | t }}</span>
+          <span class="total-price float-right">{{cart.total_price | money}}</span>
+          {% endif %}
+        </div>
+        <div class="action-checkout">
+          {% if settings.enable_rtl_mode %}
+          <a href="/checkout" class="button-checkout">
+            <span>{{ 'minicart.general.checkout' | t }}</span>
+          </a>
+          <a href="/cart" class="button-viewcart">
+            <span>{{ 'minicart.general.view_cart' | t }}</span>
+          </a>
+          {% else %}
+          <a href="/cart" class="button-viewcart">
+            <span>{{ 'minicart.general.view_cart' | t }}</span>
+          </a>
+          <a href="/checkout" class="button-checkout">
+            <span>{{ 'minicart.general.checkout' | t }}</span>
+          </a>
+          {% endif %}
+        </div>      
+        {% else %}
+        <div class="list_product_minicart empty">
+          <div class="empty-product_minicart">
+            <p class="mb-0">{{ 'minicart.general.empty' | t }}</p>
+            <a href="/collections/all" class="to-cart">{{ 'minicart.general.shop_now' | t }}</a>
+          </div>
+        </div>      
+        {% endif %}      
+      </div>    
+    </div>
+  </div>
+</div>
+<div class="js-bg bg-minicart"></div>
+<style>
+p.custom-reasons-tle {
+    text-align: left !important;
+}
+  p.custom-reasons-tle {
+    font-size: 14px !important;
+}
+
+.line-item{display:flow-root;}
+.custom-cart-reasons{padding:20px 0 15px;border-top:1px solid #D8D8D8;margin-top:20px;}
+.custom-reasons-tle{font-size:14px;line-height:1.2;font-weight:570;margin-bottom:10px;font-family:var(--heading-font-family);font-weight:var(--heading-font-weight);}
+.custom-reasons-box{display:flex;flex-wrap:wrap;}
+.reasons-list{display:block;text-align:center;flex-basis:33%;padding:10px 8px 0 0;}
+.reasons-list-txt{font-size:12px;line-height:18px;color:#190a0a;}
+*{-webkit-tap-highlight-color:transparent;}
+/*! CSS Used from: https://fr.ulike.com/cdn/shop/t/5/assets/subscript-plug.min.css?v=159246514685723546671724835726 ; media=all */
+.minicart .mini-content .prod .product-cart .minicart_item li {
+    border-bottom: none !important;
+  
+}
+
+</style>

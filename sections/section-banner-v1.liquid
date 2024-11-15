@@ -1,0 +1,216 @@
+<div data-section-id="{{ section.id }}" data-section-type="section-banner-v1" style="{% if section.settings.margin_top != blank %}margin-top: {{section.settings.margin_top}}px;{%endif%} {% if section.settings.margin_bottom != blank %}margin-bottom: {{section.settings.margin_bottom}}px;{% endif %}">
+  <div class="section-banner-v1">
+    <div class="{% if section.settings.select_width == 'full' %} {% else %} container container-v2 {% endif %}">
+      <div class="row row-banner-{{ section.id }}">
+        <div class="col-md-6">
+          <div class="banner-item">
+            <div class="banner-img">
+              <a href="{{section.settings.url_banner1}}" class="box-img">
+                <img data-src="{% if section.settings.banner_img1 != blank %} {{section.settings.banner_img1 | img_url : 'master'}} {% else %} //via.placeholder.com/960x600 {% endif %}" class="lazyload img-fluid w-100" alt="_banner_img_">
+              </a>
+            </div>
+            <div class="banner-info">
+              {% if section.settings.title_banner1 != blank %}
+              <h3 class="title-banner" style="color: {{section.settings.color_title1}}">{{section.settings.title_banner1}}</h3>
+              {% endif %}
+
+              {% if section.settings.btn_banner1 != blank %}
+              <a href="{{section.settings.url_banner1}}" class="btn1-{{ section.id }}">{{section.settings.btn_banner1}}</a>
+              {% endif %}
+
+            </div>
+
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="banner-item">
+            <a href="{{section.settings.url_banner2}}" class="box-img">
+              <img data-src="{% if section.settings.banner_img2 != blank %} {{section.settings.banner_img2 | img_url : 'master'}} {% else %} //via.placeholder.com/960x600 {% endif %}" class="lazyload img-fluid w-100" alt="_banner_img_">
+            </a>
+            <div class="banner-info">
+              {% if section.settings.title_banner2 != blank %}
+              <h3 class="title-banner" style="color: {{section.settings.color_title2}}">{{section.settings.title_banner2}}</h3>
+              {% endif %}
+
+              {% if section.settings.btn_banner2 != blank %}
+              <a href="{{section.settings.url_banner2}}" class="btn2-{{ section.id }}">{{section.settings.btn_banner2}}</a>
+              {% endif %}
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  {% if section.settings.select_width == 'full' %}
+  .section-banner-v1 .row-banner-{{ section.id }} {
+    margin-left: -5px;
+    margin-right: -5px;
+    margin-bottom: 10px;
+  }
+  .section-banner-v1 .row-banner-{{ section.id }} .col-md-6 {
+    padding: 0 5px;
+  }
+  {% endif %}
+  .section-banner-v1 .banner-item .banner-info .btn1-{{ section.id }} {
+    color: {{section.settings.color_btn1}};
+    transition: all .3s;
+  }
+  .section-banner-v1 .banner-item .banner-info .btn1-{{ section.id }}:hover {
+    color: {{section.settings.color_btn1_hover}};
+  }
+  .section-banner-v1 .banner-item .banner-info .btn2-{{ section.id }} {
+    color: {{section.settings.color_btn2}};
+    transition: all .3s;
+  }
+  .section-banner-v1 .banner-item .banner-info .btn2-{{ section.id }}:hover {
+    color: {{section.settings.color_btn2_hover}};
+  }
+</style>
+{% schema %}
+{
+  "name": "BANNER V1",
+  "settings": [
+	{
+      "type": "select",
+      "id": "select_width",
+      "label": "Select width",
+	  "options": [
+        {
+          "value": "full",
+          "label": "Width Full"
+        },
+        {
+          "value": "container",
+          "label": "Width Container"
+        }
+      ],
+      "default": "container"
+    },
+    {
+      "type": "header",
+      "content": "Banner 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "banner_img1",
+      "info": "960 x 960px recommended",
+      "label": "Banner Image"
+    },
+    {
+      "type": "text",
+      "id": "title_banner1",
+      "label": "Title Banner 1",
+      "default": "Pure hygenic soap"
+    },
+    {
+      "type": "color",
+      "id": "color_title1",
+      "label": "Color",
+      "default": "#000"
+    },
+    {
+      "type": "text",
+      "id": "btn_banner1",
+      "label": "Link Banner 1",
+      "default": "SEE ALL PRODUCTS"
+    },
+    {
+      "type": "color",
+      "id": "color_btn1",
+      "label": "Color",
+      "default": "#000"
+    },
+    {
+      "type": "color",
+      "id": "color_btn1_hover",
+      "label": "Color Hover",
+      "default": "#cd8f5c"
+    },
+    {
+      "type": "url",
+      "id": "url_banner1",
+      "label": "URL Banner 1 ",
+      "default": "/collections/all"
+    },
+    {
+      "type": "header",
+      "content": "Banner 2"
+    },
+    {
+      "type": "image_picker",
+      "id": "banner_img2",
+      "info": "960 x 960px recommended",
+      "label": "Banner Image"
+    },
+    {
+      "type": "text",
+      "id": "title_banner2",
+      "label": "Title Banner 2",
+      "default": "Body Wash Collection"
+    },
+    {
+      "type": "color",
+      "id": "color_title2",
+      "label": "Color",
+      "default": "#000"
+    },
+    {
+      "type": "text",
+      "id": "btn_banner2",
+      "label": "Link Banner 2",
+      "default": "SEE ALL PRODUCTS"
+    },
+    {
+      "type": "color",
+      "id": "color_btn2",
+      "label": "Color",
+      "default": "#000"
+    },
+    {
+      "type": "color",
+      "id": "color_btn2_hover",
+      "label": "Color Hover",
+      "default": "#cd8f5c"
+    },
+    {
+      "type": "url",
+      "id": "url_banner2",
+      "label": "URL Banner 2 ",
+      "default": "/collections/all"
+    },
+    {
+      "type": "header",
+      "content": "Section Space"
+    },
+    {
+      "type": "text",
+      "id": "margin_top",
+      "label": "Margin Top",
+      "info": "Defined in pixels. Do not add the 'px' unit."
+    },
+    {
+      "type": "text",
+      "id": "margin_bottom",
+      "label": "Margin Bottom",
+      "info": "Defined in pixels. Do not add the 'px' unit."
+    }
+  ],
+  "presets": [
+    {
+      "name": "BANNER V1",
+      "category": "HOME"
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

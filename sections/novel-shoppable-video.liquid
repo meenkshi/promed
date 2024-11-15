@@ -1,0 +1,116 @@
+
+<style>
+div:has(> #embed-video--{{ section.id }}) {
+    min-width: 0;
+}
+
+#embed-video--{{ section.id }} {
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+@media (max-width: 480px) {
+    .headline-column.column {
+        display: none;
+    }
+    
+    .content-column.column section {
+        position: absolute;
+        left: 0;
+        right: 0;
+        width: 100%;
+        padding: 15px;
+        border-radius: 10px;
+    }
+}
+</style>
+<div id="embed-video--{{ section.id }}"></div>
+{%- assign journeyId = section.settings.journeyid -%}
+
+<script>
+;(async () => {
+    const journeyId = `{{ journeyId }}`
+    const embedSectionId = 'embed-video--{{ section.id }}'
+    const embedElem = document.getElementById(embedSectionId)
+    const OVERLAY_EMBED_TYPE_UNIQUE_NAME = 'overlay'
+
+    const loadEmbedScript = (release) => {
+        window[`prefetchedJourneyRelease_${journeyId}`] = release
+
+    const embedJsUrl = 'https://embed-js.benovel.com/embed/index.js'
+
+    const script = document.createElement('script')
+    script.setAttribute('src', embedJsUrl)
+    script.setAttribute('journey-id', journeyId)
+    script.setAttribute('async', '')
+    embedElem.appendChild(script)
+    }
+
+    const apiBaseUrl = 'https://eg2o7r7cs9.execute-api.us-west-2.amazonaws.com/prod'
+    const response = await fetch(
+        `${apiBaseUrl}/api/v2/journeys/${journeyId}/releases?type=PUBLISH&sort=createdAt&order=DESC&size=1`,
+    )
+    const releases = await response?.json()
+
+    if (
+        releases?.length &&
+        releases[0].isPublished &&
+        releases[0].embedConfigs[0]?.embedType?.uniqueName?.toLowerCase() === OVERLAY_EMBED_TYPE_UNIQUE_NAME
+    ) {
+        const handleScroll = () => {
+            if (document.documentElement.scrollTop >= 25) {
+                loadEmbedScript(releases[0])
+                window.removeEventListener('scroll', handleScroll);
+            }
+        }
+        window.addEventListener('scroll', handleScroll);
+
+    } else {
+        const options = {
+            root: null,
+            rootMargin: '300px',
+            threshold: 0,
+        }
+        const observer = new IntersectionObserver((entries, observer) => {
+            if (entries) {
+                for (const entry of entries) {
+                    if (entry.target.id === embedSectionId && entry.isIntersecting) {
+                        observer.unobserve(entry.target)
+                        loadEmbedScript(releases[0])
+                        break
+                    }
+                }
+            }
+        }, options)
+        observer.observe(embedElem)
+    }
+})()
+</script>
+{% schema %}
+{
+"name": "Novel Embed",
+"tag": "section",
+"settings": [
+{
+  "type": "header",
+  "content": "JOURNEY CUSTOMIZATION",
+  "info": "To customize your video journey, please see our [Journey Customization Guide](https://novel.beehiiv.com/p/spotlight-carousel)"
+},
+{
+  "type": "header",
+  "content": "JOURNEY SELECTION"
+},
+{
+  "type": "text",
+  "id": "journeyid",
+  "label": "Video Journey ID"
+}
+],
+"presets": [
+{
+  "name": "Novel Embed"
+}
+]
+}
+
+{% endschema %}

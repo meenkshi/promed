@@ -1,0 +1,222 @@
+
+{%- style -%}
+  .m-section-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top }}px; 
+    padding-bottom : {{ section.settings.padding_bottom }}px;
+    background-color: {{ section.settings.background_color }};
+  }
+{%- endstyle -%}
+
+<style>
+ .m-section-{{ section.id }}  .section-collection-v1 {
+    margin: 0 auto !important;
+}
+</style>
+
+
+<div class="m-section-{{ section.id }}" data-section-id="{{ section.id }}" data-section-type="section-collection-v1" style="{% if section.settings.margin_top != blank %}margin-top: {{section.settings.margin_top}}px;{%endif%} {% if section.settings.margin_bottom != blank %}margin-bottom: {{section.settings.margin_bottom}}px;{% endif %}">
+  <div class="section-collection-v1">
+    <div class="container container-v2">
+
+      {% for block in section.blocks %}
+      {% if block.type == 'collection' %}
+      {% assign mod = forloop.index | modulo : 2 %}
+      {% if mod == 0 %}
+      <div class="row align-items-center no-gutters" style="background:{{block.settings.bg_color}}">
+        <div class="col-md-6 col-sm-12 order-2 order-md-1">
+          <div class="col-info">
+            <p class="block_subtitle">{{ block.settings.block_subtitle }}</p>
+            <h3 class="title" style="color : {{block.settings.color_title}}">{{block.settings.block_title}}</h3>
+            <p class="des" style="color : {{block.settings.color_des}}">{{block.settings.block_des}}</p>
+             {% if block.settings.block_buton != blank %}
+  <a class="button-main1" href="{{ block.settings.block_url }}">
+    {{ block.settings.block_buton }}
+  </a>
+{% endif %}
+
+          </div>
+        </div>
+
+        <div class="col-md-6 col-sm-12 order-1 order-md-2 ">
+          <div class="col-image">
+            <a href="{{block.settings.block_url}}">
+              <img class="w-100" src="{% if block.settings.img_collection != blank %} {{block.settings.img_collection | img_url : 'master'}} {% else %}//via.placeholder.com/685x757{% endif %}">
+            </a>
+          </div>
+        </div>
+      </div>
+      {% else %}
+      <div class="row align-items-center no-gutters" style="background:{{block.settings.bg_color}}">
+        <div class="col-md-6 col-sm-12">
+          <div class="col-image">
+            <a href="{{block.settings.block_url}}">
+              <img class="w-100" src="{% if block.settings.img_collection != blank %} {{block.settings.img_collection | img_url : 'master'}} {% else %}//via.placeholder.com/685x757{% endif %}">
+            </a>
+          </div>
+        </div>
+        <div class="col-md-6 col-sm-12">
+          <div class="col-info">
+             <p class="block_subtitle">{{ block.settings.block_subtitle }}</p>
+            <h3 class="title" style="color : {{block.settings.color_title}}">{{block.settings.block_title}}</h3>
+            <p class="des" style="color : {{block.settings.color_des}}">{{block.settings.block_des}}</p>
+            {% if block.settings.block_buton != blank %}
+  <a class="button-main1" href="{{ block.settings.block_url }}">
+    {{ block.settings.block_buton }}
+  </a>
+{% endif %}
+
+          </div>
+        </div>
+      </div>
+      {% endif %}
+      {% endif %}
+      {% endfor %}
+
+
+    </div>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "COLLECTION V1",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding Top",
+      "default": 50,
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding Bottom",
+      "default": 50,
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px"
+    },
+      {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "rgba(0,0,0,0)"
+    },
+	
+    {
+      "type": "header",
+      "content": "Section Space"
+    },
+    {
+      "type": "text",
+      "id": "margin_top",
+      "label": "Margin Top",
+      "info": "Defined in pixels. Do not add the 'px' unit."
+    },
+    {
+      "type": "text",
+      "id": "margin_bottom",
+      "label": "Margin Bottom",
+      "info": "Defined in pixels. Do not add the 'px' unit."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "collection",
+      "name": "Collection",
+      "settings": [
+		{
+          "type": "color",
+          "id": "bg_color",
+          "label": "Background Color",
+          "default": "#f2eeec"
+        },
+		{
+          "type": "image_picker",
+          "id": "img_collection",
+          "label": "Image Collection",
+          "info": "570 x 630px recommended"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "block_subtitle",
+          "label": "Block Subtitle",
+          "default": "THE BENEFITS OF USING"
+        },
+        {
+          "type": "text",
+          "id": "block_title",
+          "label": "Title",
+          "default": "THE BENEFITS OF USING"
+        },
+		{
+           "type": "color",
+           "id": "color_title",
+           "label": "Color Title"
+        },
+		{
+          "type": "textarea",
+          "id": "block_des",
+          "label": "Description",
+          "default": "We thank you for visiting our page, and hope that you will enjoy experiencing our soaps. We are happy to give you a 5% discount on your order. Just fill in a simple form!"
+        },
+		{
+           "type": "color",
+           "id": "color_des",
+           "label": "Color Description"
+        },
+		
+
+        {
+          "type": "text",
+          "id": "block_buton",
+          "label": "Button View Collection",
+        },
+        {
+          "type": "url",
+          "id": "block_url",
+          "label": "URL button",
+          "default": "/collections/all"
+        }      
+      ]
+    }
+  ],
+
+  "presets": [
+    {
+      "name": "COLLECTION V1",
+        "category": "HOME",
+	  "blocks": [
+        {
+          "type": "collection",
+          "settings": {
+			"block_title": "THE BENEFITS OF USING",
+			"block_des": "We thank you for visiting our page, and hope that you will enjoy experiencing our soaps. We are happy to give you a 5% discount on your order. Just fill in a simple form!"
+          }
+        },
+		 {
+          "type": "collection",
+          "settings": {
+			"block_title": "WE LOVE OUR CLIENTS",
+			"block_des": "We thank you for visiting our page, and hope that you will enjoy experiencing our soaps. We are happy to give you a 5% discount on your order. Just fill in a simple form!"
+          }
+        }		
+      ]
+    }
+  ]
+}
+  {% endschema %}
+
+  {% stylesheet %}
+  {% endstylesheet %}
+
+  {% javascript %}
+  {% endjavascript %}

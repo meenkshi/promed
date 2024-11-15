@@ -1,0 +1,104 @@
+{% liquid
+  
+  assign content_container = 'container-fluid'
+  if section.settings.content_in_container == true
+    assign content_container = 'container'
+  endif
+
+  assign container = section.settings.container
+  if container == 'w-full'
+    assign container = 'container-full'
+  endif
+
+%}
+
+
+{%- style -%}
+  .m-section-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top }}px; 
+    padding-bottom : {{ section.settings.padding_bottom }}px;
+    background-color: {{ section.settings.background_color }};
+  }
+{%- endstyle -%}
+
+<section class="m-section m-custom-liquid {{ section.settings.custom_class }}   m-section-{{ section.id }}">
+  <div class="{{ container }}">
+    {{ section.settings.custom_liquid }}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Custom rich text",
+  "class": "Custom rich text",
+  "settings": [
+
+        {
+      "type": "select",
+      "id": "container",
+      "label": "Container type",
+      "default": "w-full",
+      "options": [
+        {
+          "value": "container-fluid",
+          "label": "Default"
+        },
+        {
+          "value": "w-full",
+          "label": "Full width"
+        },
+        {
+          "value": "container",
+          "label": "Use container box"
+        }
+      ]
+    },
+    
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding Top",
+      "default": 50,
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding Bottom",
+      "default": 50,
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px"
+    },
+      {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "rgba(0,0,0,0)"
+    },
+    {
+      "type": "richtext",
+      "id": "custom_liquid",
+      "label": "Custom liquid"
+    },
+    {
+      "type": "text",
+      "id": "custom_class",
+      "label": "Custom classes"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom rich text"
+    }
+  ]
+}
+{% endschema %}

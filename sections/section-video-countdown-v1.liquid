@@ -1,0 +1,199 @@
+<div data-section-id="{{ section.id }}" data-section-type="section-video-countdown-v1" style="{% if section.settings.margin_top != blank %}margin-top: {{section.settings.margin_top}}px;{%endif%} {% if section.settings.margin_bottom != blank %}margin-bottom: {{section.settings.margin_bottom}}px;{% endif %} {% if section.settings.sections_layout == "dark" %}background: {{section.settings.sections_bg_color}};{% endif %}">
+  <div class="section-video-countdown-v1" style="background-image: url({% if section.settings.background-img != blank %}{{section.settings.background-img|img_url:'master'}}{% else %}//via.placeholder.com/1920x700{% endif %})">
+    <div class="container container-v2">
+      <div class="row align-items-center justify-content-center">
+        <div class="col-lg-6 col-sm-6 col-md-6">
+          <a data-fancybox href="{{ section.settings.section_video_url }}">              
+            <div class="box-video relative">
+              {% if section.settings.video_bg != blank %}
+              <img src="{{section.settings.video_bg|img_url:'master'}}" class="img-fluid w-100" alt="Image">
+              {% else %}
+              <img src="//via.placeholder.com/800x500" class="img-fluid">
+              {% endif %}
+              <span class="absolute">
+                <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                     width="778.981px" height="778.98px" viewBox="0 0 778.981 778.98" style="enable-background:new 0 0 778.981 778.98;"
+                     xml:space="preserve">
+                  <g>
+                    <g id="_x37__33_">
+                      <g>
+                        <path d="M673.195,348.856L150.077,7.981C119.068-8.899,83.499-1.363,83.499,53.535v671.209c0,54.509,38.156,64.215,66.579,45.525
+                                 l523.118-340.874C703.341,408.064,702.479,368.462,673.195,348.856z M138.647,702.356V75.895L635.01,389.126L138.647,702.356z"/>
+                      </g>
+                    </g>
+                  </g>
+                </svg>
+              </span>
+            </div>
+          </a>
+        </div>
+        <div class="col-lg-5 col-sm-6 col-md-6">
+          <div class="content-countdown">
+            {% if section.settings.title_countdown != blank %}
+            <h3 class="title_heading">                
+              {{section.settings.title_countdown}}
+            </h3>
+            {% endif %}
+
+            <div class="time">
+              {% if section.settings.timecountdown != blank %}
+              <ul class="mb-0 list-inline list-unstyled " data-countdown="section-countdown-video-v1" data-date="{{section.settings.timecountdown}}">
+              </ul>
+              {% endif %}
+            </div>
+
+            {% if section.settings.button_countdown != blank %}
+            <a href="{{section.settings.url_button}}" class="button-main1">{{section.settings.button_countdown}}</a>
+            {% endif %}
+
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .section-video-countdown-v1 .button-main1 {
+    background: {{section.settings.bg_color_button}};
+    color: {{section.settings.color_button}};
+  }
+  .section-video-countdown-v1 .button-main1:hover {
+    background: {{section.settings.bg_color_button_hover}};
+    color: {{section.settings.color_button_hover}};
+  }
+  .section-video-countdown-v1 .content-countdown .title_heading {
+    color: {{section.settings.color_title}};
+  }
+  .section-video-countdown-v1 .content-countdown .time ul li span {
+    color: {{section.settings.color_title}};
+  }
+</style>
+{% schema %}
+{
+  "name": "VIDEO COUNTDOWN V1",
+  "class": "index-section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Background Video"
+    },
+	{
+      "type": "image_picker",
+      "id": "background-img",
+      "info": "1920 x 700px recommended",
+      "label": "Background Image"
+    },
+    {
+      "type": "header",
+      "content": "Video"
+    },
+	{
+      "type": "image_picker",
+      "id": "video_bg",
+      "info": "800 x 500px recommended",
+      "label": "Image video"
+    },
+    {
+      "type": "url",
+      "id": "section_video_url",
+      "label": "URL Video",
+      "info": "[Upload video .mp4 in here](/admin/settings/files)"
+    },
+	{
+      "type": "header",
+      "content": "Countdown"
+    },
+	{
+      "type": "text",
+      "id": "title_countdown",
+      "label": "Title",
+      "default": "VIKINGS-INSPRIED WATCHES"
+    },
+	{
+      "type": "color",
+      "id": "color_title",
+      "label": "Color Title",
+      "default": "#fff"
+    },
+	{
+      "type": "header",
+      "content": "Setting Time"
+    },
+	{
+        "type": "text",
+        "id": "timecountdown",
+        "label": "Year-Month-Date-Time-Minute-Seconds",
+        "default": "2022-12-12-12-12-12"
+      },
+
+    {
+      "type": "text",
+      "id": "button_countdown",
+      "label": "Button Countdow",
+      "default": "Shop now"
+    },
+  	{
+      "type": "url",
+      "id": "url_button",
+      "label": "URL button",
+      "default": "/collections/all"
+    },
+        {
+          "type": "color",
+          "id": "bg_color_button",
+          "label": "Background Color Button",
+          "default": "#fff"
+        },
+        {
+          "type": "color",
+          "id": "color_button",
+          "label": "Color button",
+          "default": "#000"
+        },
+        {
+          "type": "color",
+          "id": "bg_color_button_hover",
+          "label": "Background Hover Color",
+          "default": "#fb5b21 "
+        },
+        {
+          "type": "color",
+          "id": "color_button_hover",
+          "label": "Text Hover Color",
+          "default": "#fff"
+        },
+
+    {
+      "type": "header",
+      "content": "Section Space"
+    },
+    {
+      "type": "text",
+      "id": "margin_top",
+      "label": "Margin Top",
+      "info": "Defined in pixels. Do not add the 'px' unit."
+    },
+    {
+      "type": "text",
+      "id": "margin_bottom",
+      "label": "Margin Bottom",
+      "info": "Defined in pixels. Do not add the 'px' unit."
+    }
+  ],
+  "presets": [
+    {
+      "name": "VIDEO COUNTDOWN V1",
+      "category": "HOME"
+    }
+  ]
+}
+{% endschema %}
+
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

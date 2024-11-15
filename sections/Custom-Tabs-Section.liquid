@@ -1,0 +1,299 @@
+{%- style -%}
+  .m-section-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top }}px; 
+    padding-bottom : {{ section.settings.padding_bottom }}px;
+    background-color: {{ section.settings.background_color }};
+  }
+{%- endstyle -%}
+
+
+
+
+<section class="m-section-{{ section.id }}">
+<div class="review-section container">
+  
+  <div id="review-tab-container" class="review-tab-container">
+    <div class="tabs-button-wrapper">
+      <h2>{{ section.settings.section_title }}</h2> 
+      <!-- Tab Headers -->
+      <div class="tabs-header text-center">
+        <input id="tab-women" type="radio" name="review-tabs" class="tab-input" checked>
+        <label for="tab-women" class="tab-label">Women</label>
+  
+        <input id="tab-men" type="radio" name="review-tabs" class="tab-input">
+        <label for="tab-men" class="tab-label">Men</label>
+      </div>
+
+    </div>
+    
+    <!-- Tab Contents -->
+    <div class="tabs-content">
+      <!-- Women Reviews -->
+      <div id="content-women" class="custom-tab-content" style="display: block;">
+        <div class="row">
+          {% for block in section.blocks %}
+            {% if block.settings.tab_category == 'Women' %}
+            <div class="col-md-4 col-sm-6 col-xs-12">
+              <div class="m-card">
+                <img src="{{ block.settings.review_image | image_url }}" alt="{{ block.settings.reviewer_name }}" class="img-responsive">
+                <p class="review-text">"{{ block.settings.review_text }}"</p>
+                <p class="review-name"><strong>- {{ block.settings.reviewer_name }}</strong></p>
+              </div>
+            </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+
+      <!-- Men Reviews -->
+      <div id="content-men" class="custom-tab-content" style="display: none;">
+        <div class="row">
+          {% for block in section.blocks %}
+            {% if block.settings.tab_category == 'Men' %}
+            <div class="col-md-4 col-sm-6 col-xs-12">
+              <div class="m-card">
+                <img src="{{ block.settings.review_image | image_url }}" alt="{{ block.settings.reviewer_name }}" class="img-responsive">
+                <p class="review-text">"{{ block.settings.review_text }}"</p>
+                <p class="review-name"><strong>- {{ block.settings.reviewer_name }}</strong></p>
+              </div>
+            </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+</section>
+
+
+
+{% schema %}
+{
+  "name": "Review Tabs Section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": "Section Title",
+      "default": "Results and reviews for Ulike IPL Hair Removal."
+    },
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding Top",
+      "default": 50,
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding Bottom",
+      "default": 50,
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px"
+    },
+      {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "rgba(0,0,0,0)"
+    },
+  ],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Review Card",
+      "settings": [
+        
+        {
+          "type": "select",
+          "id": "tab_category",
+          "label": "Tab Category",
+          "options": [
+            { "value": "Women", "label": "Women" },
+            { "value": "Men", "label": "Men" }
+          ],
+          "default": "Women"
+        },
+        {
+          "type": "image_picker",
+          "id": "review_image",
+          "label": "Reviewer Image"
+        },
+        {
+          "type": "textarea",
+          "id": "review_text",
+          "label": "Review Text",
+          "default": "This device works like magic. It's so easy and painless!"
+        },
+        {
+          "type": "text",
+          "id": "reviewer_name",
+          "label": "Reviewer Name",
+          "default": "Shayden Thomas"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Review Tabs Section",
+      "category": "Custom Sections"
+    }
+  ],
+}
+{% endschema %}
+
+
+
+
+<style>
+
+  .tabs-button-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+  
+ .review-section {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.tabs-header {
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.tab-input {
+    display: none;
+}
+
+.tab-label {
+    padding: 10px 20px;
+    font-weight: bold;
+    cursor: pointer;
+    border: 1px solid #ddd;
+    transition: color 0.3s, background-color 0.3s;
+}
+
+.tab-input:checked + .tab-label {
+    color: white;
+    background-color: #222222;
+}
+
+.custom-tab-content {
+    display: none;
+    margin-top: 20px;
+}
+
+#tab-women:checked ~ #content-women,
+#tab-men:checked ~ #content-men {
+    display: block;
+}
+
+.m-card {
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+   height: 600px; 
+}
+
+.review-text {
+    font-size: 16px;
+    margin: 15px 0;
+}
+
+.review-name {
+    font-weight: bold;
+}
+
+.btn {
+    background-color: #bd235d;
+    color: white;
+    text-transform: uppercase;
+    padding: 10px;
+}
+
+@media (min-width: 768px) {
+    .col-md-4 {
+        width: 33.33%;
+    }
+
+  .m-card img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+}
+
+@media (max-width: 767px) {
+ 
+    .col-sm-6 {
+        width: 50%;
+    }
+
+  .m-card {
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+   height: 600px; 
+}
+
+  .tabs-button-wrapper {
+      flex-direction: column;
+      text-align: center;
+      gap: 15px;
+  }
+
+  .review-text {
+    font-size: 12px;
+     text-align: justify;
+  }
+
+    .m-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+  
+}
+
+
+  .tab-input {
+    display: none !important;
+}
+
+
+
+</style>
+
+<script>
+$(document).ready(function () {
+    $('input[name="review-tabs"]').on('change', function () {
+        var targetTab = $(this).attr('id').replace('tab-', 'content-');
+        $('.custom-tab-content').hide();
+        $('#' + targetTab).show();
+    });
+});
+
+
+</script>

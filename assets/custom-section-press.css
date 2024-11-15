@@ -1,0 +1,122 @@
+/* General Section Styling */
+
+.press__quote {
+  font-size: 1.5rem;
+  color: #333333;
+  line-height: 1.6;
+  font-weight: 600;
+}
+
+.press__quote-author {
+  font-size: 1.2rem;
+  color: #666666;
+  font-style: italic;
+  margin-top: 10px;
+}
+
+.press__quote-icon {
+  margin-top: 20px;
+}
+
+/* Image Wrapper and Responsive Images */
+.press__image-wrapper {
+  text-align: center;
+}
+
+.press__image {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+}
+
+.press.press--bottom-border {
+  position: relative;
+  z-index: 1;
+}
+
+.press__content {
+  background-color: #fff;
+  border: 0.15rem solid #1f1d24;
+  border-radius: 0.75rem;
+  margin: 0 auto;
+  max-width: 40.25rem;
+  padding: 2.5rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+img.press__quote-icon {
+  position: absolute;
+  top: -38%;
+  left: 5%;
+}
+
+/* Media Queries for Responsiveness */
+
+/* Tablet (768px and below) */
+@media (max-width: 768px) {
+  img.press__image.press__image--desktop {
+    display: none;
+  }
+
+  img.Press.Image.Mobile {
+    width: 100%;
+    height: 600px;
+    object-fit: cover;
+  }
+
+  .press__content {
+    padding: 15px;
+  }
+
+  .press__quote {
+    font-size: 1.3rem;
+  }
+
+  .press__quote-author {
+    font-size: 1rem;
+  }
+
+  .press__image {
+    max-width: 100%;
+  }
+  div#shopify-section-template--17183880478901__press_Gd78rt
+    img.press__quote-icon {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+/* Mobile (500px and below) */
+@media (max-width: 500px) {
+  .press__content {
+    padding: 10px;
+    margin: 10px;
+  }
+
+  .press__content {
+    max-width: 100%;
+    width: 84%;
+  }
+
+  .press__quote {
+    font-size: 1.1rem;
+  }
+
+  .press__quote-author {
+    font-size: 0.9rem;
+  }
+
+  .press__image {
+    max-width: 100%;
+  }
+}
+
+@media (min-width: 500px) {
+  img.Press.Image.Mobile {
+    display: none;
+  }
+}

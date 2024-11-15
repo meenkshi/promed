@@ -1,0 +1,95 @@
+<div class="product-item">
+  <div class="product">
+    <div class="img-product" >
+      <div style="{% if sold_out %} opacity: 0.3 {% endif %}"> 
+        <a  href="{{ product.url | within: collection }}" class="engoj_find_img">
+          <img style="width: 100%" data-src="{{ product.featured_image.src | img_url: 'master' }}" src="{{ 'loading.gif' | asset_url }}" class="lazyload img-responsive" alt="{{ product.featured_image.alt | escape }}">
+        </a>
+      </div>
+    </div>
+      <div class="background-product">
+        <a href="{{ product.url | within: collection }}">
+        </a>
+      </div>
+    <div class="product-wrap text-center">
+      <div class="info-product">
+        <span class="shopify-product-reviews-badge" data-id="{{ product.id }}"></span>
+        <h4 class="title-product mb-0">
+          <a href="{{ product.url | within: collection }}">{{ product.title}}</a>
+
+        </h4>
+        <!--     PRICE -->
+        {% assign on_sale = false %}
+        {% if product.compare_at_price > product.price %}
+        {% assign on_sale = true %}
+        {% endif %}
+        {% if settings.enable_catalog_mode == false%}
+        <p class="price-product">
+          <span class="price">{{ product.price | money }}</span>
+          {% if on_sale %}<s class="price-old">{{ product.compare_at_price | money }}</s>{% endif %}
+
+        </p>
+        {% endif %}
+        <!-- END PRODUCT     -->
+
+      </div>
+      <!--     ICON PRODUCT -->
+
+      {% assign sold_out = true %}
+      {% if product.available %}
+      {% assign sold_out = false %}
+      {% endif %}
+      {% if settings.enable_catalog_mode == false%}
+      <div class="product-icon-action d-flex justify-content-center">
+        <div class="add-wishlist">
+          {% include 'add-wishlist' %} 
+        </div>
+
+        <div class="add-to-cart">
+          {% if sold_out %}
+          <a href="{{ product.url | within: collection }}" class="d-inline-block icon-addcart" data-toggle="tooltip" data-placement="top" data-original-title="{{settings.pia_sold_name}}">
+            {% if settings.pia_sold_svg != blank %}
+            <i class="fsz-unset">{{settings.pia_sold_svg}}</i>
+            {% else %}
+            <i class="{{settings.pia_sold}}"></i>
+            {% endif %}
+          </a>
+          {% else %}
+          {% if product.variants.size > 1 %}
+          <a href="{{ product.url | within: collection }}" class="d-inline-block icon-addcart" data-toggle="tooltip" data-placement="top" data-original-title="{{settings.pia_selectoption_name}}">
+            {% if settings.pia_selectoption_svg != blank %}
+            <i class="fsz-unset">{{settings.pia_selectoption_svg}}</i>
+            {% else %}
+            <i class="{{settings.pia_selectoption}}"></i>
+            {% endif %}
+          </a>
+          {% else %}
+          <form method="post" action="/cart/add" enctype="multipart/form-data" class="d-inline-block icon-addcart"  data-toggle="tooltip" data-placement="top" data-original-title="{{settings.pia_addcart_name}}">
+            <input type="hidden" name="id" value="{{ product.variants.first.id }}" />
+            <button type="submit" name="add" class="enj-add-to-cart-btn ">
+              {% if settings.pia_addcart_svg != blank  %}
+              <i class="fsz-unset">{{settings.pia_addcart_svg}}</i>
+              {% else %}
+              <i class="{{settings.pia_addcart}}" style="font-size: 22px;"></i>
+              {% endif %}
+            </button>
+          </form>
+          {% endif %}
+          {% endif %}
+        </div>
+
+        <div class="quick-view">
+          <a href="javascript:void(0)" class="engoj_btn_quickview icon-quickview d-inline-block" data-id="{{ product.handle }}" data-toggle="tooltip" data-placement="top" data-original-title="{{settings.pia_quickview_name}}">
+            {% if settings.pia_quickview_svg %}
+            <i class="fsz-unset">{{settings.pia_quickview_svg}}</i>
+            {% else %}
+            <i class="{{settings.pia_quickview}}"></i>
+            {% endif %}
+          </a>
+        </div>
+      </div>
+      {% endif %}
+      <!--     END ICON -->
+    </div>
+  </div>  
+</div>

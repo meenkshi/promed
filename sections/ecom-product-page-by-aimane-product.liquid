@@ -1,0 +1,710 @@
+{% comment %}
+ EComposer (https://ecomposer.io)
+ You SHOULD NOT modify source code in this page because
+ It is automatically generated from EComposer
+ At 2024-11-04 12:37:55
+ {% endcomment %} 
+ 
+ {% assign ecom_root_url = routes.root_url %}
+ {% if ecom_root_url != '/'%}
+ {% assign ecom_root_url = routes.root_url | append: '/' %}
+ {% endif %}
+ <link rel="stylesheet" media="print" onload="this.media='all'" id="ecom-vendors-slider_css" href="https://cdn.ecomposer.app/vendors/css/ecom-swiper@11.css" /><link rel="stylesheet" media="print" onload="this.media='all'" id="ecom-vendors-modal_css" href="https://cdn.ecomposer.app/vendors/css/ecom_modal.css" /><link rel="stylesheet" media="all" id="ecom-vendors-css_ecomposer_base" href="https://cdn.ecomposer.app/vendors/css/ecom-base.css?v=1.6" /><noscript><link rel="stylesheet" media="all" onload="this.media='all'" id="ecom-vendors-slider_css" href="https://cdn.ecomposer.app/vendors/css/ecom-swiper@11.css" /><link rel="stylesheet" media="all" onload="this.media='all'" id="ecom-vendors-modal_css" href="https://cdn.ecomposer.app/vendors/css/ecom_modal.css" /><link rel="stylesheet" media="all" id="ecom-vendors-css_ecomposer_base" href="https://cdn.ecomposer.app/vendors/css/ecom-base.css?v=1.6" /></noscript><script type="text/javascript" asyc="async" id="ecom-vendors-slider_js" src="https://cdn.ecomposer.app/vendors/js/ecom-swiper@11.0.5.js" ></script><script type="text/javascript" asyc="async" id="ecom-vendors-modal_js" src="https://cdn.ecomposer.app/vendors/js/ecom_modal.js" ></script><script type="text/javascript" asyc="async" id="ecom-vendors-zoom_js" src="https://cdn.ecomposer.app/vendors/js/ecom_zoom.js" ></script>
+{%capture section_id %}ecom-product-page-by-aimane-product{% endcapture%}{% if section and section_id == section.id and headless == true %}
+{{ content_for_header }}
+{% render 'ecom_header', ECOM_THEME: true %}{% endif %}<link href="https://fonts.googleapis.com/css?family=Outfit:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css?family=Jost:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css?family=DM+Sans:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css?family=Plus+Jakarta+Sans:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet"/>
+{{'ecom-66bdea143b845f3a4e040f40.css' | asset_url | stylesheet_tag }}
+<script src="{{'ecom-66bdea143b845f3a4e040f40.js' | asset_url }}" defer="defer"></script>
+<script type="text/javascript" class="ecom-page-info">
+ window.EComposer = window.EComposer || {};
+ window.EComposer.TEMPLATE_ID="66bdea143b845f3a4e040f40";
+ window.EComposer.TEMPLATE = {"template_id":"66bdea143b845f3a4e040f40","title":"Product page by aimane","type":"product","slug":"ecom-product-page-by-aimane","plan_id":2};
+ </script>
+<div class="ecom-builder" id="ecom-product-page-by-aimane"><div class="ecom-sections" data-section-id="{{section.id}}">
+ {% comment %}
+ // Reactive
+ * this.data.settings.product
+ {% endcomment %}
+ {% liquid
+ unless recommendations.performed
+ if request.page_type != 'product' or product == blank
+ assign selected_product = ''
+ if selected_product == blank or selected_product == '' or all_products[selected_product] == blank
+ assign product = collections['all'].products.first
+ else
+ assign product = all_products[selected_product]
+ if product.id == blank
+ assign product = collections['all'].products.last
+ endif
+ endif
+ endif
+ endunless
+ %}
+ {%- if product != blank -%}
+ {%- capture ec_form_id -%}product_form_{{ product.id }}_ecom-smrf1ebnpbn{%- endcapture -%}
+ {%- form 'product', product, id: ec_form_id, class: "ecom-product-form ecom-product-form--single ecom-click", product_id: product.id, data-product_id: product.id,data-product-id: product.id, data-handle: product.handle-%}
+ <section class="ecom-row ecom-core ecom-section ecom-smrf1ebnpbn" data-id="ecom-smrf1ebnpbn" style="z-index: inherit;"><div data-deep="1" class="core__row--columns"><div class="ecom-column ecom-core core__column--first ecom-f4rivpk8waw"><div class="core__column--wrapper"><div class="ecom-column__overlay"><div class="ecom-overlay"></div></div><div class="core__blocks" index="0"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block ecom-dii1h57kof4" data-core-is="block"><div class="ecom-element ecom-product-single ecom-product-single__media" deep="1"><div class="ecom-product-single__media-wrapper 
+ {% if product.media.size == 1 %}
+ ecom-dont-has-many-images
+ {% endif %}
+ "><div class="ecom-product-single__media-container ecom-product-single__media--slider ecom-product-single__media--vertical ecom-product-single__media-tablet--horizontal ecom-product-single__media-mobile--horizontal"><div class="ecom-product-single__media--featured ecom-swiper-container" data-breakpoints="{&quot;0&quot;:{&quot;__screen_name&quot;:&quot;mobile&quot;},&quot;768&quot;:{&quot;__screen_name&quot;:&quot;tablet&quot;},&quot;1025&quot;:{&quot;__screen_name&quot;:&quot;desktop&quot;,&quot;slidesPerView&quot;:1,&quot;spaceBetween&quot;:0}}" data-priority="variant">
+ {% comment %}
+ Reactivity
+ *this.data.settings.image_action
+ *this.data.settings.enable_zoom
+ *this.data.settings.grid_advance_number_images
+ {% endcomment %}
+ 
+ {%- liquid
+ if product.has_only_default_variant
+ assign target = product
+ else
+ assign target = product.selected_or_first_available_variant
+ endif
+ -%}
+ 
+ <div class="ecom-product-single__media-label ecom-pa ecom-flex ecom-label-position__topright">
+ 
+ {%- assign savings = product.compare_at_price | minus: product.price | times: 100.0 | divided_by: product.compare_at_price | round -%}
+ <span class="ecom-product-single__media-label-sale" data-text=" Sale" data-sale="{{savings}}" {%- if product.compare_at_price == nil or product.compare_at_price <= product.price -%} style="display:none" {% endif %}>
+ Sale
+ </span>
+ <span class="ecom-product-single__media-label-sold-out" {% if target.available %} style="display:none" {% endif %}>
+ Sold out
+ </span>
+ 
+ 
+ {%- if product.compare_at_price != null and product.compare_at_price > product.price -%}
+ {%- assign sale = product.compare_at_price | minus: product.price | times: 100.0 | divided_by: product.compare_at_price | round -%}
+ <span class="ecom-product-single__media-label--bage-sale" data-sale="Save [sale]%" data-label-type="percent">
+ Save {{sale}}%
+ </span>
+ {%- endif -%}
+ 
+ 
+ 
+ {% capture badge_tags %}hot, new{% endcapture%}
+ {%- assign badge_tags = badge_tags | strip | split: ',' -%}
+ {% if badge_tags %}
+ {% for badge in badge_tags %}
+ {%- assign bad = badge | strip -%}
+ {% if product.tags contains bad %}
+ <span class="ecom-product-single__media-label--tags ecom-product-single__media-label--tags-{{ bad | handleize}}">
+ {{ bad }}
+ </span>
+ {% endif %}
+ {% endfor %}
+ {% endif %}
+ 
+ </div>
+ 
+ 
+ <div class="ecom-product-single__zoom-icon-wrapper ecom-pa ecom-flex ecom-zoom-position__bottomright">
+ <div class="ecom-product-single__zoom-icon ecom-flex">
+ <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor"><path d="M 4 4 L 4 13 L 6 13 L 6 7.4375 L 14.5625 16 L 6 24.5625 L 6 19 L 4 19 L 4 28 L 13 28 L 13 26 L 7.4375 26 L 16 17.4375 L 24.5625 26 L 19 26 L 19 28 L 28 28 L 28 19 L 26 19 L 26 24.5625 L 17.4375 16 L 26 7.4375 L 26 13 L 28 13 L 28 4 L 19 4 L 19 6 L 24.5625 6 L 16 14.5625 L 7.4375 6 L 13 6 L 13 4 Z"></path></svg>
+ </div>
+ </div>
+ 
+ 
+ {% assign img_padding = 1 | times: 1 %}
+ {% assign img_padding__tablet = 1 | times: 1 %}
+ {% assign img_padding__mobile = 1 | times: 1 %}
+ <div class="ecom-swiper-wrapper ecom-product-single__media--images ecom-swiper-wrapper ecom-product-single__media--images-layout__slider">
+ {% assign use_limit = undefined %}
+ {% assign limit_images = undefined %}
+ {% for image in product.images %}
+ {%if use_limit and forloop.index > limit_images%}{% break %}{% endif %}
+ {% assign fetchpriority = 'low'%}
+ {% assign lazyload = 'low'%}
+ {% if forloop.first %}
+ {% assign fetchpriority = 'high'%}
+ {% assign lazyload = 'eager'%}
+ {% endif %}
+ {% assign img_ration = 1 | divided_by: image.aspect_ratio | times: 100 %}
+ 
+ <div class="ecom-product-single__media--image ecom-swiper-slide ecom-flex ecom-image-align-center ecom-image-align---tablet ecom-image-align---mobile ecom-product-single__media--image" data-index="{{forloop.index0}}" data-variant_id="{{ image.variants | map:'id' | join: ',' }}" style="--img_padding: {{ img_ration | divided_by: img_padding }}%;--img_padding__tablet: {{ img_ration | divided_by: img_padding__tablet }}%;--img_padding__mobile: {{ img_ration | divided_by: img_padding__mobile }}%;" data-half-width="{% assign img_ration_half = 1 | divided_by: image.aspect_ratio | times: 50 %}{{img_ration_half}}" data-full-width="{% assign img_ration_full = 1 | divided_by: image.aspect_ratio | times: 100 %}{{img_ration_full}}">
+ 
+ 
+ {%- assign img_master = image | img_url: 'master' -%}
+ {{ image | image_url: width: 1946 | image_tag:
+ sizes: sizes,
+ widths: '246, 493, 600, 713, 823, 990, 1100, 1206, 1346, 1426, 1646, 1946',
+ class: 'ecom-image-default'
+ ,ecom-modal-source:img_master , ecom-modal:'image'
+ ,loading: lazyload
+ ,fetchpriority: fetchpriority
+ ,alt: image.alt | escape
+ }}
+ 
+ 
+ </div>
+ {% endfor %}
+ {%- for media in product.media -%}
+ {% assign media_ration = 1 | divided_by: media.aspect_ratio | times: 100 %}
+ {% case media.media_type %}
+ {% when 'image' %}
+ {% continue %}
+ {% when 'external_video'%}
+ {% assign videoUrl = '' %}
+ {% for source in media.sources %}
+ {% if source.format == "mp4" %}
+ {% assign videoUrl = source.url %}
+ {% break %}
+ {% endif %}
+ {% endfor %}
+ <div class="ecom-product-single__media--image ecom-swiper-slide ecom-flex ecom-image-align-center ecom-image-align---tablet ecom-image-align---mobile ecom-product-single__media---external-video ecom-product-single__media--full" data-position="{{media.position}}" style="--img_padding: {{ media_ration | divided_by: img_padding }}%;--img_padding__tablet: {{ media_ration | divided_by: img_padding__tablet }}%;--img_padding__mobile: {{ media_ration | divided_by: img_padding__mobile }}%;" ecom-modal-source="{{videoUrl}}" ecom-modal='iframe'>
+ {{ media | external_video_tag: image_size:'master' }}
+ </div>
+ {% when 'video' %}
+ {% assign videoUrl = '' %}
+ {% for source in media.sources %}
+ {% if source.format == "mp4" %}
+ {% assign videoUrl = source.url %}
+ {% break %}
+ {% endif %}
+ {% endfor %}
+ <div data-stopdrag="true" class="ecom-product-single__media--image ecom-swiper-slide ecom-flex ecom-image-align-center ecom-image-align---tablet ecom-image-align---mobile ecom-product-single__media--video ecom-product-single__media--full ecom-swiper-no-swiping" data-position="{{media.position}}" style="--img_padding: {{ media_ration | divided_by: img_padding }}%;--img_padding__tablet: {{ media_ration | divided_by: img_padding__tablet }}%;--img_padding__mobile: {{ media_ration | divided_by: img_padding__mobile }}%;" ecom-modal-source="{{videoUrl}}" ecom-modal='iframe'>
+ {{ media | video_tag: image_size:'master', class: 'ecom-media-video', controls: true, autoplay: true, mute: false,loop: true }}
+ 
+ </div>
+ {% when 'model' %}
+ <div class="ecom-product-single__media--image ecom-swiper-slide ecom-flex ecom-image-align-center ecom-image-align---tablet ecom-image-align---mobile ecom-swiper-no-swiping ecom-product-single__media--model ecom-product-single__media--full" data-stopdrag="true" data-position="{{media.position}}">
+ <div class="ecom-product-single__media--model-wrapper">
+ {{ media | model_viewer_tag: image_size:'master', reveal: 'interaction', toggleable: true, data-model-id: media.id }}
+ </div>
+ </div>
+ {% else %}
+ <div data-media-type="{{media.media_type}}" class="ecom-product-single__media--image ecom-swiper-slide ecom-flex ecom-image-align-center ecom-image-align---tablet ecom-image-align---mobile ecom-swiper-no-swiping ecom-product-single__media--full" data-position="{{media.position}}">
+ <div class="ecom-product-single__media" style="--img_padding: {{ media_ration | divided_by: img_padding }}%;--img_padding__tablet: {{ media_ration | divided_by: img_padding__tablet }}%;--img_padding__mobile: {{ media_ration | divided_by: img_padding__mobile }}%;">
+ {{ media | media_tag: image_size:'master', class: 'ecom-product-single__media--item' }}
+ </div>
+ </div>
+ {% endcase %}
+ {%- endfor -%}
+ </div>
+ 
+ <div class="ecom-swiper-pagination"></div>
+ <div class="ecom-swiper-button-next ecom-swiper-controls" style="display: flex">
+ <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor"><path d="M 12.96875 4.28125 L 11.53125 5.71875 L 21.8125 16 L 11.53125 26.28125 L 12.96875 27.71875 L 23.96875 16.71875 L 24.65625 16 L 23.96875 15.28125 Z"></path></svg>
+ </div>
+ <div class="ecom-swiper-button-prev ecom-swiper-controls" style="display: flex">
+ <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor"><path d="M 19.03125 4.28125 L 8.03125 15.28125 L 7.34375 16 L 8.03125 16.71875 L 19.03125 27.71875 L 20.46875 26.28125 L 10.1875 16 L 20.46875 5.71875 Z"></path></svg>
+ </div>
+ 
+ </div><div class="ecom-product-single__media--thumbs ecom-product-single__init-thumb-hidden ecom-swiper-container" data-breakpoints="{&quot;0&quot;:{&quot;__screen_name&quot;:&quot;mobile&quot;,&quot;slidesPerView&quot;:4,&quot;spaceBetween&quot;:8,&quot;thumbnail_position&quot;:&quot;column&quot;},&quot;768&quot;:{&quot;__screen_name&quot;:&quot;tablet&quot;,&quot;slidesPerView&quot;:5,&quot;spaceBetween&quot;:10,&quot;thumbnail_position&quot;:&quot;column&quot;},&quot;1025&quot;:{&quot;__screen_name&quot;:&quot;desktop&quot;,&quot;slidesPerView&quot;:&quot;auto&quot;,&quot;spaceBetween&quot;:16,&quot;thumbnail_position&quot;:&quot;row-reverse&quot;}}">
+ {%- if product.media.size > 1 -%}
+ <div class="ecom-swiper-wrapper">
+ {% for image in product.images%}
+ {% assign fetchpriority = 'low'%}
+ {% if forloop.first %}
+ {% assign fetchpriority = 'high'%}
+ {% endif %}
+ <div class="ecom-product-single__media--thumbnail ecom-swiper-slide" data-variant_id="{{ image.variants | map:'id' | join:',' }}">
+ <img
+ class="ecom-product-thumbnail"
+ src="{{ image | img_url: '300x300' , crop: 'center' }}"
+ alt="{{ image.alt }}",
+ fetchpriority="{{ fetchpriority }}"
+ ,loading="lazy"
+ />
+ </div>
+ {% endfor %}
+ {%- for media in product.media -%}
+ {% if media.media_type != 'image' %}
+ <div class="ecom-product-single__media--thumbnail ecom-swiper-slide">
+ <div class="ecom-product-single__media--thumbnail--icon">
+ {% if media.media_type == 'model' %}
+ <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor"><path d="M 16 4.40625 L 15.59375 4.59375 L 5.59375 9.09375 L 5 9.34375 L 5 22.03125 L 5.5 22.3125 L 15.5 27.875 L 16 28.15625 L 16.5 27.875 L 26.5 22.3125 L 27 22.03125 L 27 9.34375 L 26.40625 9.09375 L 16.40625 4.59375 Z M 16 6.59375 L 23.6875 10.03125 L 16 13.875 L 8.3125 10.03125 Z M 7 11.625 L 15 15.625 L 15 25.28125 L 7 20.84375 Z M 25 11.625 L 25 20.84375 L 17 25.28125 L 17 15.625 Z"></path></svg>
+ {% else %}
+ <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" fill="currentColor"><defs><style>.fa-secondary{opacity:.4}</style></defs><path class="fa-primary" d="M361 215C375.3 223.8 384 239.3 384 256C384 272.7 375.3 288.2 361 296.1L73.03 472.1C58.21 482 39.66 482.4 24.52 473.9C9.377 465.4 0 449.4 0 432V80C0 62.64 9.377 46.63 24.52 38.13C39.66 29.64 58.21 29.99 73.03 39.04L361 215z"></path></svg>
+ {% endif %}
+ </div>
+ <img src="{{ media.preview_image | img_url: '300x300' , crop: 'center' }}" alt="{{ media.alt }}" loading="lazy"/>
+ </div>
+ {% endif %}
+ {%- endfor -%}
+ </div>
+ 
+ <div class="ecom-swiper-button-next ecom-swiper-controls-thumb" style="display: flex">
+ <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+ <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+ </svg>
+ </div>
+ <div class="ecom-swiper-button-prev ecom-swiper-controls-thumb" style="display: flex">
+ <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+ <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+ </svg>
+ </div>
+ 
+ {%- endif -%}
+ </div></div></div><div class="ecom-hidden-content">
+ <script type="application/json" id="Product-model-{{ product.id }}">
+ {{ product.media | where: 'media_type', 'model' | json }}
+ </script>
+ </div></div></div> </div></div></div></div> <div class="ecom-column ecom-core core__column--last ecom-04etwzzj8dov"><div class="core__column--wrapper"><div class="ecom-column__overlay"><div class="ecom-overlay"></div></div><div class="core__blocks" index="1"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block elmspace ecom-3fh5j4lpz58" data-core-is="block"><div class="ecom-element ecom-product-single ecom-product-single__title" deep="1"><div class="ecom-product-single__title-wrapper"><div class="ecom-product-single__title-container"><h1 class="ecom-product__heading" href="{{ product.url }}" title="{{ product.title }}">{{ product.title }}</h1></div></div></div></div> <div class="ecom-block ecom-core core__block elmspace ecom-7sycfr2vwcg" data-core-is="block"><div class="ecom-element ecom-product-single ecom-product-single__rating" deep="1"><div class="ecom-product-single__rating-wrapper" data-review-platform="
+ {%- assign review_platform = shop.metafields.ecomposer.app_review.value -%}
+ {{review_platform}}
+ "><div class="ecom-product-single__rating-container">
+ {%- if review_platform -%}
+ {%- if EComBuilderMode == true -%}
+ <div class="ecom-theme-app-extensions-skeleton">
+ <div class="ecom-app-extension-info">
+ <span class="ecom-theme-app-extension-icon">
+ <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M364.2 267.2l-104.8-15.28L212.6 156.7C208.7 148.8 200.7 143.9 191.9 143.9C183.2 143.8 175.1 148.8 171.4 156.7L124.5 251.1L19.71 267.2C.9566 269.9-6.618 293.1 7.007 306.5l75.87 74l-17.1 104.6c-1.25 6.75 .5878 13.51 4.963 18.63C74.22 509 80.64 512 87.52 512c3.625 0 7.436-.9554 10.69-2.705l93.79-49.38l93.74 49.38c3.25 1.625 6.991 2.675 10.62 2.675c6.75 0 13.23-2.97 17.61-8.22c4.25-5.125 6.273-11.98 5.148-18.61L301.2 380.5l75.92-74C390.6 293 383.1 269.1 364.2 267.2zM266.7 369.3l17.62 103.1l-92.5-48.75l-92.5 48.75l17.62-103.1L42.22 296.1l103.4-15l46.38-93.88l46.13 93.88l103.5 15L266.7 369.3zM256 112h64v64C320 184.8 327.2 192 336 192S352 184.8 352 176v-64h64c8.844 0 16-7.156 16-16s-7.154-15.1-15.1-15.1L352 80v-64C352 7.156 344.8 0 336 0S320 7.156 320 16v64l-63.99 .0022C247.2 80 240 87.16 240 96S247.2 112 256 112zM496 208h-32v-32c0-8.844-7.155-15.1-15.1-15.1S432 167.2 432 176v32h-32c-8.844 0-15.1 7.162-15.1 16.01S391.2 240 400 240h32v32c0 8.844 7.158 16.01 16 16.01S464 280.8 464 272v-32h32c8.844 0 16-7.151 16-15.99S504.8 208 496 208z"/></svg>
+ </span>
+ <div class="ecom-theme-app-extension-content">
+ <span class="ecom-theme-app-extension-title">{{review_platform | replace: '_', ' ' | replace: '-', ' ' | capitalize}}</span>
+ <div class="ecom-placeholder-on-builder-mode" data-ecom-placeholder="The rating element will display when published to Online store"></div>
+ </div>
+ </div>
+ </div>
+ {%- else -%}
+ {%- case review_platform -%}
+ {%- when 'none' -%}
+ <div class="ecom-theme-app-extensions-skeleton">
+ <p>Please select the rating platform in settings</p>
+ </div>
+ {%- when 'ali-reviews' -%}
+ <div product-id="{{ product.id }}" product-handle="{{ product.handle }}" class="alireviews-review-star-rating"></div>
+ {%- when 'vital-reviews'-%}
+ <div class="bundle-aggregated_reviews"></div>
+ {%- when 'opinew-reviews' -%}
+ <div id='opinew-stars-plugin-product'>{% render 'opinew_review_stars_product' product:product %}</div>
+ {%- when 'judgeme' -%}
+ <div style='{{ jm_style }}' class='jdgm-widget jdgm-preview-badge' data-id='{{ product.id }}'>
+ {{ product.metafields.judgeme.badge }}
+ </div> 
+ {%- when 'product-reviews-addon' -%}
+ <span class="stamped-product-reviews-badge stamped-main-badge" data-id="{{ product.id }}" data-product-sku="{{ product.handle }}" style="display: inline-block;">{{- product.metafields.stamped.badge -}}</span>
+ {%- when 'areviews-aliexpress'-%}
+ <div class="areviews_header_stars"></div>
+ {%- when 'loox'-%}
+ <a href="#looxReviews">
+ <div class="loox-rating" data-id="{{ product.id }}" data-rating="{{ product.metafields.loox.avg_rating }}" data-raters="{{ product.metafields.loox.num_reviews }}"></div>
+ </a>
+ {% when 'ryviu'%}
+ {%- if EComBuilderMode == true -%}
+ <div class="ecom-theme-app-extensions-skeleton">
+ <div class="ecom-app-extension-info">
+ <span class="ecom-theme-app-extension-icon">
+ <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M364.2 267.2l-104.8-15.28L212.6 156.7C208.7 148.8 200.7 143.9 191.9 143.9C183.2 143.8 175.1 148.8 171.4 156.7L124.5 251.1L19.71 267.2C.9566 269.9-6.618 293.1 7.007 306.5l75.87 74l-17.1 104.6c-1.25 6.75 .5878 13.51 4.963 18.63C74.22 509 80.64 512 87.52 512c3.625 0 7.436-.9554 10.69-2.705l93.79-49.38l93.74 49.38c3.25 1.625 6.991 2.675 10.62 2.675c6.75 0 13.23-2.97 17.61-8.22c4.25-5.125 6.273-11.98 5.148-18.61L301.2 380.5l75.92-74C390.6 293 383.1 269.1 364.2 267.2zM266.7 369.3l17.62 103.1l-92.5-48.75l-92.5 48.75l17.62-103.1L42.22 296.1l103.4-15l46.38-93.88l46.13 93.88l103.5 15L266.7 369.3zM256 112h64v64C320 184.8 327.2 192 336 192S352 184.8 352 176v-64h64c8.844 0 16-7.156 16-16s-7.154-15.1-15.1-15.1L352 80v-64C352 7.156 344.8 0 336 0S320 7.156 320 16v64l-63.99 .0022C247.2 80 240 87.16 240 96S247.2 112 256 112zM496 208h-32v-32c0-8.844-7.155-15.1-15.1-15.1S432 167.2 432 176v32h-32c-8.844 0-15.1 7.162-15.1 16.01S391.2 240 400 240h32v32c0 8.844 7.158 16.01 16 16.01S464 280.8 464 272v-32h32c8.844 0 16-7.151 16-15.99S504.8 208 496 208z"/></svg>
+ </span>
+ <div class="ecom-theme-app-extension-content">
+ <span class="ecom-theme-app-extension-title">Ryviu</span>
+ <div class="ecom-placeholder-on-builder-mode" data-ecom-placeholder="The rating element will display when published to Online store"></div>
+ </div>
+ </div>
+ {%- else -%}
+ <div class="review-widget">
+ <ryviu-widget-total
+ reviews_data="{{product.metafields.ryviu.product_reviews_info | escape }}"
+ product_id="{{product.id}}" handle="{{product.handle}}">
+ </ryviu-widget-total>
+ </div>
+ {%- endif -%}
+ {%- when 'yotpo-social-reviews' -%}
+ <div class="yotpo bottomLine" style="display:inline-block" data-product-id="{{ product.id }}"> </div>
+ {%- when 'aliexpress-reviews-importer'-%}
+ <div id="shop_booster_rate_6" product-id="{{ product.id }}"></div>
+ {%- when 'rivyo-product-review'-%}
+ <div class="wc_product_review_badge" data-handle="{{ product.handle }}" data-product_id="{{ product.id }}"></div>
+ {%-when 'growave' -%}
+ {% capture the_snippet_review_avg %}{% render 'ssw-widget-avg-rate-listing', product: product %}{% endcapture %}
+ {% unless the_snippet_review_avg contains 'Liquid error' %}
+ {{ the_snippet_review_avg }}
+ {% endunless %}
+ {%- when 'smart-aliexpress-reviews'-%}
+ <a href="#scm-reviews-importer">
+ <div id="scm-product-detail-rate" class="scm-reviews-rate" data-rate-version2= {{ product.metafields.scm_review_importer.reviewsData.reviewCountInfo | json}}>
+ </div>
+ </a>
+ {%- when 'photo-reviews' -%}
+ <div id='opinew-stars-plugin-product'>{% render 'opinew_review_stars_product' product:product %}</div>
+ {%- when 'lai-reviews' -%}
+ <div class="scm-reviews-rate" data-rate-version2="{{ product.metafields.scm_review_importer.reviewsData.reviewCountInfo | json | escape }}" data-product-id="{{ product.id }}"></div>
+ {%- when 'product-reviews' -%}
+ <span class="shopify-product-reviews-badge" data-id="{{ product.id }}"></span>
+ {%- when 'rivyo' -%}
+ <div class="wc_product_review_badge" data-handle="{{ product.handle }}" data-product_id="{{ product.id }}"></div>
+ {%- when 'sealapps-product-review' -%}
+ <div class="custom-vstar-rating-widget" product-id="{{ product.id }}"></div>
+ {%- when 'ali-product-review' -%}
+ <div product-id="{{ product.id }}" class="alr-display-review-badge"></div>
+ {%- when 'klaviyo-reviews' -%}
+ <div class="klaviyo-star-rating-widget" data-id="{{product.id}}" data-product-title="{{product.title}}" data-product-type="{{product.type}}"></div>
+ {%- when 'air-reviews' -%}
+ <div class="AirReviews-Widget AirReviews-Widget--Stars" data-review-avg="{{ product.metafields.air_reviews_product.review_avg }}" data-review-count="{{ product.metafields.air_reviews_product.review_count }}"></div>
+ {%- when 'ait-product-reviews' -%}
+ <span class="egg-product-reviews-rating" data-id="{{ product.id }}" id="{{ product.id }}"></span>
+ {%- when 'trustify-reviews' -%}
+ <div
+ class="trustify-review-stars"
+ data-review-type="product"
+ data-product-id="{{ product.id }}"
+ data-product-handle="{{ product.handle }}"
+ data-review-avg="{{ product.metafields.tr_reviews_product.review_avg }}"
+ data-review-count="{{ product.metafields.tr_reviews_product.review_count }}"
+ >
+ </div>
+ {% else %}
+ <p>The rating platform not supported</p>
+ {%-endcase-%}
+ {% endif %}
+ {%- else -%}
+ <div class="ecom-theme-app-extensions-skeleton">
+ <p>Please select the rating platform in settings</p>
+ </div>
+ {%- endif -%}
+ </div></div></div></div> <div class="ecom-animation ecom-block ecom-core core__block ecom-bi2w85o82qm" data-core-is="block"><div class="ecom-element ecom-product-single ecom-product-single__price" deep="1"><div class="ecom-product-single__price-wrapper"><div class="ecom-product-single__price-container"><div class="ecom-product-single__price-container-grid"><div class="ecom-product-single ecom-product-single__price--prices">
+ {%- liquid
+ if product.has_only_default_variant
+ assign target = product
+ else
+ assign target = product.selected_or_first_available_variant
+ endif
+ -%}
+ <div class="ecom-product-single__price--sale {% if target.compare_at_price == nil or target.compare_at_price <= target.price %} ecom-product-single__price-normal {% endif %}" data-price="{{target.price}}">
+ {%- if settings.currency_code_enabled -%}
+ {{target.price | money_with_currency}}
+ {%- else -%}
+ {{target.price| money }}
+ {%- endif -%}
+ </div>
+ 
+ <div class="ecom-product-single__price--regular" {%- if target.compare_at_price == nil or target.compare_at_price <= target.price -%} style="display:none" {% endif %}>
+ {%- if settings.currency_code_enabled -%}
+ {{target.compare_at_price | money_with_currency}}
+ {%- else -%}
+ {{target.compare_at_price | money }}
+ {%- endif -%}
+ </div>
+ 
+ {%- capture taxes_text -%}Tax included.{%- endcapture -%}
+ {%- if cart.taxes_included or shop.shipping_policy.body != blank -%}
+ {% if taxes_text %}
+ <div class="ec-product__tax caption rte">
+ {%- if shop.taxes_included -%}
+ Tax included.
+ {%- endif -%}
+ {%- if shop.shipping_policy.body != blank -%}
+ <a href="{{ link }}">Shipping</a> calculated at checkout.
+ {%- endif -%}
+ </div>
+ {%- endif -%}
+ {%- endif -%}
+ </div><div class="ecom-product-single__price--badges-wrapper">
+ <div class="ecom-product-single__price--badges">
+ {%- assign savings = target.compare_at_price | minus: target.price | times: 100.0 | divided_by: target.compare_at_price | round -%}
+ {%- if settings.currency_code_enabled -%}
+ {%- assign savings = target.compare_at_price | minus: target.price | money_with_currency -%}
+ {%- else -%}
+ {%- assign savings = target.compare_at_price | minus: target.price | money -%}
+ {%- endif -%}
+ 
+ <span class="ecom-product-single__price--badges-sale" data-have-sale="{%- unless target.compare_at_price == nil or target.compare_at_price <= target.price or target.available != true -%}true{%endunless%}" data-text=" Save {price}" data-sale="{{savings}}" data-type="amount" style="{%- unless target.compare_at_price == nil or target.compare_at_price <= target.price or target.available != true -%} display: none;{%endunless%}">
+ Save {price}
+ </span>
+ <span class="ecom-product-single__price--badges-sold-out" {% if target.available %} style="display:none" {% endif %}>
+ Sold out
+ </span>
+ </div>
+ </div></div><div class="ecom-product-single-afterpay">
+ 
+ </div></div></div></div></div> <div class="ecom-block ecom-core core__block elmspace ecom-edqf64klxef" data-core-is="block"><div class="ecom__element ecom-element element__divi" deep="1"><div class="ecom__element-divi" style="--divi-line-height: 1px;"><div class="divi-line divi-style" style="display: block;"></div><div class="divi-cont" style="--flex-desktop: 0.5; --flex-tablet: 0.5; --flex-mobile: 0.5; --divider-width: auto; --divider-width-tablet: auto; --divider-width-mobile: auto; display: none;"><div class="divi-cont-before divi-style" style="display: block;"></div><div class="divi-cont-after divi-style" style="display: block;"></div></div></div></div></div> <div class="ecom-block ecom-core core__block elmspace ecom-b2zxsm7r1r" data-core-is="block"><div class="ecom__element ecom-element element__text" data-stopdrag="" deep="1"><div class="text-content ecom-html has-drop-cap-view-framed">PROMED introduces the IPL Laser Hair Removal device. It should be your new favorite staple for salon-smooth hair removal from the comfort of your home.<div><br></div><div>You can reduce your hair by up to 50% within eight weeks.&nbsp;</div><div><br></div><div><b>“Promed IPL Laser Hair Removal” provides “Hair-free is care-free.”</b></div></div></div></div> <div class="ecom-block ecom-core core__block elmspace ecom-acijpizr9mq" data-core-is="block"><div class="ecom__element ecom-element element__text" data-stopdrag="" deep="1"><div class="text-content ecom-html has-drop-cap-view-framed"><ul><li>Fast and free delivery</li><li>Full refund within 30 days</li><li>1 Year warranty</li><li>24/7 Customer Service</li></ul></div></div></div> <div class="ecom-block ecom-core core__block elmspace ecom-vsnk36nz7m" data-core-is="block"><div class="ecom__element ecom-element element__code exporting" deep="1"><div class="promo-code-box">Use code <span onclick="PromoCodeCopy();" class="promo-code">SAVE10</span> for an extra 10% off.</div></div></div> <div class="ecom-block ecom-core core__block elmspace ecom-camrn5dnmgf" data-core-is="block"><div class="ecom__element ecom-element element__divi" deep="1"><div class="ecom__element-divi" style="--divi-line-height: 1px;"><div class="divi-line divi-style" style="display: block;"></div><div class="divi-cont" style="--flex-desktop: 0.5; --flex-tablet: 0.5; --flex-mobile: 0.5; --divider-width: auto; --divider-width-tablet: auto; --divider-width-mobile: auto; display: none;"><div class="divi-cont-before divi-style" style="display: block;"></div><div class="divi-cont-after divi-style" style="display: block;"></div></div></div></div></div> <div class="ecom-block ecom-core core__block elmspace ecom-fba64n60l9j wishlist-block" data-core-is="block"><div class="ecom-element ecom-product-single ecom-product-single__wishlist" deep="1"><div class="ecom-product-single__wishlist-wrapper"><div class="ecom-product-single__wishlist-container" data-wishlist-app="{%- assign wishlist_app = shop.metafields.ecomposer.app_wishlist.value -%}{{wishlist_app}}" data-ecom-placeholder="">{%- if wishlist_app -%}
+ {%- assign variant_selected = product.selected_or_first_available_variant -%}
+ {%- if EComBuilderMode == true -%}
+ <div class="ecom-theme-app-extensions-skeleton">
+ <div class="ecom-app-extension-info">
+ <span class="ecom-theme-app-extension-icon">
+ <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M255.1 96L267.1 84.02C300.6 51.37 347 36.51 392.6 44.1C461.5 55.58 512 115.2 512 185.1V190.9C512 232.4 494.8 272.1 464.4 300.4L283.7 469.1C276.2 476.1 266.3 480 256 480C245.7 480 235.8 476.1 228.3 469.1L47.59 300.4C17.23 272.1 0 232.4 0 190.9V185.1C0 115.2 50.52 55.58 119.4 44.1C164.1 36.51 211.4 51.37 244 84.02L255.1 96zM255.1 141.3L221.4 106.6C196.1 81.31 160 69.77 124.7 75.66C71.21 84.58 31.1 130.9 31.1 185.1V190.9C31.1 223.6 45.55 254.7 69.42 277L250.1 445.7C251.7 447.2 253.8 448 255.1 448C258.2 448 260.3 447.2 261.9 445.7L442.6 277C466.4 254.7 480 223.6 480 190.9V185.1C480 130.9 440.8 84.58 387.3 75.66C351.1 69.77 315.9 81.31 290.6 106.6L255.1 141.3z"/></svg>
+ </span>
+ <div class="ecom-theme-app-extension-content">
+ <span class="ecom-theme-app-extension-title">{{wishlist_app | replace: '_', ' ' | replace: '-', ' ' | capitalize}}</span>
+ <div class="ecom-placeholder-on-builder-mode" data-ecom-placeholder="The wishlist element will display when published to Online store"></div>
+ </div>
+ </div>
+ </div>
+ {%- else -%}
+ {%- case wishlist_app -%}
+ {% when 'growave'%}
+ {% capture the_snippet_fave %}{% render 'socialshopwave-widget-fave' with product:product %}{% endcapture %}
+ {% unless the_snippet_fave contains 'Liquid error' %}
+ {{ the_snippet_fave }}
+ {% else %}
+ {% capture the_snippet_fave_icon %}{% include 'ssw-widget-faveicon' with product.id, product:product%}{% endcapture %}
+ {% unless the_snippet_fave_icon contains 'Liquid error' %}
+ {{ the_snippet_fave_icon }}
+ {% endunless %}
+ {% endunless %}
+ {%- when 'swym-relay' -%}
+ <div class="swym-wishlist-button-bar"></div>
+ <button class="swym-loaded swym-button swym-add-to-wishlist-view-product product_{{product.id}}" data-swaction="addToWishlist" data-product-id="{{product.id | json}}" ></button>
+ {%- when 'wishlist-wishify' -%}
+ <div id="ZlistWishlist" data-product-id="{{product.id}}" data-handle = "{{product.handle}}"
+ data-image="{{product.featured_image | img_url: "360x"}}" data-variantname="{{product.selected_or_first_available_variant.title}}" data-title="{{product.title}}" data-variant="{{product.selected_or_first_available_variant.id}}" data-price="{{product.selected_or_first_available_variant.price | remove: "." | remove: "," | divided_by: 100.0 }}"></div>
+ <script type="text/ecom-custom-js" src="https://zooomyapps.com/wishlist/ListWishlistProduct.js" data-product-id="{{product.id}}" data-shop-id="{{shop.permanent_domain}}" data-customer-id="{{customer.id}}" ></script>
+ {%- when 'wishlist-hero' -%}
+ <div id="wishlist-hero-product-page-button"></div>
+ {%- else -%}
+ {%- endcase -%}
+ {% endif %}
+ {%- endif -%}</div></div></div></div> <div class="ecom-block ecom-core core__block elmspace ecom-mrik9rgrvr cart js-call-minicart product-atc-block" data-core-is="block"><div class="ecom-element ecom-product-single ecom-product-single__add-to-cart" deep="1"><div class="ecom-product-single__add-to-cart-wrapper"><div class="ecom-product-single__add-to-cart-container"><div class="ecom-product-single__add-to-cart-buttons"><div class="ecom-product-single__add-to-cart-buttons-wrapper"><button type="submit" class="ecom-product-single__add-to-cart--submit ecom-flex animated" data-text-add-cart="Add to cart" data-text-pre-order="Pre Order" data-text-unavailable="Unavailable" data-text-outstock="Out stock" data-text-added-cart="Added to cart" data-message-added-cart="Added to cart" data-href="#" data-target="" data-action="popup" data-variant-id="{{product.first_available_variant.id}}" name="add"><span class="ecom-add-to-cart-text">Add to cart</span><span class="ecom__element--button-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" fill="currentColor"><path d="M96 0C107.5 0 117.4 8.19 119.6 19.51L121.1 32H541.8C562.1 32 578.3 52.25 572.6 72.66L518.6 264.7C514.7 278.5 502.1 288 487.8 288H170.7L179.9 336H488C501.3 336 512 346.7 512 360C512 373.3 501.3 384 488 384H159.1C148.5 384 138.6 375.8 136.4 364.5L76.14 48H24C10.75 48 0 37.25 0 24C0 10.75 10.75 0 24 0H96zM475.6 240L520.6 80H131.1L161.6 240H475.6zM128 464C128 437.5 149.5 416 176 416C202.5 416 224 437.5 224 464C224 490.5 202.5 512 176 512C149.5 512 128 490.5 128 464zM512 464C512 490.5 490.5 512 464 512C437.5 512 416 490.5 416 464C416 437.5 437.5 416 464 416C490.5 416 512 437.5 512 464z"></path></svg></span></button></div></div></div></div></div></div> <div class="ecom-block ecom-core core__block elmspace ecom-l9baz804jh" data-core-is="block"><div class="ecom-element ecom-product-single ecom-product-single__buy_it_now_btn" data-preview-mode="true" deep="1"><div class="ecom-product-single__buy_it_now_btn-buttons-wrapper"><button type="button" class="ecom-product-single__buy_it_now_btn--checkout animated" data-variant-id="{{product.first_available_variant.id}}"><span>Buy now</span></button></div></div></div> <div class="ecom-block ecom-core core__block elmspace ecom-0256bsxtr3w5" data-core-is="block"><div class="ecom__element ecom-element element__code exporting" deep="1"><div class="pro-icon-with-text">
+ <div class="item">
+ <img src="https://cdn.shopify.com/s/files/1/0656/9079/6273/files/Artwork_4.svg?v=1723017256" loading="lazy" alt="Fast &amp; Free Shipping">
+ Free Express Worldwide Shipping
+ </div>
+ <div class="item">
+ <img src="https://cdn.shopify.com/s/files/1/0656/9079/6273/files/Artwork_5.svg?v=1723017256" loading="lazy" alt=" 90-Day Money Back">
+ 30-Day Return Policy
+ </div>
+ <div class="item">
+ <img src="https://cdn.shopify.com/s/files/1/0656/9079/6273/files/Artwork_6.svg?v=1723017256" loading="lazy" alt="2-Year Warranty">
+ 1 years warranty
+ </div>
+ <div class="item">
+ <img src="https://cdn.shopify.com/s/files/1/0656/9079/6273/files/Frame_457393736_d6a2fbe6-393c-4a7b-b317-e4cce4552597.svg?v=1723017256" loading="lazy" alt="24/7 Support">
+ 24*7 Customer service
+ </div>
+</div></div></div> <div class="ecom-block ecom-core core__block elmspace ecom-ncxn8au6mwp" data-core-is="block"><div class="ecom__element ecom-element element__code exporting" deep="1"><div class="pay-ico-box" bis_skin_checked="1">
+ <div class="pay-txt" bis_skin_checked="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+ We accept
+ </font></font></div>
+ <div class="pay-ico" bis_skin_checked="1">
+ <div class="pay-list" bis_skin_checked="1">
+ <img loading="lazy" src="//fr.ulike.com/cdn/shopifycloud/shopify/assets/payment_icons/paypal-49e4c1e03244b6d2de0d270ca0d22dd15da6e92cc7266e93eb43762df5aa355d.svg" width="38" height="24" alt="paypal">
+ <img loading="lazy" src="//fr.ulike.com/cdn/shopifycloud/shopify/assets/payment_icons/visa-319d545c6fd255c9aad5eeaad21fd6f7f7b4fdbdb1a35ce83b89cca12a187f00.svg" width="38" height="24" alt="Visa">
+ <img loading="lazy" src="//fr.ulike.com/cdn/shopifycloud/shopify/assets/payment_icons/master-173035bc8124581983d4efa50cf8626e8553c2b311353fbf67485f9c1a2b88d1.svg" width="38" height="24" alt="master">
+ <svg class="ecom-product-single__payment-method-svg" version="1.1" xmlns="http://www.w3.org/2000/svg" role="img" x="0" y="0" width="38" height="24" viewBox="0 0 165.521 105.965" xml:space="preserve" aria-labelledby="pi-apple_pay"><title id="pi-apple_pay">Apple Pay</title><path fill="#000" d="M150.698 0H14.823c-.566 0-1.133 0-1.698.003-.477.004-.953.009-1.43.022-1.039.028-2.087.09-3.113.274a10.51 10.51 0 0 0-2.958.975 9.932 9.932 0 0 0-4.35 4.35 10.463 10.463 0 0 0-.975 2.96C.113 9.611.052 10.658.024 11.696a70.22 70.22 0 0 0-.022 1.43C0 13.69 0 14.256 0 14.823v76.318c0 .567 0 1.132.002 1.699.003.476.009.953.022 1.43.028 1.036.09 2.084.275 3.11a10.46 10.46 0 0 0 .974 2.96 9.897 9.897 0 0 0 1.83 2.52 9.874 9.874 0 0 0 2.52 1.83c.947.483 1.917.79 2.96.977 1.025.183 2.073.245 3.112.273.477.011.953.017 1.43.02.565.004 1.132.004 1.698.004h135.875c.565 0 1.132 0 1.697-.004.476-.002.952-.009 1.431-.02 1.037-.028 2.085-.09 3.113-.273a10.478 10.478 0 0 0 2.958-.977 9.955 9.955 0 0 0 4.35-4.35c.483-.947.789-1.917.974-2.96.186-1.026.246-2.074.274-3.11.013-.477.02-.954.022-1.43.004-.567.004-1.132.004-1.699V14.824c0-.567 0-1.133-.004-1.699a63.067 63.067 0 0 0-.022-1.429c-.028-1.038-.088-2.085-.274-3.112a10.4 10.4 0 0 0-.974-2.96 9.94 9.94 0 0 0-4.35-4.35A10.52 10.52 0 0 0 156.939.3c-1.028-.185-2.076-.246-3.113-.274a71.417 71.417 0 0 0-1.431-.022C151.83 0 151.263 0 150.698 0z"></path><path fill="#FFF" d="M150.698 3.532l1.672.003c.452.003.905.008 1.36.02.793.022 1.719.065 2.583.22.75.135 1.38.34 1.984.648a6.392 6.392 0 0 1 2.804 2.807c.306.6.51 1.226.645 1.983.154.854.197 1.783.218 2.58.013.45.019.9.02 1.36.005.557.005 1.113.005 1.671v76.318c0 .558 0 1.114-.004 1.682-.002.45-.008.9-.02 1.35-.022.796-.065 1.725-.221 2.589a6.855 6.855 0 0 1-.645 1.975 6.397 6.397 0 0 1-2.808 2.807c-.6.306-1.228.511-1.971.645-.881.157-1.847.2-2.574.22-.457.01-.912.017-1.379.019-.555.004-1.113.004-1.669.004H14.801c-.55 0-1.1 0-1.66-.004a74.993 74.993 0 0 1-1.35-.018c-.744-.02-1.71-.064-2.584-.22a6.938 6.938 0 0 1-1.986-.65 6.337 6.337 0 0 1-1.622-1.18 6.355 6.355 0 0 1-1.178-1.623 6.935 6.935 0 0 1-.646-1.985c-.156-.863-.2-1.788-.22-2.578a66.088 66.088 0 0 1-.02-1.355l-.003-1.327V14.474l.002-1.325a66.7 66.7 0 0 1 .02-1.357c.022-.792.065-1.717.222-2.587a6.924 6.924 0 0 1 .646-1.981c.304-.598.7-1.144 1.18-1.623a6.386 6.386 0 0 1 1.624-1.18 6.96 6.96 0 0 1 1.98-.646c.865-.155 1.792-.198 2.586-.22.452-.012.905-.017 1.354-.02l1.677-.003h135.875"></path><g><g><path fill="#000" d="M43.508 35.77c1.404-1.755 2.356-4.112 2.105-6.52-2.054.102-4.56 1.355-6.012 3.112-1.303 1.504-2.456 3.959-2.156 6.266 2.306.2 4.61-1.152 6.063-2.858"></path><path fill="#000" d="M45.587 39.079c-3.35-.2-6.196 1.9-7.795 1.9-1.6 0-4.049-1.8-6.698-1.751-3.447.05-6.645 2-8.395 5.1-3.598 6.2-.95 15.4 2.55 20.45 1.699 2.5 3.747 5.25 6.445 5.151 2.55-.1 3.549-1.65 6.647-1.65 3.097 0 3.997 1.65 6.696 1.6 2.798-.05 4.548-2.5 6.247-5 1.95-2.85 2.747-5.6 2.797-5.75-.05-.05-5.396-2.101-5.446-8.251-.05-5.15 4.198-7.6 4.398-7.751-2.399-3.548-6.147-3.948-7.447-4.048"></path></g><g><path fill="#000" d="M78.973 32.11c7.278 0 12.347 5.017 12.347 12.321 0 7.33-5.173 12.373-12.529 12.373h-8.058V69.62h-5.822V32.11h14.062zm-8.24 19.807h6.68c5.07 0 7.954-2.729 7.954-7.46 0-4.73-2.885-7.434-7.928-7.434h-6.706v14.894z"></path><path fill="#000" d="M92.764 61.847c0-4.809 3.665-7.564 10.423-7.98l7.252-.442v-2.08c0-3.04-2.001-4.704-5.562-4.704-2.938 0-5.07 1.507-5.51 3.82h-5.252c.157-4.86 4.731-8.395 10.918-8.395 6.654 0 10.995 3.483 10.995 8.89v18.663h-5.38v-4.497h-.13c-1.534 2.937-4.914 4.782-8.579 4.782-5.406 0-9.175-3.222-9.175-8.057zm17.675-2.417v-2.106l-6.472.416c-3.64.234-5.536 1.585-5.536 3.95 0 2.288 1.975 3.77 5.068 3.77 3.95 0 6.94-2.522 6.94-6.03z"></path><path fill="#000" d="M120.975 79.652v-4.496c.364.051 1.247.103 1.715.103 2.573 0 4.029-1.09 4.913-3.899l.52-1.663-9.852-27.293h6.082l6.863 22.146h.13l6.862-22.146h5.927l-10.216 28.67c-2.34 6.577-5.017 8.735-10.683 8.735-.442 0-1.872-.052-2.261-.157z"></path></g></g></svg>
+ <svg class="ecom-product-single__payment-method-svg" xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 38 24" width="38" height="24" aria-labelledby="pi-google_pay"><title id="pi-google_pay">Google Pay</title><path d="M35 0H3C1.3 0 0 1.3 0 3v18c0 1.7 1.4 3 3 3h32c1.7 0 3-1.3 3-3V3c0-1.7-1.4-3-3-3z" fill="#000" opacity=".07"></path><path d="M35 1c1.1 0 2 .9 2 2v18c0 1.1-.9 2-2 2H3c-1.1 0-2-.9-2-2V3c0-1.1.9-2 2-2h32" fill="#FFF"></path><path d="M18.093 11.976v3.2h-1.018v-7.9h2.691a2.447 2.447 0 0 1 1.747.692 2.28 2.28 0 0 1 .11 3.224l-.11.116c-.47.447-1.098.69-1.747.674l-1.673-.006zm0-3.732v2.788h1.698c.377.012.741-.135 1.005-.404a1.391 1.391 0 0 0-1.005-2.354l-1.698-.03zm6.484 1.348c.65-.03 1.286.188 1.778.613.445.43.682 1.03.65 1.649v3.334h-.969v-.766h-.049a1.93 1.93 0 0 1-1.673.931 2.17 2.17 0 0 1-1.496-.533 1.667 1.667 0 0 1-.613-1.324 1.606 1.606 0 0 1 .613-1.336 2.746 2.746 0 0 1 1.698-.515c.517-.02 1.03.093 1.49.331v-.208a1.134 1.134 0 0 0-.417-.901 1.416 1.416 0 0 0-.98-.368 1.545 1.545 0 0 0-1.319.717l-.895-.564a2.488 2.488 0 0 1 2.182-1.06zM23.29 13.52a.79.79 0 0 0 .337.662c.223.176.5.269.785.263.429-.001.84-.17 1.146-.472.305-.286.478-.685.478-1.103a2.047 2.047 0 0 0-1.324-.374 1.716 1.716 0 0 0-1.03.294.883.883 0 0 0-.392.73zm9.286-3.75l-3.39 7.79h-1.048l1.281-2.728-2.224-5.062h1.103l1.612 3.885 1.569-3.885h1.097z" fill="#5F6368"></path><path d="M13.986 11.284c0-.308-.024-.616-.073-.92h-4.29v1.747h2.451a2.096 2.096 0 0 1-.9 1.373v1.134h1.464a4.433 4.433 0 0 0 1.348-3.334z" fill="#4285F4"></path><path d="M9.629 15.721a4.352 4.352 0 0 0 3.01-1.097l-1.466-1.14a2.752 2.752 0 0 1-4.094-1.44H5.577v1.17a4.53 4.53 0 0 0 4.052 2.507z" fill="#34A853"></path><path d="M7.079 12.05a2.709 2.709 0 0 1 0-1.735v-1.17H5.577a4.505 4.505 0 0 0 0 4.075l1.502-1.17z" fill="#FBBC04"></path><path d="M9.629 8.44a2.452 2.452 0 0 1 1.74.68l1.3-1.293a4.37 4.37 0 0 0-3.065-1.183 4.53 4.53 0 0 0-4.027 2.5l1.502 1.171a2.715 2.715 0 0 1 2.55-1.875z" fill="#EA4335"></path></svg>
+ 
+ 
+ </div>
+ </div>
+ </div>
+
+ <style>
+
+.pay-ico-box{display:flex;width:100%;align-items:flex-start;margin-top:20px;font-size:14px;line-height:19px;flex-direction:column;margin-right:24px;padding-right:24px;}
+.pay-txt{margin-bottom:8px;}
+.pay-ico{flex-basis:100%;}
+.pay-list{display:flex;flex-wrap:wrap;align-items:center;gap:8px;}
+@media (max-width: 768px){
+.pay-ico-box{flex-direction:column;align-items:flex-start;margin-top:10px;}
+.pay-txt{margin-bottom:1rem;font-weight:700;}
+}
+ </style></div></div> </div></div></div></div> </div><div class="ecom-section__overlay"><div class="ecom-overlay"></div></div> </section>
+ {% unless ecom_has_variant_picker %}
+ <input type="hidden" name="id" value="{{product.selected_or_first_available_variant.id}}" />
+ <script type="application/json" id="product-json-{{product.id}}-ecom-smrf1ebnpbn">
+ {%- render "ecom_product_json", product: product -%}
+ </script>
+ {% endunless %}
+ {%- endform -%}
+ {% assign ecom_has_variant_picker = false %}
+ {%- endif -%}
+ 
+ {% comment %}
+ // Reactive
+ * this.data.settings.product
+ {% endcomment %}
+ {% liquid
+ unless recommendations.performed
+ if request.page_type != 'product' or product == blank
+ assign selected_product = ''
+ if selected_product == blank or selected_product == '' or all_products[selected_product] == blank
+ assign product = collections['all'].products.first
+ else
+ assign product = all_products[selected_product]
+ if product.id == blank
+ assign product = collections['all'].products.last
+ endif
+ endif
+ endif
+ endunless
+ %}
+ {%- if product != blank -%}
+ {%- capture ec_form_id -%}product_form_{{ product.id }}_ecom-3766zbubx4y{%- endcapture -%}
+ {%- form 'product', product, id: ec_form_id, class: "ecom-product-form ecom-product-form--single ecom-click", product_id: product.id, data-product_id: product.id,data-product-id: product.id, data-handle: product.handle-%}
+ <section class="ecom-row ecom-core ecom-section ecom-3766zbubx4y product-tabs-section" data-id="ecom-3766zbubx4y" style="z-index: inherit;"><div data-deep="1" class="core__row--columns"><div class="ecom-column ecom-core core__column--first core__column--last ecom-g7gsrpairs"><div class="core__column--wrapper"><div class="ecom-column__overlay"><div class="ecom-overlay"></div></div><div class="core__blocks" index="0"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block elmspace ecom-onmnm3ildvp" data-core-is="group"><div class="ecom-core ecom-group core__block ecom-hp0ypui0ds"> <div class="core__group--wrapper tabs__wrapper ecom__element ecom__tabs tabs__wrapper--horizontal" data-r="" style=""><div class="tabs__navs tabs__navs--horizontal"><div class="tabs__navs--items"><div class="ecom-items tabs__nav ecom-item-active" data-target=""><div class="tabs_nav--content_right"><div class="tabs_nav--content"><h2 class="tabs_nav--text ecom-items--text">Description</h2></div><div class="tabs_nav--sub-text"></div></div></div><div class="ecom-items tabs__nav" data-target="##review"><div class="tabs_nav--content_right"><div class="tabs_nav--content"><h2 class="tabs_nav--text ecom-items--text">How to Use</h2></div><div class="tabs_nav--sub-text"></div></div></div><div class="ecom-items tabs__nav" data-target=""><div class="tabs_nav--content_right"><div class="tabs_nav--content"><h2 class="tabs_nav--text ecom-items--text">What’s Included</h2></div><div class="tabs_nav--sub-text"></div></div></div><div class="ecom-items tabs__nav" data-target=""><div class="tabs_nav--content_right"><div class="tabs_nav--content"><h2 class="tabs_nav--text ecom-items--text">Shipping And Return</h2></div><div class="tabs_nav--sub-text"></div></div></div></div></div><div class="core__group--items"><div id="ecom-4r8l83nd84t" class="core__group--item tab__item ecom-item-active ecom-item-group-init" data-id="ecom-4r8l83nd84t"><div class="core__group--body tabs__body"><div class="core__blocks" index="0"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block elmspace ecom-t8kzy2xpijq" data-core-is="block"><div class="ecom-element ecom-product-single ecom-product-single__description" deep="1"><div class="ecom-product-single__description-wrapper"><div class="ecom-product-single__description-container" data-show-type="full"><div class="ecom-product-single__description--paragraph" style="max-height: var(--ecom-description-height);">{{product.description}}</div></div></div></div></div> </div></div></div></div><div id="ecom-osw2ev2mwan" class="core__group--item tab__item" data-id="ecom-osw2ev2mwan"><div class="core__group--body tabs__body"><div class="core__blocks" index="1"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block elmspace ecom-w34k88c5lwr" data-core-is="block"><div class="ecom__element ecom-element element__text" data-stopdrag="" deep="1"><div class="text-content ecom-html has-drop-cap-view-framed">Our Laser home device is available in two modes for a customizable experience:&nbsp;<div>01. Manual</div><div>02. Automatic</div><div><ul><li>The device uses pulsed light with six intensity levels, including a Saphir cooling system for painless hair removal. It has two delicate modes with reduced power to ensure confident removal in sensitive areas like the face, armpits, and bikini line.</li><li>Intense pulsed light breaks up the structure of the hair follicles, resulting in super-soft skin with visible results in just eight weeks of at-home use. The device uses up to 999,999 flashes per second for effortless use and optimum skin coverage.</li></ul><div><br></div></div><h3>For Customize Use<br></h3><div>Adjust the pulsed light to suit your skin sensitivity and the areas you want to concentrate on.&nbsp;</div><div>IPL is suitable for a wide range of skin tones, from fair to medium-dark, with hair ranging from natural blond to dark brown or black.</div></div></div></div> </div></div></div></div><div id="ecom-5httf1n0sza" class="core__group--item tab__item" data-id="ecom-5httf1n0sza"><div class="core__group--body tabs__body"><div class="core__blocks" index="2"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block elmspace ecom-ow9q6q0lxe7" data-core-is="block"><div class="ecom__element ecom-element element__text" data-stopdrag="" deep="1"><div class="text-content ecom-html has-drop-cap-view-framed">The package alongside the IPL Laser Hair Removal device includes:&nbsp;<div><ul><li>A large head (best for underarms and lower legs)</li><li>Two precision heads (ideal for the face and bikini line)</li><li>Protective glasses</li><li>Adapter</li><li>Charger</li></ul></div></div></div></div> </div></div></div></div><div id="ecom-pzbi7rah7t" class="core__group--item tab__item" data-id="ecom-pzbi7rah7t"><div class="core__group--body tabs__body"><div class="core__blocks" index="3"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block elmspace ecom-c75og9eyais" data-core-is="block"><div class="ecom__element ecom-element element__text" data-stopdrag="" deep="1"><div class="text-content ecom-html has-drop-cap-view-framed">The PROMED laser hair removal device is affordable and has <b>“Fast &amp; Free Delivery.”</b><div>The order will be shipped within 2-3 business days with hassle-free 30-day returns on our product.&nbsp;&nbsp;</div><div><br></div><div>With one year of warranty, see visible results in 8 weeks. If you have any queries, do reach out to us. We have friendly, 24/7 customer support.</div></div></div></div> </div></div></div></div></div></div> </div></div> </div></div></div></div> </div><div class="ecom-section__overlay"><div class="ecom-overlay"></div></div> </section>
+ {% unless ecom_has_variant_picker %}
+ <input type="hidden" name="id" value="{{product.selected_or_first_available_variant.id}}" />
+ <script type="application/json" id="product-json-{{product.id}}-ecom-3766zbubx4y">
+ {%- render "ecom_product_json", product: product -%}
+ </script>
+ {% endunless %}
+ {%- endform -%}
+ {% assign ecom_has_variant_picker = false %}
+ {%- endif -%}
+ <section class="ecom-row ecom-core ecom-section ecom-iqd6fbx8s48" data-id="ecom-iqd6fbx8s48" style="z-index: inherit;"><div data-deep="1" class="core__row--columns"><div class="ecom-column ecom-core core__column--first core__column--last ecom-5xsoubr7i7i"><div class="core__column--wrapper"><div class="ecom-column__overlay"><div class="ecom-overlay"></div></div><div class="core__blocks" index="0"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block elmspace ecom-p38bpmzu1qi" data-core-is="row"><div class="ecom-row ecom-core core__block ecom-t2leje7ha8a" data-id="ecom-t2leje7ha8a" style="z-index: inherit;"><div data-deep="2" class="core__row--columns"><div class="ecom-column ecom-core core__column--first core__column--last ecom-17hvsr7qncb"><div class="core__column--wrapper"><div class="ecom-column__overlay"><div class="ecom-overlay"></div></div><div class="core__blocks" index="0"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block elmspace ecom-j2oo6tkk9vl" data-core-is="block"><div class="ecom__element element__heading ecom-element ecom-html" data-stopdrag="true" deep="2"><h2 class="ecom__heading ecom-db">Visible results in just 8 weeks</h2></div></div> </div></div></div></div> </div><div class="ecom-section__overlay"><div class="ecom-overlay"></div></div> </div></div> <div class="ecom-block ecom-core core__block elmspace ecom-bhwre3vet46" data-core-is="row"><div class="ecom-row ecom-core core__block ecom-il66ki4p7gh" data-id="ecom-il66ki4p7gh" style="z-index: inherit;"><div data-deep="2" class="core__row--columns"><div class="ecom-column ecom-core core__column--first ecom-3ud1b7h2neh"><div class="core__column--wrapper"><div class="ecom-column__overlay"><div class="ecom-overlay"></div></div><div class="core__blocks" index="0"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block elmspace ecom-m6wfehs9n1" data-core-is="block"><div data-stopdrag="" data-auto-slide-hover="false" class="ecom-element ecom-base_image-comparison" deep="2"><div class="ecom-image_compare-wrapper"><picture class="ecom-image_compare"><img loading="lazy" fetchpriority="low" src="https://cdn.shopify.com/s/files/1/0658/8976/3480/files/image_high_18_-min.jpg?v=1723587202" thumbnail="https://cdn.shopify.com/s/files/1/0658/8976/3480/files/image_high_18_-min.jpg?v=1723587202" id="Izfz5Ulg" name="image_high_18_-min" alt="before-after-2" width="2692" height="4038"></picture><div class="ecom-image_comp-overlay"><div class="ecom-image_comp-before"><span class="ecom-image_comp-text">Before</span></div><div class="ecom-image_comp-after"><span class="ecom-image_comp-text">After</span></div></div><div class="ecom-image_ratio-wrapper"><div class="ecom-img_comp-slider pulse" style="left: 50%;"><div class="ecom-slide_button"><svg width="28" height="28" viewBox="0 0 44 44" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M16 14L7 22L16 30L16 14Z"></path><path d="M28 30L37 22L28 14V30Z"></path></svg></div></div></div><picture class="ecom-image_compare ecom-image_compare-overlay"><img loading="lazy" fetchpriority="low" src="https://cdn.shopify.com/s/files/1/0658/8976/3480/files/image_high_18_copie_2_-min.jpg?v=1723819488" id="gid://shopify/MediaImage/39328182861976" name="image_high_18_copie_2_-min" ext="jpg" url="https://cdn.shopify.com/s/files/1/0658/8976/3480/files/3AF8934C-B4AB-4201-A681-43434CB02FD4_1_-min.jpg?v=1723587202" thumbnail="https://cdn.shopify.com/s/files/1/0658/8976/3480/files/image_high_18_copie_2_-min.jpg?v=1723819488" alt="3AF8934C-B4AB-4201-A681-43434CB02FD4_1_-min" width="2000" height="3000"></picture></div></div></div> </div></div></div></div> <div class="ecom-column ecom-core core__column--last ecom-1tk4nfb4nxx"><div class="core__column--wrapper"><div class="ecom-column__overlay"><div class="ecom-overlay"></div></div><div class="core__blocks" index="1"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block elmspace ecom-xdt507qpoxc" data-core-is="block"><div data-stopdrag="" data-auto-slide-hover="false" class="ecom-element ecom-base_image-comparison" deep="2"><div class="ecom-image_compare-wrapper"><picture class="ecom-image_compare"><img loading="lazy" fetchpriority="low" src="https://cdn.shopify.com/s/files/1/0658/8976/3480/files/IMG_5363_2_-min.jpg?v=1723819487" thumbnail="https://cdn.shopify.com/s/files/1/0658/8976/3480/files/IMG_5363_2_-min.jpg?v=1723819487" id="Izfz5Ulg" name="IMG_5363_2_-min" alt="before-after-2" width="2000" height="2667"></picture><div class="ecom-image_comp-overlay"><div class="ecom-image_comp-before"><span class="ecom-image_comp-text">Before</span></div><div class="ecom-image_comp-after"><span class="ecom-image_comp-text">After</span></div></div><div class="ecom-image_ratio-wrapper"><div class="ecom-img_comp-slider pulse" style="left: 50%;"><div class="ecom-slide_button"><svg width="28" height="28" viewBox="0 0 44 44" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M16 14L7 22L16 30L16 14Z"></path><path d="M28 30L37 22L28 14V30Z"></path></svg></div></div></div><picture class="ecom-image_compare ecom-image_compare-overlay"><img loading="lazy" fetchpriority="low" src="https://cdn.shopify.com/s/files/1/0658/8976/3480/files/IMG_5363hair-min.jpg?v=1723819488" id="gid://shopify/MediaImage/39328182796440" name="IMG_5363hair-min" ext="jpg" url="https://cdn.shopify.com/s/files/1/0658/8976/3480/files/IMG_5363-min.jpg?v=1723587202" thumbnail="https://cdn.shopify.com/s/files/1/0658/8976/3480/files/IMG_5363hair-min.jpg?v=1723819488" alt="IMG_5363-min" width="2000" height="2667"></picture></div></div></div> </div></div></div></div> </div><div class="ecom-section__overlay"><div class="ecom-overlay"></div></div> </div></div> </div></div></div></div> </div><div class="ecom-section__overlay"><div class="ecom-overlay"></div></div> </section><section class="ecom-row ecom-core ecom-section ecom-kjne0zib7km" data-id="ecom-kjne0zib7km" style="z-index: inherit;"><div data-deep="1" class="core__row--columns"><div class="ecom-column ecom-core core__column--first core__column--last ecom-7rx4z4x9wbp"><div class="core__column--wrapper"><div class="ecom-column__overlay"><video class="ecom-video-background" preload="false" src=""></video><div class="ecom-overlay"></div></div><div class="core__blocks" index="0"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block elmspace ecom-mbh9r6e3vjr" data-core-is="block"><div class="ecom__element element__video ecom-element" deep="1"><div class="ecom-element_video-iframe ecom-element-overlay"><video id="ecom-elements__popup-video-ecom-mbh9r6e3vjr" class="ecom_video" autoplay="" loop="" playsinline="true" preload="true" muted="" style="display: flex !important;"><source src="https://cdn.shopify.com/videos/c/vp/dc0aefc0f6294756af663d48eb9a8545/dc0aefc0f6294756af663d48eb9a8545.HD-1080p-3.3Mbps-33177317.mp4" data-source="https://cdn.shopify.com/videos/c/vp/dc0aefc0f6294756af663d48eb9a8545/dc0aefc0f6294756af663d48eb9a8545.HD-1080p-3.3Mbps-33177317.mp4"></video></div></div></div> </div></div></div></div> </div><div class="ecom-section__overlay"><div class="ecom-overlay"></div></div> </section><section class="ecom-row ecom-core ecom-section ecom-jpwnvtlfw5a" data-id="ecom-jpwnvtlfw5a" id="shop-faq-wrapper" style="z-index: inherit;"><div data-deep="1" class="core__row--columns"><div class="ecom-column ecom-core core__column--first core__column--last ecom-dl54q5x29h"><div class="core__column--wrapper"><div class="ecom-column__overlay"><div class="ecom-overlay"></div></div><div class="core__blocks" index="0"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block elmspace ecom-467qn7ahfxl" data-core-is="block"><div class="ecom__element element__heading ecom-element ecom-html" data-stopdrag="true" deep="1"><h3 class="ecom__heading ecom-db">IPL FAQS<br></h3></div></div> <div class="ecom-block ecom-core core__block elmspace ecom-j27bztpphe" data-core-is="group"><div class="ecom-core ecom-group core__block ecom-xub9an9hmaa"> <div class="core__group--wrapper ecom-accordion__wrapper ecom-flex ecom-column ecom-w__full ecom__element ecom__accordion ecom-accordion-close-all" data-r="" style=""><div class="core__group--items"><div id="ecom-0le24n5zxqho" class="core__group--item ecom-accordion__item" data-id="ecom-0le24n5zxqho"><div class="ecom-accordion__title ecom-flex ecom-w__full ecom-al_center ecom-items" data-target="#undefined"><div class="ecom-accordion_nav--icon ecom-items--icon" style="order: 1;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor"><path d="M488 231.1C501.3 231.1 512 242.7 512 255.1C512 269.3 501.3 279.1 488 279.1H280V488C280 501.3 269.3 512 255.1 512C242.7 512 231.1 501.3 231.1 488V279.1H23.1C10.74 279.1-.0006 269.3-.0006 255.1C-.0006 242.7 10.74 231.1 23.1 231.1H231.1V24C231.1 10.75 242.7 0 255.1 0C269.3 0 280 10.75 280 24V231.1H488z"></path></svg></div><div class="ecom-accordion_nav--icon ecom-items--icon ecom-items-icon-active" style="order: 1;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="currentColor"><path d="M432 256C432 269.3 421.3 280 408 280H40c-13.25 0-24-10.74-24-23.99C16 242.8 26.75 232 40 232h368C421.3 232 432 242.8 432 256z"></path></svg></div><div class="ecom-accordion_wrapper-info ecom-flex ecom-al_center"><span class="ecom-items--icon ecom-accordion_icon-title" data-image="false"></span><h3 class="ecom-accordion__title-text ecom-items--text">What is Intense Pulsed Light (IPL) hair removal?</h3></div></div><div class="core__group--body ecom-accordion__body"><div class="core__blocks" index="0"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block elmspace ecom-uv287bhdu8b" data-core-is="block"><div class="ecom__element ecom-element element__text" data-stopdrag="" deep="1"><div class="text-content ecom-html has-drop-cap-view-framed">IPL (Intense Pulsed Light) is a broadband pulsed light source that emits a beam of light that heats up the melanin in your hair follicles, damaging the root. With repeated use, IPL delays the production of new hair, preventing regrowth over time. The energy of the light, the frequency of use and the color of your hair are all determining factors in defining the effectiveness of IPL treatment. The best results are obtained on people with dark hair and fair skin. If you have sensitive or slightly darker skin, you may need to repeat the IPL process several times to achieve the desired result, as your skin needs to be treated with lower energy to avoid discomfort.</div></div></div> </div></div></div></div><div id="ecom-x7yqe8kwhj" class="core__group--item ecom-accordion__item" data-id="ecom-x7yqe8kwhj"><div class="ecom-accordion__title ecom-flex ecom-w__full ecom-al_center ecom-items" data-target="#undefined"><div class="ecom-accordion_nav--icon ecom-items--icon" style="order: 1;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor"><path d="M488 231.1C501.3 231.1 512 242.7 512 255.1C512 269.3 501.3 279.1 488 279.1H280V488C280 501.3 269.3 512 255.1 512C242.7 512 231.1 501.3 231.1 488V279.1H23.1C10.74 279.1-.0006 269.3-.0006 255.1C-.0006 242.7 10.74 231.1 23.1 231.1H231.1V24C231.1 10.75 242.7 0 255.1 0C269.3 0 280 10.75 280 24V231.1H488z"></path></svg></div><div class="ecom-accordion_nav--icon ecom-items--icon ecom-items-icon-active" style="order: 1;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="currentColor"><path d="M432 256C432 269.3 421.3 280 408 280H40c-13.25 0-24-10.74-24-23.99C16 242.8 26.75 232 40 232h368C421.3 232 432 242.8 432 256z"></path></svg></div><div class="ecom-accordion_wrapper-info ecom-flex ecom-al_center"><span class="ecom-items--icon ecom-accordion_icon-title" data-image="false"></span><h3 class="ecom-accordion__title-text ecom-items--text">What are the advantages of IPL?</h3></div></div><div class="core__group--body ecom-accordion__body"><div class="core__blocks" index="1"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block elmspace ecom-jjmkp900qqd" data-core-is="block"><div class="ecom__element ecom-element element__text" data-stopdrag="" deep="1"><div class="text-content ecom-html has-drop-cap-view-framed">IPL technology has advanced considerably and is no longer a luxury reserved for celebrities. Now you can enjoy smooth skin for up to 1 year in the comfort of your own home. The main benefits? IPL gives you smooth skin for 1 year. It's also convenient and done privately, so you can do it at your convenience. What's more, PROMED IPL lets you choose a gentle mode for first-time users or to treat sensitive areas like the bikini line.</div></div></div> </div></div></div></div><div id="ecom-u9887ejbef8" class="core__group--item ecom-accordion__item" data-id="ecom-u9887ejbef8"><div class="ecom-accordion__title ecom-flex ecom-w__full ecom-al_center ecom-items" data-target="#undefined"><div class="ecom-accordion_nav--icon ecom-items--icon" style="order: 1;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor"><path d="M488 231.1C501.3 231.1 512 242.7 512 255.1C512 269.3 501.3 279.1 488 279.1H280V488C280 501.3 269.3 512 255.1 512C242.7 512 231.1 501.3 231.1 488V279.1H23.1C10.74 279.1-.0006 269.3-.0006 255.1C-.0006 242.7 10.74 231.1 23.1 231.1H231.1V24C231.1 10.75 242.7 0 255.1 0C269.3 0 280 10.75 280 24V231.1H488z"></path></svg></div><div class="ecom-accordion_nav--icon ecom-items--icon ecom-items-icon-active" style="order: 1;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="currentColor"><path d="M432 256C432 269.3 421.3 280 408 280H40c-13.25 0-24-10.74-24-23.99C16 242.8 26.75 232 40 232h368C421.3 232 432 242.8 432 256z"></path></svg></div><div class="ecom-accordion_wrapper-info ecom-flex ecom-al_center"><span class="ecom-items--icon ecom-accordion_icon-title" data-image="false"></span><h3 class="ecom-accordion__title-text ecom-items--text">How long do IPL results last?</h3></div></div><div class="core__group--body ecom-accordion__body"><div class="core__blocks" index="2"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block elmspace ecom-jf9zxbpg1hs" data-core-is="block"><div class="ecom__element ecom-element element__text" data-stopdrag="" deep="1"><div class="text-content ecom-html has-drop-cap-view-framed">When performed correctly and over a sufficient period of time, IPL hair removal can provide smooth skin for up to 1 year. IPL treatment persistence is essential: as hair grows on a growth cycle, repeated IPL treatments ensure that the hair root is targeted in the right growth phase, resulting in a steady reduction in hair growth over time. The result is long-lasting smooth skin.</div></div></div> </div></div></div></div><div id="ecom-ujurksocddn" class="core__group--item ecom-accordion__item" data-id="ecom-ujurksocddn"><div class="ecom-accordion__title ecom-flex ecom-w__full ecom-al_center ecom-items" data-target="#undefined"><div class="ecom-accordion_nav--icon ecom-items--icon" style="order: 1;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor"><path d="M488 231.1C501.3 231.1 512 242.7 512 255.1C512 269.3 501.3 279.1 488 279.1H280V488C280 501.3 269.3 512 255.1 512C242.7 512 231.1 501.3 231.1 488V279.1H23.1C10.74 279.1-.0006 269.3-.0006 255.1C-.0006 242.7 10.74 231.1 23.1 231.1H231.1V24C231.1 10.75 242.7 0 255.1 0C269.3 0 280 10.75 280 24V231.1H488z"></path></svg></div><div class="ecom-accordion_nav--icon ecom-items--icon ecom-items-icon-active" style="order: 1;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="currentColor"><path d="M432 256C432 269.3 421.3 280 408 280H40c-13.25 0-24-10.74-24-23.99C16 242.8 26.75 232 40 232h368C421.3 232 432 242.8 432 256z"></path></svg></div><div class="ecom-accordion_wrapper-info ecom-flex ecom-al_center"><span class="ecom-items--icon ecom-accordion_icon-title" data-image="false"></span><h3 class="ecom-accordion__title-text ecom-items--text">How often should I use IPL at home?</h3></div></div><div class="core__group--body ecom-accordion__body"><div class="core__blocks" index="3"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block elmspace ecom-9x7huhi2hqh" data-core-is="block"><div class="ecom__element ecom-element element__text" data-stopdrag="" deep="1"><div class="text-content ecom-html has-drop-cap-view-framed">IPL only works on hair in the growth phase. For this reason, we recommend a start-up phase of 1 treatment per week for the first 4 to 12 weeks to achieve the best results. You should continue treatment after the first 4 weekly treatments if you notice that hair growth persists until you see no further regrowth. You can then continue the treatment with a touch-up session every 1-2 months, depending on your needs.</div></div></div> </div></div></div></div><div id="ecom-7gao8g9muzv" class="core__group--item ecom-accordion__item" data-id="ecom-7gao8g9muzv"><div class="ecom-accordion__title ecom-flex ecom-w__full ecom-al_center ecom-items" data-target="#undefined"><div class="ecom-accordion_nav--icon ecom-items--icon" style="order: 1;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor"><path d="M488 231.1C501.3 231.1 512 242.7 512 255.1C512 269.3 501.3 279.1 488 279.1H280V488C280 501.3 269.3 512 255.1 512C242.7 512 231.1 501.3 231.1 488V279.1H23.1C10.74 279.1-.0006 269.3-.0006 255.1C-.0006 242.7 10.74 231.1 23.1 231.1H231.1V24C231.1 10.75 242.7 0 255.1 0C269.3 0 280 10.75 280 24V231.1H488z"></path></svg></div><div class="ecom-accordion_nav--icon ecom-items--icon ecom-items-icon-active" style="order: 1;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="currentColor"><path d="M432 256C432 269.3 421.3 280 408 280H40c-13.25 0-24-10.74-24-23.99C16 242.8 26.75 232 40 232h368C421.3 232 432 242.8 432 256z"></path></svg></div><div class="ecom-accordion_wrapper-info ecom-flex ecom-al_center"><span class="ecom-items--icon ecom-accordion_icon-title" data-image="false"></span><h3 class="ecom-accordion__title-text ecom-items--text">Can I use IPL for pubic hair?</h3></div></div><div class="core__group--body ecom-accordion__body"><div class="core__blocks" index="4"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block elmspace ecom-4o0m3vxte6b" data-core-is="block"><div class="ecom__element ecom-element element__text" data-stopdrag="" deep="1"><div class="text-content ecom-html has-drop-cap-view-framed">It's possible to use IPL on your bikini line, but it's not suitable for the genital area, where the skin may be darker or the hair density higher. These areas can absorb more light energy, resulting in greater discomfort.</div></div></div> </div></div></div></div><div id="ecom-9pro717fedh" class="core__group--item ecom-accordion__item" data-id="ecom-9pro717fedh"><div class="ecom-accordion__title ecom-flex ecom-w__full ecom-al_center ecom-items" data-target="#undefined"><div class="ecom-accordion_nav--icon ecom-items--icon" style="order: 1;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor"><path d="M488 231.1C501.3 231.1 512 242.7 512 255.1C512 269.3 501.3 279.1 488 279.1H280V488C280 501.3 269.3 512 255.1 512C242.7 512 231.1 501.3 231.1 488V279.1H23.1C10.74 279.1-.0006 269.3-.0006 255.1C-.0006 242.7 10.74 231.1 23.1 231.1H231.1V24C231.1 10.75 242.7 0 255.1 0C269.3 0 280 10.75 280 24V231.1H488z"></path></svg></div><div class="ecom-accordion_nav--icon ecom-items--icon ecom-items-icon-active" style="order: 1;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="currentColor"><path d="M432 256C432 269.3 421.3 280 408 280H40c-13.25 0-24-10.74-24-23.99C16 242.8 26.75 232 40 232h368C421.3 232 432 242.8 432 256z"></path></svg></div><div class="ecom-accordion_wrapper-info ecom-flex ecom-al_center"><span class="ecom-items--icon ecom-accordion_icon-title" data-image="false"></span><h3 class="ecom-accordion__title-text ecom-items--text">Is IPL safe for dark and/or brown skin?</h3></div></div><div class="core__group--body ecom-accordion__body"><div class="core__blocks" index="5"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block elmspace ecom-ium73kxhgy" data-core-is="block"><div class="ecom__element ecom-element element__text" data-stopdrag="" deep="1"><div class="text-content ecom-html has-drop-cap-view-framed">If you have dark or brown skin, your skin contains more melanin. Because darker skin contains more melanin, which absorbs more light energy, using IPL is not safe and may cause discomfort. Always consult the skin color and hair chart to find out if using IPL hair removal treatments is safe and effective for you. The PROMED IPL uses a SensoAdapt™ system that continuously and automatically ensures that only eligible skin color is treated. In general, IPL works best on people with dark hair and fair skin.</div></div></div> </div></div></div></div><div id="ecom-jtm1ewygg99" class="core__group--item ecom-accordion__item" data-id="ecom-jtm1ewygg99"><div class="ecom-accordion__title ecom-flex ecom-w__full ecom-al_center ecom-items" data-target="#undefined"><div class="ecom-accordion_nav--icon ecom-items--icon" style="order: 1;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor"><path d="M488 231.1C501.3 231.1 512 242.7 512 255.1C512 269.3 501.3 279.1 488 279.1H280V488C280 501.3 269.3 512 255.1 512C242.7 512 231.1 501.3 231.1 488V279.1H23.1C10.74 279.1-.0006 269.3-.0006 255.1C-.0006 242.7 10.74 231.1 23.1 231.1H231.1V24C231.1 10.75 242.7 0 255.1 0C269.3 0 280 10.75 280 24V231.1H488z"></path></svg></div><div class="ecom-accordion_nav--icon ecom-items--icon ecom-items-icon-active" style="order: 1;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="currentColor"><path d="M432 256C432 269.3 421.3 280 408 280H40c-13.25 0-24-10.74-24-23.99C16 242.8 26.75 232 40 232h368C421.3 232 432 242.8 432 256z"></path></svg></div><div class="ecom-accordion_wrapper-info ecom-flex ecom-al_center"><span class="ecom-items--icon ecom-accordion_icon-title" data-image="false"></span><h3 class="ecom-accordion__title-text ecom-items--text">Should I shave before IPL?</h3></div></div><div class="core__group--body ecom-accordion__body"><div class="core__blocks" index="6"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block elmspace ecom-fxrab182lhl" data-core-is="block"><div class="ecom__element ecom-element element__text" data-stopdrag="" deep="1"><div class="text-content ecom-html has-drop-cap-view-framed">Yes, we recommend shaving before an IPL treatment to avoid any discomfort during use.</div></div></div> </div></div></div></div><div id="ecom-tu8mwtjizk" class="core__group--item ecom-accordion__item" data-id="ecom-tu8mwtjizk"><div class="ecom-accordion__title ecom-flex ecom-w__full ecom-al_center ecom-items" data-target="#undefined"><div class="ecom-accordion_nav--icon ecom-items--icon" style="order: 1;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor"><path d="M488 231.1C501.3 231.1 512 242.7 512 255.1C512 269.3 501.3 279.1 488 279.1H280V488C280 501.3 269.3 512 255.1 512C242.7 512 231.1 501.3 231.1 488V279.1H23.1C10.74 279.1-.0006 269.3-.0006 255.1C-.0006 242.7 10.74 231.1 23.1 231.1H231.1V24C231.1 10.75 242.7 0 255.1 0C269.3 0 280 10.75 280 24V231.1H488z"></path></svg></div><div class="ecom-accordion_nav--icon ecom-items--icon ecom-items-icon-active" style="order: 1;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="currentColor"><path d="M432 256C432 269.3 421.3 280 408 280H40c-13.25 0-24-10.74-24-23.99C16 242.8 26.75 232 40 232h368C421.3 232 432 242.8 432 256z"></path></svg></div><div class="ecom-accordion_wrapper-info ecom-flex ecom-al_center"><span class="ecom-items--icon ecom-accordion_icon-title" data-image="false"></span><h3 class="ecom-accordion__title-text ecom-items--text">Can the IPL device be used on the face?</h3></div></div><div class="core__group--body ecom-accordion__body"><div class="core__blocks" index="7"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block elmspace ecom-uoijnjvoz4a" data-core-is="block"><div class="ecom__element ecom-element element__text" data-stopdrag="" deep="1"><div class="text-content ecom-html has-drop-cap-view-framed">IPL hair removal treatment can be used gently on the face (for women), provided it is used under the cheekbones. It should not be used near the eyes or eyebrows. It can be used on the upper lip, chin and jaw line, but when using IPL on your face or any other sensitive area, always perform a patch test before treatment.</div></div></div> </div></div></div></div><div id="ecom-1tugw3pqm2x" class="core__group--item ecom-accordion__item" data-id="ecom-1tugw3pqm2x"><div class="ecom-accordion__title ecom-flex ecom-w__full ecom-al_center ecom-items" data-target="#undefined"><div class="ecom-accordion_nav--icon ecom-items--icon" style="order: 1;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor"><path d="M488 231.1C501.3 231.1 512 242.7 512 255.1C512 269.3 501.3 279.1 488 279.1H280V488C280 501.3 269.3 512 255.1 512C242.7 512 231.1 501.3 231.1 488V279.1H23.1C10.74 279.1-.0006 269.3-.0006 255.1C-.0006 242.7 10.74 231.1 23.1 231.1H231.1V24C231.1 10.75 242.7 0 255.1 0C269.3 0 280 10.75 280 24V231.1H488z"></path></svg></div><div class="ecom-accordion_nav--icon ecom-items--icon ecom-items-icon-active" style="order: 1;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="currentColor"><path d="M432 256C432 269.3 421.3 280 408 280H40c-13.25 0-24-10.74-24-23.99C16 242.8 26.75 232 40 232h368C421.3 232 432 242.8 432 256z"></path></svg></div><div class="ecom-accordion_wrapper-info ecom-flex ecom-al_center"><span class="ecom-items--icon ecom-accordion_icon-title" data-image="false"></span><h3 class="ecom-accordion__title-text ecom-items--text">Is IPL safe for your eyesight?</h3></div></div><div class="core__group--body ecom-accordion__body"><div class="core__blocks" index="8"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block elmspace ecom-q72igh4zxqs" data-core-is="block"><div class="ecom__element ecom-element element__text" data-stopdrag="" deep="1"><div class="text-content ecom-html has-drop-cap-view-framed">Yes, our PROMED IPL devices have been designed with your safety in mind. Your IPL device's light beam is triggered only when it comes into contact with the skin, and the light visible during treatment is perfectly safe. This means you don't need to wear protective eyewear.</div></div></div> </div></div></div></div><div id="ecom-h3svqpcyc0l" class="core__group--item ecom-accordion__item" data-id="ecom-h3svqpcyc0l"><div class="ecom-accordion__title ecom-flex ecom-w__full ecom-al_center ecom-items" data-target="#undefined"><div class="ecom-accordion_nav--icon ecom-items--icon" style="order: 1;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor"><path d="M488 231.1C501.3 231.1 512 242.7 512 255.1C512 269.3 501.3 279.1 488 279.1H280V488C280 501.3 269.3 512 255.1 512C242.7 512 231.1 501.3 231.1 488V279.1H23.1C10.74 279.1-.0006 269.3-.0006 255.1C-.0006 242.7 10.74 231.1 23.1 231.1H231.1V24C231.1 10.75 242.7 0 255.1 0C269.3 0 280 10.75 280 24V231.1H488z"></path></svg></div><div class="ecom-accordion_nav--icon ecom-items--icon ecom-items-icon-active" style="order: 1;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="currentColor"><path d="M432 256C432 269.3 421.3 280 408 280H40c-13.25 0-24-10.74-24-23.99C16 242.8 26.75 232 40 232h368C421.3 232 432 242.8 432 256z"></path></svg></div><div class="ecom-accordion_wrapper-info ecom-flex ecom-al_center"><span class="ecom-items--icon ecom-accordion_icon-title" data-image="false"></span><h3 class="ecom-accordion__title-text ecom-items--text">I have PCOS. Is it suitable for me?</h3></div></div><div class="core__group--body ecom-accordion__body"><div class="core__blocks" index="9"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block elmspace ecom-3xff5hmt5ia" data-core-is="block"><div class="ecom__element ecom-element element__text" data-stopdrag="" deep="1"><div class="text-content ecom-html has-drop-cap-view-framed">Our IPL hair removal device is designed to provide long-term hair reduction, even for those with persistent or abnormal hair growth. We recommend consulting with a healthcare professional for specific PCOS related questions before beginning IPL treatment.</div></div></div> </div></div></div></div></div></div> </div></div> </div></div></div></div> </div><div class="ecom-section__overlay"><div class="ecom-overlay"></div></div> </section>
+ {% comment %}
+ // Reactive
+ * this.data.settings.product
+ {% endcomment %}
+ {% liquid
+ unless recommendations.performed
+ if request.page_type != 'product' or product == blank
+ assign selected_product = ''
+ if selected_product == blank or selected_product == '' or all_products[selected_product] == blank
+ assign product = collections['all'].products.first
+ else
+ assign product = all_products[selected_product]
+ if product.id == blank
+ assign product = collections['all'].products.last
+ endif
+ endif
+ endif
+ endunless
+ %}
+ {%- if product != blank -%}
+ {%- capture ec_form_id -%}product_form_{{ product.id }}_ecom-ifu833ao35c{%- endcapture -%}
+ {%- form 'product', product, id: ec_form_id, class: "ecom-product-form ecom-product-form--single ecom-click", product_id: product.id, data-product_id: product.id,data-product-id: product.id, data-handle: product.handle-%}
+ <section class="ecom-row ecom-core ecom-section ecom-ifu833ao35c" data-id="ecom-ifu833ao35c" style="z-index: inherit;"><div data-deep="1" class="core__row--columns"><div class="ecom-column ecom-core core__column--first core__column--last ecom-nt8tlgozv3o"><div class="core__column--wrapper"><div class="ecom-column__overlay"><div class="ecom-overlay"></div></div><div class="core__blocks" index="0"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block elmspace ecom-84u4m7ok0iq" data-core-is="block"><div class="ecom-element ecom-product-single ecom-product-single__review" deep="1"><div class="ecom-product-single__review-wrapper" data-review-platform="{%- assign review_platform = shop.metafields.ecomposer.app_review.value -%}{{review_platform}}"><div class="ecom-product-single__review-container">
+ {%- if review_platform and review_platform != 'none' -%}
+ {%- if EComBuilderMode == true -%}
+ <div class="ecom-theme-app-extensions-skeleton">
+ <div class="ecom-app-extension-info">
+ <span class="ecom-theme-app-extension-icon">
+ <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path d="M416 176C416 78.8 322.9 0 208 0S0 78.8 0 176c0 41.48 17.07 79.54 45.44 109.6c-15.17 32.34-38.65 58.07-38.95 58.38c-6.514 6.836-8.309 16.91-4.568 25.67C5.754 378.4 14.26 384 23.66 384c54.19 0 97.76-20.73 125.9-39.17C168.1 349.4 187.7 352 208 352C322.9 352 416 273.2 416 176zM208 320c-16.96 0-34.04-2.098-50.75-6.232L143.7 310.4L132 318.1c-20.43 13.38-51.58 28.99-89.85 32.97c9.377-12.11 22.3-30.63 32.24-51.82l9.242-19.71L68.72 263.7C44.7 238.2 32 207.9 32 176C32 96.6 110.1 32 208 32S384 96.6 384 176S305 320 208 320zM606.4 435.4C627.6 407.1 640 372.9 640 336C640 238.8 554 160 448 160c-.3145 0-.6191 .041-.9336 .043C447.5 165.3 448 170.6 448 176c0 5.43-.4668 10.76-.9414 16.09C447.4 192.1 447.7 192 448 192c88.22 0 160 64.6 160 144c0 28.69-9.424 56.45-27.25 80.26l-13.08 17.47l11.49 18.55c6.568 10.61 13.18 19.74 18.61 26.74c-18.26-1.91-36.45-6.625-54.3-14.09l-12.69-5.305l-12.58 5.557C495.9 475 472.3 480 448 480c-75.05 0-137.7-46.91-154.9-109.7c-10.1 3.336-20.5 6.132-31.2 8.271C282.7 455.1 357.1 512 448 512c29.82 0 57.94-6.414 83.12-17.54C555 504.5 583.7 512 616.3 512c9.398 0 17.91-5.57 21.73-14.32c3.74-8.758 1.945-18.84-4.568-25.67C633.3 471.8 619.6 456.8 606.4 435.4z"/></svg>
+ </span>
+ <div class="ecom-theme-app-extension-content">
+ <span class="ecom-theme-app-extension-title">{{review_platform | replace: '_', ' ' | replace: '-', ' ' | capitalize}}</span>
+ <div class="ecom-placeholder-on-builder-mode" data-ecom-placeholder="The review element will display when published to Online store"></div>
+ </div>
+ </div>
+ </div>
+ {%- else -%}
+ {%- case review_platform -%}
+ {%- when 'none' -%}
+ <div class="ecom-theme-app-extensions-skeleton">
+ <p>Please select the integrated review app platform in settings</p>
+ </div>
+ {%- when 'ali-reviews' -%}
+ <div class="alireviews-review-box"></div>
+ {%- when 'opinew-reviews' -%}
+ <div style="clear:both;"></div><div id="opinew-reviews-product-page-code" class="opw-widget-wrapper-default">
+ <span id="opinew-plugin" data-server-address="https://api.opinew.com"
+ data-opw-prodreviews="{{ product.metafields.opinew_metafields['product_plugin'] }}"
+ data-opinew-shop-id="{{ shop.id }}" data-shop-url="{{shop.domain}}"
+ data-platform-product-id="{{product.id}}">
+ <span id="opinew_product_plugin_app"></span>
+ </span>
+ </div>
+ {%- when 'judgeme' -%}
+ <div style='clear:both'></div>
+ <div id='judgeme_product_reviews' class='jdgm-widget jdgm-review-widget' data-id='{{ product.id }}'>
+ {{ product.metafields.judgeme.widget }}
+ </div>
+ {%- when 'product-reviews-addon' -%}
+ <div id="stamped-main-widget"
+ data-widget-style="standard"
+ data-product-id="{{ product.id }}"
+ data-name="{{ product.title | escape }}"
+ data-url="{{ shop.url }}{{ product.url }}"
+ data-image-url="{{ product.featured_image | product_img_url: "large" |replace: '?', '%3F' | replace: '&','%26'}}"
+ data-description="{{ product.description | escape }}"
+ data-product-sku="{{product.handle}}"
+ data-widget-language="{{ language }}">
+ </div>
+ {%- when 'areviews-aliexpress'-%}
+ <div class="page-full">{%- render 'aliexpress_reviews', product: product-%}</div>
+ {%- when 'loox'-%}
+ <div id="looxReviews" data-product-id="{{product.id}}" >{{- product.metafields.loox.reviews -}}</div>
+ {% when 'ryviu'%}
+ <div class="lt-block-reviews">
+ <ryviu-widget product_id="{{product.id}}" handle="{{product.handle}}" title_product="{{product.title}}" image_product="{{ product.featured_image.src | img_url: '100x' }}"></ryviu-widget>
+ </div>
+ {%- when 'yotpo-social-reviews' -%}
+ <div class="yotpo yotpo-main-widget" data-product-id="{{ product.id }}" data-name="{{ product.title | escape }}" data-url="{{ shop.url }}{{ product.url }}" data-image-url="{{ product.featured_image | product_img_url: "large" |replace: '?', '%3F' | replace: '&','%26'}}" data-description="{{ product.description | escape }}"></div>
+ {%- when 'aliexpress-reviews-importer'-%}
+ <div id="shopbooster-ali" product-id="{{ product.id }}" ></div>
+ {%- when 'rivyo-product-review'-%}
+ <div id="wc_review_section" class="wc_review_main_content" data-url="{{ shop.url }}" data-handle="{{ product.handle }}" data-product_id="{{ product.id }}" data-limit="0"></div>
+ {%-when 'growave' -%}
+ {% capture the_snippet_reviews %}{% render 'socialshopwave-widget-recommends' with 1, product: product %}{% endcapture %}
+ {% unless the_snippet_reviews contains 'Liquid error' %}
+ {{ the_snippet_reviews }}
+ {% endunless %}
+ {%- when 'smart-aliexpress-reviews'-%}
+ {% render "reviews-importer" product: product%}
+ {%- when 'vital-reviews'-%}
+ <div id="bundle-product_reviews"></div>
+ {%- when 'photo-reviews' -%}
+ <div style="clear:both;"></div>
+ <div id="opinew-reviews-product-page-code" class="">
+ <span id="opinew-plugin" data-server-address="https://www.opinew.com" data-opw-prodreviews="{{ product.metafields.opinew_metafields['product_plugin'] }}" data-opinew-shop-id="{{ shop.id }}" data-shop-url="{{shop.domain}}" data-platform-product-id="{{product.id}}">
+ <span id="opinew_product_plugin_app"></span>
+ </span>
+ </div>
+ {%- when 'product-reviews' -%}
+ <div id="shopify-product-reviews" data-id="{{product.id}}">{{- product.metafields.spr.reviews -}}</div>
+ {%- when 'lai-reviews' -%}
+ {%- if EComBuilderMode -%}
+ <div class="ecom-placeholder-on-builder-mode" data-ecom-placeholder="Lai review form will display when published to Online store"></div>
+ {%- endif -%}
+ {% assign smaTemplatePageBuilderCurrent = template | split: '.' | first %}
+ {% if smaTemplatePageBuilderCurrent != 'product' %}
+ <div class="scm-container custom" style="display: none;">
+ <div id="scm-reviews-importer" class="scm-reviews-importer">
+ <iframe id="scm-reviews-importer-iframe" width="100%"></iframe>
+ </div>
+ </div>
+ {% endif %}
+ {% assign random_number = "now" | date: "%N" | modulo: 1000 | plus: 0 %}<script>var sectionConfig= (typeof sectionConfig == "undefined" || sectionConfig == null) ? {} : sectionConfig;var scmCustomData= (typeof scmCustomData == "undefined" || scmCustomData == null) ? {} : scmCustomData;var scmCustomDataWigetAll= (typeof scmCustomDataWigetAll == "undefined" || scmCustomDataWigetAll == null) ? [] : scmCustomDataWigetAll; scmCustomDataWigetAll['{{ random_number }}'] ={"id_iframe" : "{{ random_number }}","productId" : "{{ product.id }}","typePage" : 'productPage',"sectionConfig" : JSON.stringify(sectionConfig),"scmCustomData" : JSON.stringify(scmCustomData),'dataProduct' : []};sectionConfig= null;scmCustomData= null;scmCustomDataWigetAll['{{ random_number }}'].dataProduct['product']= {{ product | json }};{% for metafieldValue in product.metafields.scm_review_importer %}scmCustomDataWigetAll['{{ random_number }}'].dataProduct['{{ metafieldValue[0] }}']= `{{ metafieldValue[1] | json }}`;{% endfor %}</script>
+ <div class="scm-container" style="display: none;">
+ <div class="scm-reviews-importer" data-product-id= {{ product.id }}>
+ <iframe class="scm-reviews-importer-iframe" width="100%" title="Sma reviews section Product page" data-idIframe="{{ random_number }}"></iframe>
+ </div>
+ </div>
+ {%- when 'rivyo' -%}
+ <div id="wc_review_section" class="wc_review_main_content" data-url="{{ shop.url }}" data-handle="{{ product.handle }}" data-product_id="{{ product.id }}" data-limit="0"></div>
+ {%- when 'sealapps-product-review' -%}
+ <div class="custom-vstar-review-widget" style="width:100%"></div>
+ {%- when 'klaviyo-reviews' -%}
+ <div id="klaviyo-reviews-all" data-id="{{product.id}}"></div> 
+ {%- when 'air-reviews' -%}
+ <div class="AirReviews-Widget AirReviews-Widget--Block"></div>
+ {%- when 'ait-product-reviews' -%}
+ <div id="aio-product-detial-reviews" class="page-width" attr-value="{{ product.id }}"></div>
+ {%- when 'trustify-reviews' -%}
+ <div class="trustify-review-box"></div>
+ {% else %}
+ <div class="ecom-theme-app-extensions-skeleton">
+ <p>The reivew platform not supported</p>
+ </div>
+ {%-endcase-%}
+ {%- endif -%}
+ {%- else -%}
+ <div class="ecom-theme-app-extensions-skeleton">
+ <p>Please select the integrated review app platform in settings</p>
+ </div>
+ {%- endif -%}
+ </div></div></div></div> </div></div></div></div> </div><div class="ecom-section__overlay"><div class="ecom-overlay"></div></div> </section>
+ {% unless ecom_has_variant_picker %}
+ <input type="hidden" name="id" value="{{product.selected_or_first_available_variant.id}}" />
+ <script type="application/json" id="product-json-{{product.id}}-ecom-ifu833ao35c">
+ {%- render "ecom_product_json", product: product -%}
+ </script>
+ {% endunless %}
+ {%- endform -%}
+ {% assign ecom_has_variant_picker = false %}
+ {%- endif -%}
+ 
+</div></div>
+{% schema %}
+{
+ "name": "Product page by aimane",
+ "locales": {},
+ "settings": [
+ {
+ "type": "header",
+ "content": "The section was generated by [Ecomposer](https:\/\/ecomposer.io).",
+ "info": "\n EComposer is a Visual Page Builder app on Shopify AppStore.\n It provides 100+ pre-built templates in library,\n so you can build unlimited pages that you can imagine with it.\n Please don't add Shopify sections to EComposer's page in the theme customize. If you do this, Shopify sections will be deleted when you republish your page in EComposer\n "
+ },
+ {
+ "type": "header",
+ "content": "[EDIT WITH EComposer APP \u2192](https:\/\/ecomposer.app\/shop?open_builder=1&page=product&id=66bdea143b845f3a4e040f40&utm_source=theme-customize)",
+ "info": "(*You must install the app to start editing this section [Learn more](https:\/\/help.ecomposer.io\/docs\/getting-started\/installation\/))"
+ }
+ ]
+}
+{% endschema %}

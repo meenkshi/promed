@@ -1,0 +1,182 @@
+{%- style -%}
+  .m-section-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top }}px; 
+    padding-bottom : {{ section.settings.padding_bottom }}px;
+    background-color: {{ section.settings.background_color }};
+  }
+{%- endstyle -%}
+
+<section class="ipl-guide-v1 m-section-{{ section.id }}">
+  <div class="ipl-guide-v1-wrapper">
+    <div class="container">
+      <h3 class="title text-center mb-3"> {{ section.settings.top-heading }}</h3>
+      <p>{{ section.settings.note-text }}</p>
+      <div class="ipl-guide-v1-items">
+        {% for block in section.blocks %}
+          <div class="ipl-guide-v1-item">
+            <div class="al_ct">
+              <img
+                src="{{ block.settings.image | img_url: 'medium' }}"
+                alt="{{ block.settings.alt_text }}"
+                height="{{ block.settings.image_height }}"
+                width="{{ block.settings.image_width }}"
+              >
+            </div>
+            <div class="ipl-guide-v1-content">
+              <div class="ipl-guide-v1-time">{{ block.settings.time }}</div>
+              <div class="ipl-guide-v1-part">{{ block.settings.body_part }}</div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+      <!-- <div class="ipl-note">
+        <p>The IPL Laser Hair Removal Device is suitable for use on the face, arms, legs, underarms, bikini line, and belly. Always perform a patch test before full use.</p>
+      </div> -->
+    </div>
+  </div>
+</section>
+
+<style>
+  .ipl-guide-v1-items {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+@media (max-width: 1024px) {
+  .ipl-guide-v1-items {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .ipl-guide-v1-items {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .ipl-guide-v1-items {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.ipl-guide-v1-item {
+  text-align: center;
+}
+
+.ipl-guide-v1-content {
+  margin-top: 10px;
+}
+
+.ipl-guide-v1-time {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.ipl-guide-v1-part {
+  font-size: 16px;
+}
+
+</style>
+
+
+{% schema %}
+{
+  "name": "IPL Guide V1",
+  "settings": [
+    
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding Top",
+      "default": 50,
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding Bottom",
+      "default": 50,
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px"
+    },
+      {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "rgba(0,0,0,0)"
+    },
+
+    {
+      "type": "text",
+      "id": "top-heading",
+      "label": "Heading",
+      "default": "Targeted Hair Removal for Every Area of Your Body"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "note-text",
+      "label": "Note text",
+      "default": "The IPL Laser Hair Removal Device is suitable for use on the face, arms, legs, underarms, bikini line, and belly. Always perform a patch test before full use."
+    }
+    
+  ],
+  "blocks": [
+    {
+      "type": "ipl-item",
+      "name": "IPL Guide Item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "alt_text",
+          "label": "Image Alt Text"
+        },
+        {
+          "type": "text",
+          "id": "time",
+          "label": "Time Duration"
+        },
+        {
+          "type": "text",
+          "id": "body_part",
+          "label": "Body Part"
+        },
+        {
+          "type": "number",
+          "id": "image_width",
+          "label": "Image Width",
+          "default": 138
+        },
+        {
+          "type": "number",
+          "id": "image_height",
+          "label": "Image Height",
+          "default": 68
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "ipl guide v1",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}
+
